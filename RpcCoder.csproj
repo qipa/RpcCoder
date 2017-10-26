@@ -1,0 +1,77 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" DefaultTargets="Build">
+  <PropertyGroup>
+    <ProjectType>local</ProjectType>
+    <ProjectVersion>7.10.377</ProjectVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{722C9241-A43A-4215-B6B7-244B629B606B}</ProjectGuid>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <AssemblyName>RpcCoder</AssemblyName>
+    <OutputType>WinExe</OutputType>
+    <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <ItemGroup>
+    <Compile Include="RpcCoder\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="RpcCoder\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <Reference Include="System" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="Microsoft.Office.Interop.Excel" />
+    <Reference Include="System.Xml" />
+    <Compile Include="AssemblyInfo.cs" />
+    <Compile Include="Global.cs" />
+    <Compile Include="Editor\ConfigFile.cs" />
+    <Compile Include="Editor\DataStructConverter.cs" />
+    <Compile Include="Editor\DataStruct.cs" />
+    <Compile Include="Editor\Save.cs" />
+    <Compile Include="Editor\DrawPic.cs" />
+    <Compile Include="Editor\Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Editor\ModuleDataStructConverter.cs" />
+    <Compile Include="Editor\SubOperaterTypeConverter.cs" />
+    <Compile Include="Editor\Module.cs" />
+    <Compile Include="Editor\GenLangFlags.cs" />
+    <Compile Include="Editor\MultilineTextEditor.cs" />
+    <Compile Include="Editor\Program.cs" />
+    <Compile Include="Editor\CoffeeSerializer.cs" />
+    <Compile Include="Editor\CSSerializer.cs" />
+    <Compile Include="Editor\LuaSerializer.cs" />
+    <Compile Include="Editor\ProtoSerializer.cs" />
+    <Compile Include="RpcCoder\Properties\Resources.cs" />
+    <Compile Include="RpcCoder\Properties\Settings.cs" />
+    <Compile Include="Editor\CPPSerializer.cs" />
+    <Compile Include="Editor\ErrorSerializer.cs" />
+    <Compile Include="Editor\XMLSerializer.cs" />
+    <EmbeddedResource Include="Editor\Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+</Project>
