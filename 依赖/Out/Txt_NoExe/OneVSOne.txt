@@ -1,0 +1,171 @@
+OneVSOneRpcFlushAsk↑ 刷新自己的数据请求
+	IsOpen:int32 = 0	;是不是打开界面
+
+OneVSOneRpcFlushReply↓ 刷新自己的数据回应
+	Result:int32 = -9999	;返回结果
+	Ranking:int32 = -1	;排行名次
+	FightingCapacity:int32 = -1	;战斗力
+	OneVSOneNum:int32 = -1	;一对一的剩余次数
+	TimeRankings:TimeTop*	;时间名次
+	[TimeTop]
+		ID:sint64 = -1	;对照OneVSOneTime_排名时间.xlsl的id
+		Ranking:int32 = -1	;排行名次
+	ActPeos:ActPeo*	;挑战的人
+	[ActPeo]
+		PlanName:string	;昵称
+		Ranking:int32 = -1	;排行名次
+		FightingCapacity:int32 = -1	;战斗力
+		UserId:sint64 = -1	;用户ID
+		MardID:int32 = -1	;职业id
+		LV:int32 = -1	;等级
+		HeadPath:string	;头像路径 防止个性化
+	IsOpen:int32 = 0	;是不是打开界面
+	LockTime:int32 = -1	;锁定时间 秒 小于等于0 忽略
+
+OneVSOneActPeo
+	PlanName:string	;昵称
+	Ranking:int32 = -1	;排行名次
+	FightingCapacity:int32 = -1	;战斗力
+	UserId:sint64 = -1	;用户ID
+	MardID:int32 = -1	;职业id
+	LV:int32 = -1	;等级
+	HeadPath:string	;头像路径 防止个性化
+
+OneVSOneRpcActAsk↑ 发起挑战请求
+	UserId:sint64 = -1	;用户ID
+	Ranking:int32 = -1	;排行名次
+
+OneVSOneRpcActReply↓ 发起挑战回应
+	Result:int32 = -9999	;返回结果
+	UserId:sint64 = -1	;用户ID
+	PlanName:string	;昵称
+	OneVSOneNum:int32 = -1	;一对一的剩余次数
+	Ranking:int32 = -1	;排行名次
+	IsCopy:int32 = 0	;对方是不是复制人1是0不是
+
+OneVSOneRpcActMessageNotify↓ 挑战消息通知
+	UserId:sint64 = -1	;用户ID
+	PlanName:string	;昵称
+
+OneVSOneRpcReplyActAsk↑ 回应谁的挑战请求
+	UserId:sint64 = -1	;用户ID
+	IsOK:int32 = -1	;是不是同意了 1是 其他不是
+
+OneVSOneRpcReplyActReply↓ 回应谁的挑战回应
+	Result:int32 = -9999	;返回结果
+	UserId:sint64 = -1	;用户ID
+	IsOK:int32 = -1	;是不是同意了 1是 其他不是
+	PlanName:string	;昵称
+
+OneVSOneRpcGetTopAsk↑ 排行榜数据请求
+
+OneVSOneRpcGetTopReply↓ 排行榜数据回应
+	Result:int32 = -9999	;返回结果
+	TopMesses:TopMess*	;排行榜数据
+	[TopMess]
+		MyType:int32 = -1	;大类型1新锐2英武3神武
+		Top:TopJobMess*	;排行榜数据
+		[TopJobMess]
+			JobID:int32 = -1	;职业-1所有
+			Top:TopPeoValue*	;排行榜数据
+			[TopPeoValue]
+				PlanName:string	;昵称
+				UserId:sint64 = -1	;用户ID
+				LV:int32 = -1	;等级
+				AllRanking:int32 = -1	;总榜的名次
+				MyRanking:int32 = -1	;我在这个榜的名次
+
+OneVSOneRpcAdjustmentSkillAsk↑ 调整技能请求
+	SkillDate:OneSData*	;技能数据
+	[OneSData]
+		Type:int32 = -1	;类型
+		SkillID:int32 = -1	;技能id
+		SkillLv:int32 = -1	;技能等级
+		Index:int32 = -1	;索引
+
+OneVSOneRpcAdjustmentSkillReply↓ 调整技能回应
+	Result:int32 = -9999	;返回结果
+	SkillDate:OneSData*	;技能数据
+	[OneSData]
+		Type:int32 = -1	;类型
+		SkillID:int32 = -1	;技能id
+		SkillLv:int32 = -1	;技能等级
+		Index:int32 = -1	;索引
+
+OneVSOneRpcGetSkillAsk↑ 获取设置的技能请求
+
+OneVSOneRpcGetSkillReply↓ 获取设置的技能回应
+	Result:int32 = -9999	;返回结果
+	SkillDate:OneSData*	;技能数据
+	[OneSData]
+		Type:int32 = -1	;类型
+		SkillID:int32 = -1	;技能id
+		SkillLv:int32 = -1	;技能等级
+		Index:int32 = -1	;索引
+
+OneVSOneRpcGetActMessageAsk↑ 获得攻守的信息请求
+
+OneVSOneRpcGetActMessageReply↓ 获得攻守的信息回应
+	Result:int32 = -9999	;返回结果
+	ActMessages:ActMessage*	;消息记录
+	[ActMessage]
+		ActUserID:sint64 = -1	;攻击方Userid
+		DepUserID:sint64 = -1	;防守方Userid
+		ActIsCopy:int32 = -1	;是不是复制人1是
+		ActPlanName:string	;攻击方名字
+		DepPlanName:string	;防守方名字
+		Time:string	;时间格林威治
+		ActRanking:int32 = -1	;挑战方当前名次
+		DepRanking:int32 = -1	;防守方的排名
+		WinUserID:sint64 = -1	;胜利者USerID
+		DepIsCopy:int32 = -1	;是不是复制人1是
+		ActJobID:int32 = -1	;攻击方职业id
+		DepJobID:int32 = -1	;防守方职业id
+		ActChangeSource:int32 = -1	;攻击方原来的排名变化
+		DepChangeSource:int32 = -1	;防守方之前的排名变化
+		ActChangeOver:int32 = -1	;攻击方变化后的排名变化
+		DepChangeOver:int32 = -1	;防守方变换之后的排名变化
+
+
+OneVSOneRpcACTResultNotifyNotify↓ 战斗结果Notify 叶青给我我就给客户端通知
+	IsChanllengorWon:int32 = 0	;挑战方是否赢了
+	Chanllengor:OVOResultInfo	;攻击者信息
+	[OVOResultInfo]
+		UserId:sint64 = -1	;USERId
+		Damage:int32 = 0	;伤害
+		BeHurted:int32 = 0	;承受伤害
+		Healed:int32 = 0	;治疗
+		Name:string	;昵称
+		Ranking:int32 = 0	;现在的排行名次
+		BeforeRanking:int32 = -1	;之前的排名
+		JobID:int32 = -1	;职业ID
+		HeadICO:string	;自定义头像
+		LV:int32 = -1	;等级
+		IsWin:int32 = 0	;是不是赢了1是0不是
+	BeAttacked:OVOResultInfo	;被攻击者信息
+	[OVOResultInfo]
+		UserId:sint64 = -1	;USERId
+		Damage:int32 = 0	;伤害
+		BeHurted:int32 = 0	;承受伤害
+		Healed:int32 = 0	;治疗
+		Name:string	;昵称
+		Ranking:int32 = 0	;现在的排行名次
+		BeforeRanking:int32 = -1	;之前的排名
+		JobID:int32 = -1	;职业ID
+		HeadICO:string	;自定义头像
+		LV:int32 = -1	;等级
+		IsWin:int32 = 0	;是不是赢了1是0不是
+
+OneVSOneOVOResultInfo
+	UserId:sint64 = -1	;USERId
+	Damage:int32 = 0	;伤害
+	BeHurted:int32 = 0	;承受伤害
+	Healed:int32 = 0	;治疗
+	Name:string	;昵称
+	Ranking:int32 = 0	;现在的排行名次
+	BeforeRanking:int32 = -1	;之前的排名
+	JobID:int32 = -1	;职业ID
+	HeadICO:string	;自定义头像
+	LV:int32 = -1	;等级
+	IsWin:int32 = 0	;是不是赢了1是0不是
+

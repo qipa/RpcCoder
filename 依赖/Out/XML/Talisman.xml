@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<Root Module="Talisman" CName="法宝" MsgNumStart="18" SyncDataVersion="1" Comment="">
+    <Operate Name="SyncData" CName="数据同步" Comment="">
+        <OP_ASK Name="Ask" CName="请求" MsgID="18" DataStruct="RpcSyncDataAsk" Comment="" />
+        <OP_REPLY Name="Reply" CName="回应" MsgID="19" DataStruct="RpcSyncDataReply" Comment="" />
+    </Operate>
+    <Operate Name="Active" CName="激活" Comment="">
+        <OP_ASK Name="Ask" CName="请求" MsgID="20" DataStruct="RpcActiveAsk" Comment="" />
+        <OP_REPLY Name="Reply" CName="回应" MsgID="21" DataStruct="RpcActiveReply" Comment="" />
+    </Operate>
+    <Operate Name="Upgrade" CName="升级" Comment="">
+        <OP_ASK Name="Ask" CName="请求" MsgID="22" DataStruct="RpcUpgradeAsk" Comment="" />
+        <OP_REPLY Name="Reply" CName="回应" MsgID="23" DataStruct="RpcUpgradeReply" Comment="" />
+    </Operate>
+    <Struct Name="RpcSyncDataAsk" CName="数据同步请求" ProtoType="RpcProto" Comment="" DataType="RPCData" SaveToDB="False" SyncToClient="False" MaxFieldId="0" />
+    <Struct Name="RpcSyncDataReply" CName="数据同步回应" ProtoType="RpcProto" Comment="" DataType="RPCData" SaveToDB="False" SyncToClient="False" MaxFieldId="1">
+        <Field PreDefine="optional" FieldType="sint32" FieldId="1" Name="Result" CName="返回结果" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-9999" Comment="-9999 模块未启动&#xD;&#xA;-9998 请求字段值范围出错" />
+    </Struct>
+    <Struct Name="RpcUpgradeAsk" CName="升级请求" ProtoType="RpcProto" Comment="" DataType="RPCData" SaveToDB="False" SyncToClient="False" MaxFieldId="3">
+        <Field PreDefine="optional" FieldType="sint32" FieldId="1" Name="ID" CName="ID " ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="3" Name="Type" CName="类型" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="-1 一次&#xD;&#xA; 1 十次" />
+    </Struct>
+    <Struct Name="RpcUpgradeReply" CName="升级回应" ProtoType="RpcProto" Comment="" DataType="RPCData" SaveToDB="False" SyncToClient="False" MaxFieldId="2">
+        <Field PreDefine="optional" FieldType="sint32" FieldId="1" Name="Result" CName="返回结果" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-9999" Comment="-9999 模块未启动&#xD;&#xA;-9998 请求字段值范围出错" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="2" Name="ID" CName="ID " ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+    </Struct>
+    <Struct Name="RpcActiveAsk" CName="激活请求" ProtoType="RpcProto" Comment="" DataType="RPCData" SaveToDB="False" SyncToClient="False" MaxFieldId="2">
+        <Field PreDefine="optional" FieldType="sint32" FieldId="1" Name="ID" CName="ID " ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+    </Struct>
+    <Struct Name="RpcActiveReply" CName="激活回应" ProtoType="RpcProto" Comment="" DataType="RPCData" SaveToDB="False" SyncToClient="False" MaxFieldId="2">
+        <Field PreDefine="optional" FieldType="sint32" FieldId="1" Name="Result" CName="返回结果" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-9999" Comment="-9999 模块未启动&#xD;&#xA;-9998 请求字段值范围出错" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="2" Name="ID" CName="ID " ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+    </Struct>
+    <Struct Name="DataFabao" CName="法宝数据" ProtoType="SyncProto" Comment="" DataType="UserData" SaveToDB="True" SyncToClient="True" MaxFieldId="1">
+        <Field PreDefine="repeated" FieldType="FabaoInfo" FieldId="1" Name="FabaoArr" CName="法宝列表" ValueSet="" MinValue="6" MaxValue="128" Comment="" />
+    </Struct>
+    <Struct Name="FabaoInfo" CName="法宝信息" ProtoType="SyncProto" Comment="" DataType="ItemData" SaveToDB="False" SyncToClient="False" MaxFieldId="6">
+        <Field PreDefine="optional" FieldType="sint32" FieldId="1" Name="ID" CName="ID" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="2" Name="Lv" CName="LV" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="1" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="3" Name="IsActived" CName="是否激活" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="0" Comment="" />
+        <Field PreDefine="repeated" FieldType="sint32" FieldId="4" Name="ActivedCondID" CName="已激活的条件ID" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="5" Name="Exp" CName="经验" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="0" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="6" Name="HitType" CName="爆击类型" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+    </Struct>
+</Root>

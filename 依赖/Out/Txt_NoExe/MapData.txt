@@ -1,0 +1,384 @@
+MapDataUseless
+	X1:int32 = -1	;X1
+
+MapDataLayerInfo
+	WalkArea:Vector2*	;可行走区
+	[Vector2]
+		X1:float = 0	;X1
+		X2:float = 0	;X2
+		Z1:float = 0	;Z1
+		Z2:float = 0	;Z2
+		OrgAngle:float = 0	;起始角度
+		FinAngle:float = 0	;终点角度
+		Radius:float = 0	;半径
+		ContourLineArr:ContourLineInfo*	;等高线信息
+		[ContourLineInfo]
+			Y:float = -1	;Y
+	LostArea:Vector2*	;可掉落区
+	[Vector2]
+		X1:float = 0	;X1
+		X2:float = 0	;X2
+		Z1:float = 0	;Z1
+		Z2:float = 0	;Z2
+		OrgAngle:float = 0	;起始角度
+		FinAngle:float = 0	;终点角度
+		Radius:float = 0	;半径
+		ContourLineArr:ContourLineInfo*	;等高线信息
+		[ContourLineInfo]
+			Y:float = -1	;Y
+	ClientHight:float = 0	;ClientHight
+	X:float = 0	;X轴
+	Z:float = 0	;Z轴
+	Y:float = 0	;Y轴
+	MinHeightLimit:float = 0	;最小高度限制
+	MaxHeightLimit:float = 0	;最大高度限制
+
+MapDataInfo
+	LayerArr:LayerInfo*	;层
+	[LayerInfo]
+		WalkArea:Vector2*	;可行走区
+		[Vector2]
+			X1:float = 0	;X1
+			X2:float = 0	;X2
+			Z1:float = 0	;Z1
+			Z2:float = 0	;Z2
+			OrgAngle:float = 0	;起始角度
+			FinAngle:float = 0	;终点角度
+			Radius:float = 0	;半径
+			ContourLineArr:ContourLineInfo*	;等高线信息
+			[ContourLineInfo]
+				Y:float = -1	;Y
+		LostArea:Vector2*	;可掉落区
+		[Vector2]
+			X1:float = 0	;X1
+			X2:float = 0	;X2
+			Z1:float = 0	;Z1
+			Z2:float = 0	;Z2
+			OrgAngle:float = 0	;起始角度
+			FinAngle:float = 0	;终点角度
+			Radius:float = 0	;半径
+			ContourLineArr:ContourLineInfo*	;等高线信息
+			[ContourLineInfo]
+				Y:float = -1	;Y
+		ClientHight:float = 0	;ClientHight
+		X:float = 0	;X轴
+		Z:float = 0	;Z轴
+		Y:float = 0	;Y轴
+		MinHeightLimit:float = 0	;最小高度限制
+		MaxHeightLimit:float = 0	;最大高度限制
+	SpawnArr:SpawnInfo*	;SpawnArr
+	[SpawnInfo]
+		X:float = 0	;X
+		Layer:int32 = 0	;Layer
+		SpawnDirection:int32 = 1	;出生时的朝向
+		Z:float = 0	;Z轴
+		Radius:float = 0	;半径
+		Angle:float = 0	;角度
+	Defeat:DefeatInfo	;Defeat
+	[DefeatInfo]
+		Condition:int32 = 0	;Condition
+		TimeLimit:float = 0	;TimeLimit
+	PerfectArr:PerfectInfo*	;PerfectArr
+	[PerfectInfo]
+		Condition:int32 = -1	;Condition
+		DeathCountNum:int32 = 0	;DeathCountNum
+		KillEnemyID:int32 = 0	;KillEnemyID
+		KillEnemyCount:int32 = 0	;KillEnemyCount
+		HpPercent:int32 = 0	;HpPercent
+		TimeLimit:float = 0	;TimeLimit
+	PortalArr:PortalInfo*	;PortalArr
+	[PortalInfo]
+		SourceX:float = 0	;SourceX
+		SourceLayer:int32 = 0	;SourceLayer
+		TargetX:float = -1	;TargetX
+		TargetLayer:int32 = -1	;TargetLayer
+		UseCount:int32 = 1	;UseCount
+		Channel:bool = false	;Channel
+		PortalType:int32 = 0	;PortalType
+		TargetDungeonId:int32 = 0	;目标副本id
+		TargetSpawnIndex:int32 = 0	;目标出生点索引
+		TargetDirection:int32 = 0	;传送目标点朝向
+		SourceZ:float = 0	;源Z轴
+		TargetZ:float = 0	;目标Z轴
+		SourceAngle:float = 0	;源角度
+		TargetAngle:float = 0	;目标角度
+		SourceRadius:float = 0	;源半径
+		TargetRadius:float = 0	;目标半径
+	TrapArr:TrapInfo*	;TrapArr
+	[TrapInfo]
+		TrapID:int32 = 0	;TrapID
+		X:float = 0	;X
+		Y:float = 0	;Y
+		Direction:int32 = 1	;朝向
+		Z:float = 0	;Z轴
+	NpcArr:NpcInfo*	;NpcArr
+	[NpcInfo]
+		NpcID:int32 = 0	;NpcID
+		X:float = 0	;X
+		Layer:int32 = 0	;Layer
+		Z:float = 0	;Z轴
+		Direction:int32 = 1	;朝向
+		Angle:float = 0	;角度
+		Radius:float = 0	;半径
+	NodeArr:NodeInfo*	;NodeArr
+	[NodeInfo]
+		X:float = 0	;X
+		Layer:int32 = 0	;Layer
+		PassCondition:int32 = 0	;PassCondition
+		KillEnemyID:int32 = 0	;KillEnemyID
+		KillEnemyCount:int32 = 0	;KillEnemyCount
+		MonsterArr:MonsterInfo*	;MonsterArr
+		[MonsterInfo]
+			MonsterID:int32 = 0	;MonsterID
+			X:float = 0	;X
+			Layer:int32 = 0	;Layer
+			RepeatCount:int32 = 1	;RepeatCount
+			SpawmTriggerType:int32 = 0	;SpawmTriggerType
+			RespawmTriggerType:int32 = 0	;RespawmTriggerType
+			PatrolX1:float = -1	;PatrolX1
+			PatrolX2:float = -1	;PatrolX2
+			SpawnNodeTime:float = 0	;SpawnNodeTime
+			SpawnKillEnemyID:int32 = 0	;SpawnKillEnemyID
+			SpawnKillEnemyCount:int32 = 0	;SpawnKillEnemyCount
+			SpawnAfterDeathTime:float = 0	;SpawnAfterDeathTime
+			RespawnNodeTime:float = 0	;RespawnNodeTime
+			RespawnKillEnemyID:int32 = 0	;RespawnKillEnemyID
+			RespawnKillEnemyCount:int32 = 0	;RespawnKillEnemyCount
+			RespawnAfterDeathTime:float = 0	;RespawnAfterDeathTime
+			CreateMonsterType:int32 = 0	;出怪类型
+			NodeMonsterInfoArr:NodeMonsterInfo*	;坑点中怪物节点列表
+			[NodeMonsterInfo]
+				MonsterId:int32 = -1	;怪物ID
+				RandomWeight:int32 = -1	;怪物随机权重
+			Z:float = 0	;Z轴
+			Direction:int32 = 1	;朝向
+		TimeLimit:float = 0	;TimeLimit
+		NodeType:int32 = 0	;NodeType
+		NodeArrowDisplayType:int32 = 0	;节点箭头显示模式
+	Name:string	;Name
+	StormBaseArr:TerritorialInfo*	;领地
+	[TerritorialInfo]
+		Layer:int32 = 0	;层
+		Area:Vector2	;区域
+		[Vector2]
+			X1:float = 0	;X1
+			X2:float = 0	;X2
+			Z1:float = 0	;Z1
+			Z2:float = 0	;Z2
+			OrgAngle:float = 0	;起始角度
+			FinAngle:float = 0	;终点角度
+			Radius:float = 0	;半径
+			ContourLineArr:ContourLineInfo*	;等高线信息
+			[ContourLineInfo]
+				Y:float = -1	;Y
+		X:float = 0	;X
+		ID:int32 = 0	;ID
+		ModelName:string	;ModelName
+	StormFlag:TerritorialInfo	;旗子
+	[TerritorialInfo]
+		Layer:int32 = 0	;层
+		Area:Vector2	;区域
+		[Vector2]
+			X1:float = 0	;X1
+			X2:float = 0	;X2
+			Z1:float = 0	;Z1
+			Z2:float = 0	;Z2
+			OrgAngle:float = 0	;起始角度
+			FinAngle:float = 0	;终点角度
+			Radius:float = 0	;半径
+			ContourLineArr:ContourLineInfo*	;等高线信息
+			[ContourLineInfo]
+				Y:float = -1	;Y
+		X:float = 0	;X
+		ID:int32 = 0	;ID
+		ModelName:string	;ModelName
+	BaseConfig:BaseConfig	;基础配置
+	[BaseConfig]
+		MapType:int32 = 0	;地图类型
+	GatherArr:GatherInfo*	;采集物数据
+	[GatherInfo]
+		GatherId:int32 = 0	;采集物ID
+		X:float = 0	;X
+		Layer:int32 = 0	;层
+		Z:float = 0	;Z
+		Direction:int32 = 1	;朝向
+	EventArr:EventInfo*	;事件信息
+	[EventInfo]
+		X1:float = 0	;X1坐标
+		Z1:float = 0	;Z1坐标
+		X2:float = 0	;X2坐标
+		Z2:float = 0	;Z2坐标
+		Type:int32 = 0	;类型
+		EventId:int32 = 0	;事件Id
+		Layer:int32 = 0	;层信息
+
+MapDataVector2
+	X1:float = 0	;X1
+	X2:float = 0	;X2
+	Z1:float = 0	;Z1
+	Z2:float = 0	;Z2
+	OrgAngle:float = 0	;起始角度
+	FinAngle:float = 0	;终点角度
+	Radius:float = 0	;半径
+	ContourLineArr:ContourLineInfo*	;等高线信息
+	[ContourLineInfo]
+		Y:float = -1	;Y
+
+MapDataSpawnInfo
+	X:float = 0	;X
+	Layer:int32 = 0	;Layer
+	SpawnDirection:int32 = 1	;出生时的朝向
+	Z:float = 0	;Z轴
+	Radius:float = 0	;半径
+	Angle:float = 0	;角度
+
+MapDataDefeatInfo
+	Condition:int32 = 0	;Condition
+	TimeLimit:float = 0	;TimeLimit
+
+MapDataPerfectInfo
+	Condition:int32 = -1	;Condition
+	DeathCountNum:int32 = 0	;DeathCountNum
+	KillEnemyID:int32 = 0	;KillEnemyID
+	KillEnemyCount:int32 = 0	;KillEnemyCount
+	HpPercent:int32 = 0	;HpPercent
+	TimeLimit:float = 0	;TimeLimit
+
+MapDataPortalInfo
+	SourceX:float = 0	;SourceX
+	SourceLayer:int32 = 0	;SourceLayer
+	TargetX:float = -1	;TargetX
+	TargetLayer:int32 = -1	;TargetLayer
+	UseCount:int32 = 1	;UseCount
+	Channel:bool = false	;Channel
+	PortalType:int32 = 0	;PortalType
+	TargetDungeonId:int32 = 0	;目标副本id
+	TargetSpawnIndex:int32 = 0	;目标出生点索引
+	TargetDirection:int32 = 0	;传送目标点朝向
+	SourceZ:float = 0	;源Z轴
+	TargetZ:float = 0	;目标Z轴
+	SourceAngle:float = 0	;源角度
+	TargetAngle:float = 0	;目标角度
+	SourceRadius:float = 0	;源半径
+	TargetRadius:float = 0	;目标半径
+
+MapDataTrapInfo
+	TrapID:int32 = 0	;TrapID
+	X:float = 0	;X
+	Y:float = 0	;Y
+	Direction:int32 = 1	;朝向
+	Z:float = 0	;Z轴
+
+MapDataNpcInfo
+	NpcID:int32 = 0	;NpcID
+	X:float = 0	;X
+	Layer:int32 = 0	;Layer
+	Z:float = 0	;Z轴
+	Direction:int32 = 1	;朝向
+	Angle:float = 0	;角度
+	Radius:float = 0	;半径
+
+MapDataMonsterInfo
+	MonsterID:int32 = 0	;MonsterID
+	X:float = 0	;X
+	Layer:int32 = 0	;Layer
+	RepeatCount:int32 = 1	;RepeatCount
+	SpawmTriggerType:int32 = 0	;SpawmTriggerType
+	RespawmTriggerType:int32 = 0	;RespawmTriggerType
+	PatrolX1:float = -1	;PatrolX1
+	PatrolX2:float = -1	;PatrolX2
+	SpawnNodeTime:float = 0	;SpawnNodeTime
+	SpawnKillEnemyID:int32 = 0	;SpawnKillEnemyID
+	SpawnKillEnemyCount:int32 = 0	;SpawnKillEnemyCount
+	SpawnAfterDeathTime:float = 0	;SpawnAfterDeathTime
+	RespawnNodeTime:float = 0	;RespawnNodeTime
+	RespawnKillEnemyID:int32 = 0	;RespawnKillEnemyID
+	RespawnKillEnemyCount:int32 = 0	;RespawnKillEnemyCount
+	RespawnAfterDeathTime:float = 0	;RespawnAfterDeathTime
+	CreateMonsterType:int32 = 0	;出怪类型
+	NodeMonsterInfoArr:NodeMonsterInfo*	;坑点中怪物节点列表
+	[NodeMonsterInfo]
+		MonsterId:int32 = -1	;怪物ID
+		RandomWeight:int32 = -1	;怪物随机权重
+	Z:float = 0	;Z轴
+	Direction:int32 = 1	;朝向
+
+MapDataNodeInfo
+	X:float = 0	;X
+	Layer:int32 = 0	;Layer
+	PassCondition:int32 = 0	;PassCondition
+	KillEnemyID:int32 = 0	;KillEnemyID
+	KillEnemyCount:int32 = 0	;KillEnemyCount
+	MonsterArr:MonsterInfo*	;MonsterArr
+	[MonsterInfo]
+		MonsterID:int32 = 0	;MonsterID
+		X:float = 0	;X
+		Layer:int32 = 0	;Layer
+		RepeatCount:int32 = 1	;RepeatCount
+		SpawmTriggerType:int32 = 0	;SpawmTriggerType
+		RespawmTriggerType:int32 = 0	;RespawmTriggerType
+		PatrolX1:float = -1	;PatrolX1
+		PatrolX2:float = -1	;PatrolX2
+		SpawnNodeTime:float = 0	;SpawnNodeTime
+		SpawnKillEnemyID:int32 = 0	;SpawnKillEnemyID
+		SpawnKillEnemyCount:int32 = 0	;SpawnKillEnemyCount
+		SpawnAfterDeathTime:float = 0	;SpawnAfterDeathTime
+		RespawnNodeTime:float = 0	;RespawnNodeTime
+		RespawnKillEnemyID:int32 = 0	;RespawnKillEnemyID
+		RespawnKillEnemyCount:int32 = 0	;RespawnKillEnemyCount
+		RespawnAfterDeathTime:float = 0	;RespawnAfterDeathTime
+		CreateMonsterType:int32 = 0	;出怪类型
+		NodeMonsterInfoArr:NodeMonsterInfo*	;坑点中怪物节点列表
+		[NodeMonsterInfo]
+			MonsterId:int32 = -1	;怪物ID
+			RandomWeight:int32 = -1	;怪物随机权重
+		Z:float = 0	;Z轴
+		Direction:int32 = 1	;朝向
+	TimeLimit:float = 0	;TimeLimit
+	NodeType:int32 = 0	;NodeType
+	NodeArrowDisplayType:int32 = 0	;节点箭头显示模式
+
+MapDataTerritorialInfo
+	Layer:int32 = 0	;层
+	Area:Vector2	;区域
+	[Vector2]
+		X1:float = 0	;X1
+		X2:float = 0	;X2
+		Z1:float = 0	;Z1
+		Z2:float = 0	;Z2
+		OrgAngle:float = 0	;起始角度
+		FinAngle:float = 0	;终点角度
+		Radius:float = 0	;半径
+		ContourLineArr:ContourLineInfo*	;等高线信息
+		[ContourLineInfo]
+			Y:float = -1	;Y
+	X:float = 0	;X
+	ID:int32 = 0	;ID
+	ModelName:string	;ModelName
+
+MapDataNodeMonsterInfo
+	MonsterId:int32 = -1	;怪物ID
+	RandomWeight:int32 = -1	;怪物随机权重
+
+MapDataBaseConfig
+	MapType:int32 = 0	;地图类型
+
+MapDataGatherInfo
+	GatherId:int32 = 0	;采集物ID
+	X:float = 0	;X
+	Layer:int32 = 0	;层
+	Z:float = 0	;Z
+	Direction:int32 = 1	;朝向
+
+MapDataContourLineInfo
+	Y:float = -1	;Y
+
+MapDataEventInfo
+	X1:float = 0	;X1坐标
+	Z1:float = 0	;Z1坐标
+	X2:float = 0	;X2坐标
+	Z2:float = 0	;Z2坐标
+	Type:int32 = 0	;类型
+	EventId:int32 = 0	;事件Id
+	Layer:int32 = 0	;层信息
+

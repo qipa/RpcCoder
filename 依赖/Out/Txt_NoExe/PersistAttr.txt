@@ -1,0 +1,22 @@
+PersistAttrPersistAttr
+	UserName:string	;战队名字
+	UserId:sint64 = -1	;用户ID
+	PlatName:string	;游戏中心账号名
+	AccountId:sint64 = -1	;游戏中心账号ID
+	Level:int32 = -1	;战队等级
+	Rank:int32 = -1	;官阶
+	FightPower:int32 = -1	;战力
+	Sec:int32 = -1	;登录时间秒
+	Prof:int32 = -1	;职业
+	OnlineState:int32 = -1	;在线状态
+	TeamId:int32 = -1	;组队id
+	ShopScore:int32 = -1	;几分商城
+	DungeonId:int32 = -1	;当前场景Id
+	SessionKey:string	;SessionKey
+	GuildId:int32 = -1	;帮会Id
+
+PersistAttrRpcSyncDataAsk↑ 同步背包数据请求
+
+PersistAttrRpcSyncDataReply↓ 同步背包数据回应
+	Result:int32 = -9999	;返回结果
+

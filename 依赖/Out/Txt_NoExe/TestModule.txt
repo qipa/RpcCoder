@@ -1,0 +1,5 @@
+TestModuleData
+	Field:int32 = -1	;Field
+
+TestModuleUseless
+

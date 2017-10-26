@@ -1,0 +1,89 @@
+<?xml version="1.0"?>
+<Root Module="ActivitySchedule" CName="活动日常" MsgNumStart="32" SyncDataVersion="1" Comment="">
+    <Operate Name="SyncData" CName="活动日常数据" Comment="">
+        <OP_ASK Name="Ask" CName="请求" MsgID="32" DataStruct="RpcSyncDataAsk" Comment="" />
+        <OP_REPLY Name="Reply" CName="回应" MsgID="33" DataStruct="RpcSyncDataReply" Comment="" />
+    </Operate>
+    <Operate Name="ThiefBeOpened" CName="江洋大盗被开启通知" Comment="">
+        <OP_SERVER_NOTIFY Name="Notify" CName="通知" MsgID="34" DataStruct="RpcThiefBeOpenedNotify" Comment="" />
+    </Operate>
+    <Operate Name="ThiefRefresh" CName="江洋大盗刷新" Comment="">
+        <OP_SERVER_NOTIFY Name="Notify" CName="通知" MsgID="35" DataStruct="RpcThiefRefreshNotify" Comment="" />
+    </Operate>
+    <Operate Name="ThiefOpenMonster" CName="江洋大盗开怪" Comment="">
+        <OP_ASK Name="Ask" CName="请求" MsgID="36" DataStruct="RpcThiefOpenMonsterAsk" Comment="" />
+        <OP_REPLY Name="Reply" CName="回应" MsgID="37" DataStruct="RpcThiefOpenMonsterReply" Comment="" />
+    </Operate>
+    <Operate Name="SubdueMonsterEnter" CName="降妖进入副本" Comment="">
+        <OP_ASK Name="Ask" CName="请求" MsgID="38" DataStruct="RpcSubdueMonsterEnterAsk" Comment="" />
+        <OP_REPLY Name="Reply" CName="回应" MsgID="39" DataStruct="RpcSubdueMonsterEnterReply" Comment="" />
+    </Operate>
+    <Operate Name="SubdueMonsterBeOpened" CName="降妖被其他人开启" Comment="">
+        <OP_SERVER_NOTIFY Name="Notify" CName="通知" MsgID="40" DataStruct="RpcSubdueMonsterBeOpenedNotify" Comment="" />
+    </Operate>
+    <Operate Name="SubdueMonsterRefresh" CName="降妖除魔刷新Npc" Comment="">
+        <OP_SERVER_NOTIFY Name="Notify" CName="通知" MsgID="41" DataStruct="RpcSubdueMonsterRefreshNotify" Comment="" />
+    </Operate>
+    <Operate Name="WorldBossEnterDungeon" CName="世界Boss进行副本" Comment="">
+        <OP_ASK Name="Ask" CName="请求" MsgID="42" DataStruct="RpcWorldBossEnterDungeonAsk" Comment="" />
+        <OP_REPLY Name="Reply" CName="回应" MsgID="43" DataStruct="RpcWorldBossEnterDungeonReply" Comment="" />
+    </Operate>
+    <Operate Name="WorldBossSyncData" CName="世界Boss,打开界面刷新数据" Comment="">
+        <OP_ASK Name="Ask" CName="请求" MsgID="44" DataStruct="RpcWorldBossSyncDataAsk" Comment="" />
+        <OP_REPLY Name="Reply" CName="回应" MsgID="45" DataStruct="RpcWorldBossSyncDataReply" Comment="" />
+    </Operate>
+    <Struct Name="RpcSyncDataAsk" CName="活动日常数据请求" ProtoType="RpcProto" Comment="" DataType="RPCData" SaveToDB="False" SyncToClient="False" MaxFieldId="0" />
+    <Struct Name="RpcSyncDataReply" CName="活动日常数据回应" ProtoType="RpcProto" Comment="" DataType="RPCData" SaveToDB="False" SyncToClient="False" MaxFieldId="6">
+        <Field PreDefine="optional" FieldType="sint32" FieldId="1" Name="Result" CName="返回结果" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-9999" Comment="-9999 模块未启动&#xD;&#xA;-9998 请求字段值范围出错" />
+        <Field PreDefine="repeated" FieldType="ActivityNpcData" FieldId="2" Name="ThiefData" CName="当前有哪些江洋大盗" ValueSet="" MinValue="6" MaxValue="128" Comment="" />
+        <Field PreDefine="repeated" FieldType="ActivityNpcData" FieldId="3" Name="SubdueMonsterData" CName="降妖活动数据" ValueSet="" MinValue="6" MaxValue="128" Comment="" />
+        <Field PreDefine="repeated" FieldType="WorldBossObj" FieldId="4" Name="WorldBossData" CName="世界Boss数据" ValueSet="" MinValue="6" MaxValue="128" Comment="" />
+        <Field PreDefine="repeated" FieldType="WorldBossRankObj" FieldId="5" Name="WorldBossRank" CName="世界Boss排名" ValueSet="" MinValue="6" MaxValue="128" Comment="" />
+    </Struct>
+    <Struct Name="ActiveDate" CName="活动活力" ProtoType="SyncProto" Comment="" DataType="UserData" SaveToDB="True" SyncToClient="True" MaxFieldId="2">
+        <Field PreDefine="repeated" FieldType="ActiveValue" FieldId="1" Name="Value" CName="数据" ValueSet="" MinValue="6" MaxValue="128" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="2" Name="Time" CName="时间（服务器专用）" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+    </Struct>
+    <Struct Name="ActiveValue" CName="活动数据信息" ProtoType="SyncProto" Comment="" DataType="ItemData" SaveToDB="False" SyncToClient="False" MaxFieldId="6">
+        <Field PreDefine="optional" FieldType="sint32" FieldId="1" Name="ID" CName="id" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="0" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="2" Name="Num" CName="次数" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="0" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="3" Name="Vitality" CName="体力" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="0" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="4" Name="StartTime" CName="活动开始时间" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="5" Name="FinishTime" CName="结束时间" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="6" Name="ActivityMaxNum" CName="限时活动最大次数" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+    </Struct>
+    <Struct Name="RpcThiefBeOpenedNotify" CName="江洋大盗被开启通知通知" ProtoType="RpcProto" Comment="" DataType="RPCData" SaveToDB="False" SyncToClient="False" MaxFieldId="1">
+        <Field PreDefine="optional" FieldType="ActivityNpcData" FieldId="1" Name="ThiefData" CName="被开启的江洋大盗" ValueSet="" MinValue="6" MaxValue="128" Comment="" />
+    </Struct>
+    <Struct Name="RpcThiefRefreshNotify" CName="江洋大盗刷新通知" ProtoType="RpcProto" Comment="" DataType="RPCData" SaveToDB="False" SyncToClient="False" MaxFieldId="1">
+        <Field PreDefine="repeated" FieldType="ActivityNpcData" FieldId="1" Name="ThiefData" CName="当前有哪些江洋大盗" ValueSet="" MinValue="6" MaxValue="128" Comment="" />
+    </Struct>
+    <Struct Name="RpcThiefOpenMonsterAsk" CName="江洋大盗开怪请求" ProtoType="RpcProto" Comment="" DataType="RPCData" SaveToDB="False" SyncToClient="False" MaxFieldId="1">
+        <Field PreDefine="optional" FieldType="ActivityNpcData" FieldId="1" Name="ThiefData" CName="需要开启的江洋大盗" ValueSet="" MinValue="6" MaxValue="128" Comment="" />
+    </Struct>
+    <Struct Name="RpcThiefOpenMonsterReply" CName="江洋大盗开怪回应" ProtoType="RpcProto" Comment="" DataType="RPCData" SaveToDB="False" SyncToClient="False" MaxFieldId="1">
+        <Field PreDefine="optional" FieldType="sint32" FieldId="1" Name="Result" CName="返回结果" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-9999" Comment="-9999 模块未启动&#xD;&#xA;-9998 请求字段值范围出错" />
+    </Struct>
+    <Struct Name="RpcSubdueMonsterEnterAsk" CName="降妖进入副本请求" ProtoType="RpcProto" Comment="" DataType="RPCData" SaveToDB="False" SyncToClient="False" MaxFieldId="2">
+        <Field PreDefine="optional" FieldType="ActivityNpcData" FieldId="2" Name="SubdueMonsterData" CName="降妖活动数据" ValueSet="" MinValue="6" MaxValue="128" Comment="" />
+    </Struct>
+    <Struct Name="RpcSubdueMonsterEnterReply" CName="降妖进入副本回应" ProtoType="RpcProto" Comment="" DataType="RPCData" SaveToDB="False" SyncToClient="False" MaxFieldId="1">
+        <Field PreDefine="optional" FieldType="sint32" FieldId="1" Name="Result" CName="返回结果" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-9999" Comment="-9999 模块未启动&#xD;&#xA;-9998 请求字段值范围出错" />
+    </Struct>
+    <Struct Name="RpcSubdueMonsterBeOpenedNotify" CName="降妖被其他人开启通知" ProtoType="RpcProto" Comment="" DataType="RPCData" SaveToDB="False" SyncToClient="False" MaxFieldId="1">
+        <Field PreDefine="optional" FieldType="ActivityNpcData" FieldId="1" Name="SubdueMonsterData" CName="降妖活动数据" ValueSet="" MinValue="6" MaxValue="128" Comment="" />
+    </Struct>
+    <Struct Name="RpcSubdueMonsterRefreshNotify" CName="降妖除魔刷新Npc通知" ProtoType="RpcProto" Comment="" DataType="RPCData" SaveToDB="False" SyncToClient="False" MaxFieldId="1">
+        <Field PreDefine="repeated" FieldType="ActivityNpcData" FieldId="1" Name="SubdueMonsterData" CName="降妖活动数据" ValueSet="" MinValue="6" MaxValue="128" Comment="" />
+    </Struct>
+    <Struct Name="RpcWorldBossEnterDungeonAsk" CName="世界Boss进行副本请求" ProtoType="RpcProto" Comment="" DataType="RPCData" SaveToDB="False" SyncToClient="False" MaxFieldId="1" />
+    <Struct Name="RpcWorldBossEnterDungeonReply" CName="世界Boss进行副本回应" ProtoType="RpcProto" Comment="" DataType="RPCData" SaveToDB="False" SyncToClient="False" MaxFieldId="1">
+        <Field PreDefine="optional" FieldType="sint32" FieldId="1" Name="Result" CName="返回结果" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-9999" Comment="-9999 模块未启动&#xD;&#xA;-9998 请求字段值范围出错" />
+    </Struct>
+    <Struct Name="RpcWorldBossSyncDataAsk" CName="世界Boss,打开界面刷新数据请求" ProtoType="RpcProto" Comment="" DataType="RPCData" SaveToDB="False" SyncToClient="False" MaxFieldId="0" />
+    <Struct Name="RpcWorldBossSyncDataReply" CName="世界Boss,打开界面刷新数据回应" ProtoType="RpcProto" Comment="" DataType="RPCData" SaveToDB="False" SyncToClient="False" MaxFieldId="3">
+        <Field PreDefine="optional" FieldType="sint32" FieldId="1" Name="Result" CName="返回结果" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-9999" Comment="-9999 模块未启动&#xD;&#xA;-9998 请求字段值范围出错" />
+        <Field PreDefine="repeated" FieldType="WorldBossObj" FieldId="2" Name="WorldBossData" CName="世界Boss数据" ValueSet="" MinValue="6" MaxValue="128" Comment="" />
+        <Field PreDefine="repeated" FieldType="WorldBossRankObj" FieldId="3" Name="WorldBossRank" CName="世界Boss排名" ValueSet="" MinValue="6" MaxValue="128" Comment="" />
+    </Struct>
+</Root>

@@ -1,0 +1,91 @@
+<?xml version="1.0"?>
+<Root Module="Transport" CName="货运" MsgNumStart="40" SyncDataVersion="1" Comment="">
+    <Operate Name="SyncData" CName="数据同步" Comment="">
+        <OP_ASK Name="Ask" CName="请求" MsgID="40" DataStruct="RpcSyncDataAsk" Comment="" />
+        <OP_REPLY Name="Reply" CName="回应" MsgID="41" DataStruct="RpcSyncDataReply" Comment="" />
+    </Operate>
+    <Operate Name="Fill" CName="填充" Comment="">
+        <OP_ASK Name="Ask" CName="请求" MsgID="42" DataStruct="RpcFillAsk" Comment="" />
+        <OP_REPLY Name="Reply" CName="回应" MsgID="43" DataStruct="RpcFillReply" Comment="" />
+    </Operate>
+    <Operate Name="HelpOther" CName="帮助请求" Comment="">
+        <OP_ASK Name="Ask" CName="请求" MsgID="44" DataStruct="RpcHelpOtherAsk" Comment="" />
+        <OP_REPLY Name="Reply" CName="回应" MsgID="45" DataStruct="RpcHelpOtherReply" Comment="" />
+    </Operate>
+    <Operate Name="AskHelp" CName="请求帮助" Comment="">
+        <OP_ASK Name="Ask" CName="请求" MsgID="46" DataStruct="RpcAskHelpAsk" Comment="" />
+        <OP_REPLY Name="Reply" CName="回应" MsgID="47" DataStruct="RpcAskHelpReply" Comment="" />
+    </Operate>
+    <Operate Name="SetSail" CName="起航请求" Comment="">
+        <OP_ASK Name="Ask" CName="请求" MsgID="48" DataStruct="RpcSetSailAsk" Comment="" />
+        <OP_REPLY Name="Reply" CName="回应" MsgID="49" DataStruct="RpcSetSailReply" Comment="" />
+    </Operate>
+    <Operate Name="AddTransport" CName="添加货物" Comment="">
+        <OP_ASK Name="Ask" CName="请求" MsgID="50" DataStruct="RpcAddTransportAsk" Comment="" />
+        <OP_REPLY Name="Reply" CName="回应" MsgID="51" DataStruct="RpcAddTransportReply" Comment="" />
+    </Operate>
+    <Operate Name="IsHelped" CName="自己被帮助通知" Comment="">
+        <OP_SERVER_NOTIFY Name="Notify" CName="通知" MsgID="52" DataStruct="RpcIsHelpedNotify" Comment="" />
+    </Operate>
+    <Struct Name="RpcSyncDataAsk" CName="数据同步请求" ProtoType="RpcProto" Comment="" DataType="RPCData" SaveToDB="False" SyncToClient="False" MaxFieldId="0" />
+    <Struct Name="RpcSyncDataReply" CName="数据同步回应" ProtoType="RpcProto" Comment="" DataType="RPCData" SaveToDB="False" SyncToClient="False" MaxFieldId="1">
+        <Field PreDefine="optional" FieldType="sint32" FieldId="1" Name="Result" CName="返回结果" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-9999" Comment="-9999 模块未启动&#xD;&#xA;-9998 请求字段值范围出错" />
+    </Struct>
+    <Struct Name="RpcFillAsk" CName="填充请求" ProtoType="RpcProto" Comment="" DataType="RPCData" SaveToDB="False" SyncToClient="False" MaxFieldId="1">
+        <Field PreDefine="optional" FieldType="sint32" FieldId="1" Name="FillID" CName="物品ID" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+    </Struct>
+    <Struct Name="RpcFillReply" CName="填充回应" ProtoType="RpcProto" Comment="" DataType="RPCData" SaveToDB="False" SyncToClient="False" MaxFieldId="2">
+        <Field PreDefine="optional" FieldType="sint32" FieldId="1" Name="Result" CName="返回结果" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-9999" Comment="-9999 模块未启动&#xD;&#xA;-9998 请求字段值范围出错" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="2" Name="FillID" CName="物品ID" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+    </Struct>
+    <Struct Name="RpcHelpOtherAsk" CName="帮助请求请求" ProtoType="RpcProto" Comment="" DataType="RPCData" SaveToDB="False" SyncToClient="False" MaxFieldId="3">
+        <Field PreDefine="optional" FieldType="sint32" FieldId="1" Name="ItemID" CName="物品ID" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+        <Field PreDefine="optional" FieldType="sint64" FieldId="3" Name="UserId" CName="发起请求的用户ID" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+    </Struct>
+    <Struct Name="RpcHelpOtherReply" CName="帮助请求回应" ProtoType="RpcProto" Comment="" DataType="RPCData" SaveToDB="False" SyncToClient="False" MaxFieldId="5">
+        <Field PreDefine="optional" FieldType="sint32" FieldId="1" Name="Result" CName="返回结果" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-9999" Comment="-9999 模块未启动&#xD;&#xA;-9998 请求字段值范围出错" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="2" Name="ItemID" CName="物品ID" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+        <Field PreDefine="optional" FieldType="sint64" FieldId="4" Name="UserId" CName="发起请求的用户ID" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+    </Struct>
+    <Struct Name="RpcAskHelpAsk" CName="请求帮助请求" ProtoType="RpcProto" Comment="" DataType="RPCData" SaveToDB="False" SyncToClient="False" MaxFieldId="1">
+        <Field PreDefine="optional" FieldType="sint32" FieldId="1" Name="ItemID" CName="物品ID" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+    </Struct>
+    <Struct Name="RpcAskHelpReply" CName="请求帮助回应" ProtoType="RpcProto" Comment="" DataType="RPCData" SaveToDB="False" SyncToClient="False" MaxFieldId="3">
+        <Field PreDefine="optional" FieldType="sint32" FieldId="1" Name="Result" CName="返回结果" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-9999" Comment="-9999 模块未启动&#xD;&#xA;-9998 请求字段值范围出错" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="3" Name="ItemID" CName="物品id" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+    </Struct>
+    <Struct Name="RpcSetSailAsk" CName="起航请求请求" ProtoType="RpcProto" Comment="" DataType="RPCData" SaveToDB="False" SyncToClient="False" MaxFieldId="1" />
+    <Struct Name="RpcSetSailReply" CName="起航请求回应" ProtoType="RpcProto" Comment="" DataType="RPCData" SaveToDB="False" SyncToClient="False" MaxFieldId="2">
+        <Field PreDefine="optional" FieldType="sint32" FieldId="1" Name="Result" CName="返回结果" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-9999" Comment="-9999 模块未启动&#xD;&#xA;-9998 请求字段值范围出错" />
+    </Struct>
+    <Struct Name="GoodsData" CName="货运数据" ProtoType="SyncProto" Comment="" DataType="UserData" SaveToDB="True" SyncToClient="True" MaxFieldId="8">
+        <Field PreDefine="repeated" FieldType="GoodsObj" FieldId="1" Name="GoodsArray" CName="货物容器" ValueSet="" MinValue="6" MaxValue="128" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="2" Name="AskNum" CName="请求数量" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="3" Name="HelpNum" CName="帮助次数" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+        <Field PreDefine="repeated" FieldType="RewardObj" FieldId="4" Name="RewardArry" CName="起航奖励" ValueSet="" MinValue="6" MaxValue="128" Comment="" />
+        <Field PreDefine="optional" FieldType="bool" FieldId="6" Name="RewardFlag" CName="奖励是否领取标识" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="false" Comment="" />
+        <Field PreDefine="optional" FieldType="bool" FieldId="7" Name="PickTaskFlag" CName="是否接取任务" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="false" Comment="" />
+    </Struct>
+    <Struct Name="GoodsObj" CName="货物对象" ProtoType="SyncProto" Comment="" DataType="ItemData" SaveToDB="False" SyncToClient="False" MaxFieldId="6">
+        <Field PreDefine="optional" FieldType="sint32" FieldId="1" Name="GoodId" CName="货物id" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="2" Name="TemplateId" CName="物品配置id" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="3" Name="ItemNum" CName="物品数量" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="4" Name="CateGory" CName="类别id" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+        <Field PreDefine="optional" FieldType="bool" FieldId="5" Name="IsHelp" CName="是否请求帮助" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="false" Comment="" />
+    </Struct>
+    <Struct Name="RewardObj" CName="奖励对象" ProtoType="SyncProto" Comment="" DataType="ItemData" SaveToDB="False" SyncToClient="False" MaxFieldId="5">
+        <Field PreDefine="optional" FieldType="sint32" FieldId="1" Name="RewardId" CName="索引" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="4" Name="LV" CName="玩家等级" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="5" Name="GoodType" CName="货物类别" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+    </Struct>
+    <Struct Name="RpcAddTransportAsk" CName="添加货物请求" ProtoType="RpcProto" Comment="" DataType="RPCData" SaveToDB="False" SyncToClient="False" MaxFieldId="1">
+        <Field PreDefine="optional" FieldType="sint32" FieldId="1" Name="Lv" CName="玩家等级" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+    </Struct>
+    <Struct Name="RpcAddTransportReply" CName="添加货物回应" ProtoType="RpcProto" Comment="" DataType="RPCData" SaveToDB="False" SyncToClient="False" MaxFieldId="2">
+        <Field PreDefine="optional" FieldType="sint32" FieldId="1" Name="Result" CName="返回结果" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-9999" Comment="-9999 模块未启动&#xD;&#xA;-9998 请求字段值范围出错" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="2" Name="Lv" CName="玩家等级" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+    </Struct>
+    <Struct Name="RpcIsHelpedNotify" CName="自己被帮助通知通知" ProtoType="RpcProto" Comment="" DataType="RPCData" SaveToDB="False" SyncToClient="False" MaxFieldId="1">
+        <Field PreDefine="optional" FieldType="sint32" FieldId="1" Name="TemplateId" CName="被帮助物品ID" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+    </Struct>
+</Root>

@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<Root Module="Chat" CName="聊天" MsgNumStart="36" SyncDataVersion="1" Comment="">
+    <Operate Name="SendChat" CName="发送聊天" Comment="">
+        <OP_ASK Name="Ask" CName="请求" MsgID="36" DataStruct="RpcSendChatAsk" Comment="" />
+        <OP_REPLY Name="Reply" CName="回应" MsgID="37" DataStruct="RpcSendChatReply" Comment="" />
+    </Operate>
+    <Operate Name="SyncChat" CName="同步聊天" Comment="">
+        <OP_SERVER_NOTIFY Name="Notify" CName="通知" MsgID="38" DataStruct="RpcSyncChatNotify" Comment="" />
+    </Operate>
+    <Operate Name="SyncPrivateChatMsg" CName="同步私聊留言" Comment="">
+        <OP_SERVER_NOTIFY Name="Notify" CName="通知" MsgID="39" DataStruct="RpcSyncPrivateChatMsgNotify" Comment="" />
+    </Operate>
+    <Operate Name="SvrChat" CName="服务器发送聊天" Comment="">
+        <OP_SERVER_NOTIFY Name="Notify" CName="通知" MsgID="40" DataStruct="RpcSvrChatNotify" Comment="" />
+    </Operate>
+    <Struct Name="RpcSendChatAsk" CName="发送聊天请求" ProtoType="RpcProto" Comment="" DataType="RPCData" SaveToDB="False" SyncToClient="False" MaxFieldId="1">
+        <Field PreDefine="optional" FieldType="ChatMsgObj" FieldId="1" Name="ChatMsg" CName="聊天消息" ValueSet="" MinValue="6" MaxValue="128" Comment="" />
+    </Struct>
+    <Struct Name="RpcSendChatReply" CName="发送聊天回应" ProtoType="RpcProto" Comment="" DataType="RPCData" SaveToDB="False" SyncToClient="False" MaxFieldId="1">
+        <Field PreDefine="optional" FieldType="sint32" FieldId="1" Name="Result" CName="返回结果" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-9999" Comment="-9999 模块未启动&#xD;&#xA;-9998 请求字段值范围出错" />
+    </Struct>
+    <Struct Name="RpcSyncChatNotify" CName="同步聊天通知" ProtoType="RpcProto" Comment="" DataType="RPCData" SaveToDB="False" SyncToClient="False" MaxFieldId="5">
+        <Field PreDefine="optional" FieldType="ChatObj" FieldId="4" Name="ChatData" CName="聊天对象" ValueSet="" MinValue="6" MaxValue="128" Comment="" />
+    </Struct>
+    <Struct Name="RpcSyncPrivateChatMsgNotify" CName="同步私聊留言通知" ProtoType="RpcProto" Comment="" DataType="RPCData" SaveToDB="False" SyncToClient="False" MaxFieldId="3">
+        <Field PreDefine="repeated" FieldType="ChatObj" FieldId="3" Name="ChatData" CName="聊天对象" ValueSet="" MinValue="6" MaxValue="128" Comment="" />
+    </Struct>
+    <Struct Name="RpcSvrChatNotify" CName="服务器发送聊天通知" ProtoType="RpcProto" Comment="" DataType="RPCData" SaveToDB="False" SyncToClient="False" MaxFieldId="2">
+        <Field PreDefine="optional" FieldType="ChatNetData" FieldId="1" Name="ChatData" CName="聊天对象" ValueSet="" MinValue="6" MaxValue="128" Comment="" />
+    </Struct>
+    <Struct Name="RpcChatFun1" CName="聊天功能1, 帮会求助" ProtoType="RpcProto" Comment="" DataType="ItemData" SaveToDB="False" SyncToClient="False" MaxFieldId="3">
+        <Field PreDefine="optional" FieldType="sint64" FieldId="2" Name="TargetUserId" CName="对方UserId" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="3" Name="TemplateId" CName="物品ID" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+    </Struct>
+</Root>

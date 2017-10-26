@@ -1,0 +1,60 @@
+<?xml version="1.0"?>
+<Root Module="Dungeon" CName="进出副本模块" MsgNumStart="12" SyncDataVersion="1" Comment="">
+    <Operate Name="Enter" CName="进入" Comment="">
+        <OP_ASK Name="Ask" CName="请求" MsgID="12" DataStruct="RpcEnterAsk" Comment="" />
+        <OP_REPLY Name="Reply" CName="回应" MsgID="13" DataStruct="RpcEnterReply" Comment="" />
+    </Operate>
+    <Operate Name="Open" CName="打开副本通知" Comment="">
+        <OP_SERVER_NOTIFY Name="Notify" CName="通知" MsgID="14" DataStruct="RpcOpenNotify" Comment="" />
+    </Operate>
+    <Operate Name="TryEnter" CName="能否进入" Comment="">
+        <OP_ASK Name="Ask" CName="请求" MsgID="15" DataStruct="RpcTryEnterAsk" Comment="" />
+        <OP_REPLY Name="Reply" CName="回应" MsgID="16" DataStruct="RpcTryEnterReply" Comment="" />
+    </Operate>
+    <Operate Name="Transfer" CName="传送" Comment="">
+        <OP_SERVER_NOTIFY Name="Notify" CName="通知" MsgID="17" DataStruct="RpcTransferNotify" Comment="" />
+    </Operate>
+    <Struct Name="RpcEnterAsk" CName="进入请求" ProtoType="RpcProto" Comment="" DataType="RPCData" SaveToDB="False" SyncToClient="False" MaxFieldId="6">
+        <Field PreDefine="optional" FieldType="sint32" FieldId="1" Name="DungeonId" CName="副本ID" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="3" Name="DungeonType" CName="副本类型" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="4" Name="BirthPoint" CName="出生点" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="5" Name="FaceDir" CName="朝向" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="6" Name="GuildId" CName="帮会Id" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+    </Struct>
+    <Struct Name="RpcEnterReply" CName="进入回应" ProtoType="RpcProto" Comment="" DataType="RPCData" SaveToDB="False" SyncToClient="False" MaxFieldId="1">
+        <Field PreDefine="optional" FieldType="sint32" FieldId="1" Name="Result" CName="返回结果" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-9999" Comment="-9999 模块未启动&#xD;&#xA;-9998 请求字段值范围出错" />
+    </Struct>
+    <Struct Name="RpcOpenNotify" CName="打开副本通知通知" ProtoType="RpcProto" Comment="" DataType="RPCData" SaveToDB="False" SyncToClient="False" MaxFieldId="11">
+        <Field PreDefine="optional" FieldType="string" FieldId="1" Name="DungeonKey" CName="Key" ValueSet="" MinValue="6" MaxValue="128" DefaultValue="" Comment="" />
+        <Field PreDefine="optional" FieldType="string" FieldId="2" Name="Host" CName="Host" ValueSet="" MinValue="6" MaxValue="128" DefaultValue="" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="3" Name="Port" CName="Port" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="9" Name="DungeonId" CName="副本ID" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="10" Name="DungeonType" CName="副本类型" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="11" Name="GuildId" CName="帮会Id" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+    </Struct>
+    <Struct Name="RpcTryEnterAsk" CName="能否进入请求" ProtoType="RpcProto" Comment="" DataType="RPCData" SaveToDB="False" SyncToClient="False" MaxFieldId="5">
+        <Field PreDefine="optional" FieldType="sint32" FieldId="1" Name="DungeonId" CName="副本ID" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="3" Name="BirthPoint" CName="出生点" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="4" Name="FaceDir" CName="朝向" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="5" Name="GuildId" CName="帮会Id" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+    </Struct>
+    <Struct Name="RpcTryEnterReply" CName="能否进入回应" ProtoType="RpcProto" Comment="" DataType="RPCData" SaveToDB="False" SyncToClient="False" MaxFieldId="5">
+        <Field PreDefine="optional" FieldType="sint32" FieldId="1" Name="Result" CName="返回结果" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-9999" Comment="-9999 模块未启动&#xD;&#xA;-9998 请求字段值范围出错" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="2" Name="DungeonId" CName="副本ID" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="3" Name="BirthPoint" CName="出生点" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="4" Name="FaceDir" CName="朝向" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="5" Name="GuildId" CName="帮会Id" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+    </Struct>
+    <Struct Name="RpcTransferNotify" CName="传送通知" ProtoType="RpcProto" Comment="" DataType="RPCData" SaveToDB="False" SyncToClient="False" MaxFieldId="2">
+        <Field PreDefine="optional" FieldType="sint32" FieldId="2" Name="DungeonId" CName="副本ID" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+    </Struct>
+    <Struct Name="DungeonInfo" CName="副本相关信息" ProtoType="SyncProto" Comment="" DataType="CacheData" SaveToDB="False" SyncToClient="False" MaxFieldId="7">
+        <Field PreDefine="optional" FieldType="string" FieldId="1" Name="DungeonKey" CName="Key" ValueSet="" MinValue="6" MaxValue="128" DefaultValue="" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="2" Name="DungeonId" CName="副本ID" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="3" Name="DungeonType" CName="副本类型" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="4" Name="KeyId" CName="KeyId" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+        <Field PreDefine="optional" FieldType="string" FieldId="5" Name="Host" CName="Host" ValueSet="" MinValue="6" MaxValue="128" DefaultValue="" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="6" Name="Port" CName="Port" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="7" Name="Guild" CName="帮派Id" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+    </Struct>
+</Root>

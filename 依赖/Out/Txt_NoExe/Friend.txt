@@ -1,0 +1,145 @@
+FriendFriendObj
+	UserId:sint64 = -1	;用户Id
+	UserName:string	;名字
+	Level:int32 = -1	;等级
+	Prof:int32 = -1	;职业
+	Signature:string	;签名
+	TeamId:int32 = -1	;队伍Id
+	TeamMemberNum:int32 = 0	;队伍当前人数
+	Online:bool = false	;是否在线
+	GoodFeeling:int32 = 0	;好感度
+	GuildId:int32 = -1	;帮会id
+	GuildName:string	;帮会名字
+
+FriendFriendData
+	FriendList:FriendObj*	;好友列表
+	[FriendObj]
+		UserId:sint64 = -1	;用户Id
+		UserName:string	;名字
+		Level:int32 = -1	;等级
+		Prof:int32 = -1	;职业
+		Signature:string	;签名
+		TeamId:int32 = -1	;队伍Id
+		TeamMemberNum:int32 = 0	;队伍当前人数
+		Online:bool = false	;是否在线
+		GoodFeeling:int32 = 0	;好感度
+		GuildId:int32 = -1	;帮会id
+		GuildName:string	;帮会名字
+	BlackList:FriendObj*	;黑名单
+	[FriendObj]
+		UserId:sint64 = -1	;用户Id
+		UserName:string	;名字
+		Level:int32 = -1	;等级
+		Prof:int32 = -1	;职业
+		Signature:string	;签名
+		TeamId:int32 = -1	;队伍Id
+		TeamMemberNum:int32 = 0	;队伍当前人数
+		Online:bool = false	;是否在线
+		GoodFeeling:int32 = 0	;好感度
+		GuildId:int32 = -1	;帮会id
+		GuildName:string	;帮会名字
+	ContactsList:FriendObj*	;最近联系人
+	[FriendObj]
+		UserId:sint64 = -1	;用户Id
+		UserName:string	;名字
+		Level:int32 = -1	;等级
+		Prof:int32 = -1	;职业
+		Signature:string	;签名
+		TeamId:int32 = -1	;队伍Id
+		TeamMemberNum:int32 = 0	;队伍当前人数
+		Online:bool = false	;是否在线
+		GoodFeeling:int32 = 0	;好感度
+		GuildId:int32 = -1	;帮会id
+		GuildName:string	;帮会名字
+	StrangerFriendList:sint64* = -1	;加过我的人
+
+FriendRpcSyncFriendDataAsk↑ 每次打开界面，请求一次数据请求
+
+FriendRpcSyncFriendDataReply↓ 每次打开界面，请求一次数据回应
+	Result:int32 = -9999	;返回结果
+
+FriendRpcAddFriendAsk↑ 增加好友请求
+	UserId:sint64 = -1	;用户Id
+
+FriendRpcAddFriendReply↓ 增加好友回应
+	Result:int32 = -9999	;返回结果
+
+FriendRpcDelFriendAsk↑ 删除好友请求
+	UserId:sint64* = -1	;用户Id
+
+FriendRpcDelFriendReply↓ 删除好友回应
+	Result:int32 = -9999	;返回结果
+
+FriendRpcAddBlackListAsk↑ 增加黑名单请求
+	UserId:sint64 = -1	;用户Id
+
+FriendRpcAddBlackListReply↓ 增加黑名单回应
+	Result:int32 = -9999	;返回结果
+
+FriendRpcDelBlackListAsk↑ 删除黑名单请求
+	UserId:sint64 = -1	;用户Id
+
+FriendRpcDelBlackListReply↓ 删除黑名单回应
+	Result:int32 = -9999	;返回结果
+
+FriendRpcAddContactAsk↑ 增加最近联系人请求
+	UserId:sint64 = -1	;用户Id
+
+FriendRpcAddContactReply↓ 增加最近联系人回应
+	Result:int32 = -9999	;返回结果
+
+FriendRpcDelContactAsk↑ 删除最近联系人请求
+	UserId:sint64 = -1	;用户Id
+
+FriendRpcDelContactReply↓ 删除最近联系人回应
+	Result:int32 = -9999	;返回结果
+
+FriendRpcSearchPlayerAsk↑ 搜索好友请求
+	SearchString:string	;搜索内容
+
+FriendRpcSearchPlayerReply↓ 搜索好友回应
+	Result:int32 = -9999	;返回结果
+	UserId:sint64 = -1	;用户Id
+	UserName:string	;名字
+	Level:int32 = -1	;等级
+	Prof:int32 = -1	;职业
+
+FriendRpcRecommendObj
+	UserId:sint64 = -1	;用户Id
+	UserName:string	;名字
+	Level:int32 = -1	;等级
+	Prof:int32 = -1	;职业
+
+FriendRpcRecommendAsk↑ 推荐玩家请求
+
+FriendRpcRecommendReply↓ 推荐玩家回应
+	Result:int32 = -9999	;返回结果
+	RecommendList:RpcRecommendObj*	;推荐名单
+	[RpcRecommendObj]
+		UserId:sint64 = -1	;用户Id
+		UserName:string	;名字
+		Level:int32 = -1	;等级
+		Prof:int32 = -1	;职业
+
+FriendRpcViewUserSimpleInfoAsk↑ 查看资料简单数据请求
+	UserId:sint64 = -1	;用户Id
+
+FriendRpcViewUserSimpleInfoReply↓ 查看资料简单数据回应
+	Result:int32 = -9999	;返回结果
+	UserId:sint64 = -1	;用户Id
+	UserName:string	;名字
+	Level:int32 = -1	;等级
+	Prof:int32 = -1	;职业
+	TeamId:int32 = -1	;队伍Id
+	TeamMemberNum:int32 = -1	;队伍当前人数
+	GuildId:int32 = -1	;帮会id
+	Signature:string	;签名
+	Online:bool = false	;是否在线
+	GoodFeeling:int32 = 0	;好感度
+	GuildName:string	;帮会名字
+
+FriendRpcOnlineOfflineNotify↓ 好友上下线通知
+	UserId:sint64 = -1	;用户Id
+	UserName:string	;名字
+	Online:bool = false	;是否在线
+

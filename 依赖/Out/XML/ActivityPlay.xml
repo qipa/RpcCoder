@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<Root Module="ActivityPlay" CName="活动玩法" MsgNumStart="38" SyncDataVersion="1" Comment="">
+    <Struct Name="ActivityData" CName="活动数据" ProtoType="SyncProto" Comment="" DataType="CacheData" SaveToDB="False" SyncToClient="False" MaxFieldId="5">
+        <Field PreDefine="repeated" FieldType="ActivityNpcData" FieldId="1" Name="ThiefData" CName="江洋大盗数据" ValueSet="" MinValue="6" MaxValue="128" Comment="" />
+        <Field PreDefine="repeated" FieldType="ActivityNpcData" FieldId="2" Name="SubdueMonsterData" CName="降妖除魔数据" ValueSet="" MinValue="6" MaxValue="128" Comment="" />
+        <Field PreDefine="repeated" FieldType="WorldBossObj" FieldId="3" Name="WorldBossData" CName="世界Boss数据" ValueSet="" MinValue="6" MaxValue="128" Comment="" />
+        <Field PreDefine="repeated" FieldType="WorldBossRankObj" FieldId="4" Name="WorldBossRank" CName="世界Boss排名" ValueSet="" MinValue="6" MaxValue="128" Comment="" />
+    </Struct>
+</Root>

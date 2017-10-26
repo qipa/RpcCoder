@@ -1,0 +1,130 @@
+<?xml version="1.0"?>
+<Root Module="Task" CName="任务" MsgNumStart="24" SyncDataVersion="1" Comment="">
+    <Operate Name="SyncData" CName="数据同步" Comment="">
+        <OP_ASK Name="Ask" CName="请求" MsgID="24" DataStruct="RpcSyncDataAsk" Comment="" />
+        <OP_REPLY Name="Reply" CName="回应" MsgID="25" DataStruct="RpcSyncDataReply" Comment="" />
+    </Operate>
+    <Operate Name="CompleteTask" CName="完成任务目标" Comment="">
+        <OP_ASK Name="Ask" CName="请求" MsgID="26" DataStruct="RpcCompleteTaskAsk" Comment="" />
+        <OP_REPLY Name="Reply" CName="回应" MsgID="27" DataStruct="RpcCompleteTaskReply" Comment="" />
+    </Operate>
+    <Operate Name="SubmitTask" CName="提交任务" Comment="">
+        <OP_ASK Name="Ask" CName="请求" MsgID="28" DataStruct="RpcSubmitTaskAsk" Comment="" />
+        <OP_REPLY Name="Reply" CName="回应" MsgID="29" DataStruct="RpcSubmitTaskReply" Comment="" />
+    </Operate>
+    <Operate Name="UpdateTask" CName="更新任务" Comment="">
+        <OP_SERVER_NOTIFY Name="Notify" CName="通知" MsgID="30" DataStruct="RpcUpdateTaskNotify" Comment="" />
+    </Operate>
+    <Operate Name="AcceptTask" CName="接受任务" Comment="">
+        <OP_ASK Name="Ask" CName="请求" MsgID="31" DataStruct="RpcAcceptTaskAsk" Comment="" />
+        <OP_REPLY Name="Reply" CName="回应" MsgID="32" DataStruct="RpcAcceptTaskReply" Comment="" />
+    </Operate>
+    <Operate Name="StartProfTask" CName="开始师门任务" Comment="">
+        <OP_ASK Name="Ask" CName="请求" MsgID="33" DataStruct="RpcStartProfTaskAsk" Comment="" />
+        <OP_REPLY Name="Reply" CName="回应" MsgID="34" DataStruct="RpcStartProfTaskReply" Comment="" />
+    </Operate>
+    <Operate Name="StartOneDragon" CName="开始一条龙" Comment="">
+        <OP_ASK Name="Ask" CName="请求" MsgID="35" DataStruct="RpcStartOneDragonAsk" Comment="" />
+        <OP_REPLY Name="Reply" CName="回应" MsgID="36" DataStruct="RpcStartOneDragonReply" Comment="" />
+    </Operate>
+    <Operate Name="AddTask" CName="增加任务" Comment="">
+        <OP_SERVER_NOTIFY Name="Notify" CName="通知" MsgID="37" DataStruct="RpcAddTaskNotify" Comment="" />
+    </Operate>
+    <Operate Name="DelTask" CName="删除任务" Comment="">
+        <OP_SERVER_NOTIFY Name="Notify" CName="通知" MsgID="38" DataStruct="RpcDelTaskNotify" Comment="" />
+    </Operate>
+    <Operate Name="StartGuildSpy" CName="开始帮会刺探" Comment="">
+        <OP_ASK Name="Ask" CName="请求" MsgID="39" DataStruct="RpcStartGuildSpyAsk" Comment="" />
+        <OP_REPLY Name="Reply" CName="回应" MsgID="40" DataStruct="RpcStartGuildSpyReply" Comment="" />
+    </Operate>
+    <Struct Name="RpcSyncDataAsk" CName="数据同步请求" ProtoType="RpcProto" Comment="" DataType="RPCData" SaveToDB="False" SyncToClient="False" MaxFieldId="0" />
+    <Struct Name="RpcSyncDataReply" CName="数据同步回应" ProtoType="RpcProto" Comment="" DataType="RPCData" SaveToDB="False" SyncToClient="False" MaxFieldId="1">
+        <Field PreDefine="optional" FieldType="sint32" FieldId="1" Name="Result" CName="返回结果" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-9999" Comment="-9999 模块未启动&#xD;&#xA;-9998 请求字段值范围出错" />
+    </Struct>
+    <Struct Name="TaskObj" CName="主线任务对象" ProtoType="SyncProto" Comment="" DataType="ItemData" SaveToDB="False" SyncToClient="False" MaxFieldId="11">
+        <Field PreDefine="optional" FieldType="sint32" FieldId="1" Name="TaskId" CName="任务Id" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="2" Name="TaskState" CName="任务状态" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="0是任务接受,1是任务完成" />
+        <Field PreDefine="repeated" FieldType="TaskTargetObj" FieldId="3" Name="TaskTarget" CName="任务目标" ValueSet="" MinValue="6" MaxValue="128" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="4" Name="TaskType" CName="任务类型" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+        <Field PreDefine="optional" FieldType="bool" FieldId="5" Name="IsOrder" CName="顺序完成目标" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="true" Comment="" />
+        <Field PreDefine="optional" FieldType="bool" FieldId="6" Name="IsAutoSubmit" CName="是否自动提交" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="false" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="7" Name="CollectionId" CName="采集物Id" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="9" Name="DungeonId" CName="任务条件所在副本Id" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="10" Name="Guild" CName="帮派Id" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="11" Name="ObjId" CName="ObjId" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+    </Struct>
+    <Struct Name="TaskData" CName="任务数据" ProtoType="SyncProto" Comment="" DataType="UserData" SaveToDB="True" SyncToClient="True" MaxFieldId="10">
+        <Field PreDefine="repeated" FieldType="TaskObj" FieldId="2" Name="AllTaskArray" CName="全部任务数组" ValueSet="" MinValue="6" MaxValue="128" Comment="" />
+        <Field PreDefine="repeated" FieldType="UnacceptedTaskObj" FieldId="3" Name="UnacceptedTaskArray" CName="可接任务" ValueSet="" MinValue="6" MaxValue="128" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="4" Name="ProfTaskId" CName="师门任务环数" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="0" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="5" Name="ProfTaskCompCount" CName="师门任务完成次数" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="0" Comment="" />
+        <Field PreDefine="repeated" FieldType="sint32" FieldId="6" Name="OneDragonTaskId" CName="使用过的一条龙任务Id" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="7" Name="OneDragonRingNum" CName="一条龙环数" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="0" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="8" Name="OneDragonComplateCount" CName="一条龙完成次数" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="0" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="9" Name="OneDragonDungeonId" CName="一条龙副本Id" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="10" Name="GuildSpyComplateCount" CName="帮会刺探完成次数" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="0" Comment="" />
+    </Struct>
+    <Struct Name="RpcCompleteTaskAsk" CName="完成任务目标请求" ProtoType="RpcProto" Comment="" DataType="RPCData" SaveToDB="False" SyncToClient="False" MaxFieldId="2">
+        <Field PreDefine="optional" FieldType="sint32" FieldId="1" Name="TaskId" CName="任务Id" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="2" Name="Target" CName="目标" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+    </Struct>
+    <Struct Name="RpcCompleteTaskReply" CName="完成任务目标回应" ProtoType="RpcProto" Comment="" DataType="RPCData" SaveToDB="False" SyncToClient="False" MaxFieldId="3">
+        <Field PreDefine="optional" FieldType="sint32" FieldId="1" Name="Result" CName="返回结果" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-9999" Comment="-9999 模块未启动&#xD;&#xA;-9998 请求字段值范围出错" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="2" Name="TaskId" CName="任务Id" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="3" Name="Target" CName="目标" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+    </Struct>
+    <Struct Name="RpcSubmitTaskAsk" CName="提交任务请求" ProtoType="RpcProto" Comment="" DataType="RPCData" SaveToDB="False" SyncToClient="False" MaxFieldId="1">
+        <Field PreDefine="optional" FieldType="sint32" FieldId="1" Name="TaskId" CName="任务Id" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+    </Struct>
+    <Struct Name="RpcSubmitTaskReply" CName="提交任务回应" ProtoType="RpcProto" Comment="" DataType="RPCData" SaveToDB="False" SyncToClient="False" MaxFieldId="3">
+        <Field PreDefine="optional" FieldType="sint32" FieldId="1" Name="Result" CName="返回结果" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-9999" Comment="-9999 模块未启动&#xD;&#xA;-9998 请求字段值范围出错" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="2" Name="TaskId" CName="任务Id" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="3" Name="NextTaskId" CName="下一个任务id" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+    </Struct>
+    <Struct Name="RpcUpdateTaskNotify" CName="更新任务通知" ProtoType="RpcProto" Comment="" DataType="RPCData" SaveToDB="False" SyncToClient="False" MaxFieldId="3">
+        <Field PreDefine="optional" FieldType="sint32" FieldId="1" Name="TaskId" CName="任务Id" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="2" Name="TaskState" CName="任务状态" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+        <Field PreDefine="repeated" FieldType="sint32" FieldId="3" Name="TaskTargetCount" CName="任务目标数量" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+    </Struct>
+    <Struct Name="RpcAcceptTaskAsk" CName="接受任务请求" ProtoType="RpcProto" Comment="" DataType="RPCData" SaveToDB="False" SyncToClient="False" MaxFieldId="1">
+        <Field PreDefine="optional" FieldType="sint32" FieldId="1" Name="TaskId" CName="任务Id" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+    </Struct>
+    <Struct Name="RpcAcceptTaskReply" CName="接受任务回应" ProtoType="RpcProto" Comment="" DataType="RPCData" SaveToDB="False" SyncToClient="False" MaxFieldId="2">
+        <Field PreDefine="optional" FieldType="sint32" FieldId="1" Name="Result" CName="返回结果" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-9999" Comment="-9999 模块未启动&#xD;&#xA;-9998 请求字段值范围出错" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="2" Name="TaskId" CName="任务Id" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+    </Struct>
+    <Struct Name="TaskTargetObj" CName="任务目标对象" ProtoType="SyncProto" Comment="" DataType="ItemData" SaveToDB="False" SyncToClient="False" MaxFieldId="6">
+        <Field PreDefine="optional" FieldType="sint32" FieldId="1" Name="TargetType" CName="目标类型" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="2" Name="TargetId" CName="目标Id" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="3" Name="CurNum" CName="当前数量" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="4" Name="TotalNum" CName="总数量" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="6" Name="Id" CName="第几个目标" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+    </Struct>
+    <Struct Name="UnacceptedTaskObj" CName="未接任务对象" ProtoType="SyncProto" Comment="" DataType="ItemData" SaveToDB="False" SyncToClient="False" MaxFieldId="2">
+        <Field PreDefine="optional" FieldType="sint32" FieldId="1" Name="TaskId" CName="任务Id" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="2" Name="TaskType" CName="任务类型" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+    </Struct>
+    <Struct Name="RpcStartProfTaskAsk" CName="开始师门任务请求" ProtoType="RpcProto" Comment="" DataType="RPCData" SaveToDB="False" SyncToClient="False" MaxFieldId="0" />
+    <Struct Name="RpcStartProfTaskReply" CName="开始师门任务回应" ProtoType="RpcProto" Comment="" DataType="RPCData" SaveToDB="False" SyncToClient="False" MaxFieldId="2">
+        <Field PreDefine="optional" FieldType="sint32" FieldId="1" Name="Result" CName="返回结果" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-9999" Comment="-9999 模块未启动&#xD;&#xA;-9998 请求字段值范围出错" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="2" Name="TaskId" CName="任务Id" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+    </Struct>
+    <Struct Name="RpcStartOneDragonAsk" CName="开始一条龙请求" ProtoType="RpcProto" Comment="" DataType="RPCData" SaveToDB="False" SyncToClient="False" MaxFieldId="0" />
+    <Struct Name="RpcStartOneDragonReply" CName="开始一条龙回应" ProtoType="RpcProto" Comment="" DataType="RPCData" SaveToDB="False" SyncToClient="False" MaxFieldId="2">
+        <Field PreDefine="optional" FieldType="sint32" FieldId="1" Name="Result" CName="返回结果" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-9999" Comment="-9999 模块未启动&#xD;&#xA;-9998 请求字段值范围出错" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="2" Name="TaskId" CName="任务Id" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+    </Struct>
+    <Struct Name="RpcAddTaskNotify" CName="增加任务通知" ProtoType="RpcProto" Comment="" DataType="RPCData" SaveToDB="False" SyncToClient="False" MaxFieldId="2">
+        <Field PreDefine="optional" FieldType="sint32" FieldId="1" Name="TaskId" CName="任务Id" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="2" Name="TaskState" CName="任务状态" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+    </Struct>
+    <Struct Name="RpcDelTaskNotify" CName="删除任务通知" ProtoType="RpcProto" Comment="" DataType="RPCData" SaveToDB="False" SyncToClient="False" MaxFieldId="2">
+        <Field PreDefine="optional" FieldType="sint32" FieldId="1" Name="TaskId" CName="任务Id" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="2" Name="TaskState" CName="任务状态" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+    </Struct>
+    <Struct Name="RpcStartGuildSpyAsk" CName="开始帮会刺探请求" ProtoType="RpcProto" Comment="" DataType="RPCData" SaveToDB="False" SyncToClient="False" MaxFieldId="0" />
+    <Struct Name="RpcStartGuildSpyReply" CName="开始帮会刺探回应" ProtoType="RpcProto" Comment="" DataType="RPCData" SaveToDB="False" SyncToClient="False" MaxFieldId="2">
+        <Field PreDefine="optional" FieldType="sint32" FieldId="1" Name="Result" CName="返回结果" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-9999" Comment="-9999 模块未启动&#xD;&#xA;-9998 请求字段值范围出错" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="2" Name="TaskId" CName="任务Id" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+    </Struct>
+</Root>

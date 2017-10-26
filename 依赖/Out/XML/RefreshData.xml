@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<Root Module="RefreshData" CName="刷新数据" MsgNumStart="39" SyncDataVersion="1" Comment="">
+    <Struct Name="RefreshData" CName="刷新数据" ProtoType="SyncProto" Comment="" DataType="UserData" SaveToDB="True" SyncToClient="True" MaxFieldId="1">
+        <Field PreDefine="optional" FieldType="sint32" FieldId="1" Name="LastRefreshTime" CName="上次刷新" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="0" Comment="" />
+    </Struct>
+</Root>

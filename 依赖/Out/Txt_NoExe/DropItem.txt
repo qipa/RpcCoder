@@ -1,0 +1,25 @@
+
+DropItemRpcDropItemNoticeNotify↓ 物品掉落通知通知
+	DropItem:DropItemObj*	;掉落的物品
+	[DropItemObj]
+		ConfigId:int32 = -1	;物品的配置Id
+		UId:int32 = -1	;下标
+		Num:int32 = 0	;物品数量
+		ItemType:int32 = -1	;物品类型
+		AttrNum:int32 = 0	;属性数量
+		MonsterObjId:int32 = -1	;怪物ObjId
+		PosInfo:bytes	;位置信息
+		CreateTime:int32 = 0	;创建时间
+		IsPickup:bool = false	;是否已经拾取
+		ItemId:sint64 = -1	;物品唯一Id
+		DestroyTime:int32 = 0	;销毁时间
+
+DropItemRpcPickupItemAsk↑ 捡物品请求
+	UId:int32 = -1	;下标
+
+DropItemRpcPickupItemReply↓ 捡物品回应
+	Result:int32 = -9999	;返回结果
+
+DropItemRpcDelDropItemNotify↓ 删除掉落通知
+	UId:int32 = -1	;下标
+

@@ -1,0 +1,75 @@
+ChatRpcSendChatAsk↑ 发送聊天请求
+	ChatMsg:ChatMsgObj	;聊天消息
+	[ChatMsgObj]
+		Channel:int32 = 0	;频道
+		Text:string	;文字
+		Voice:bytes	;语音
+		TargetUserId:sint64 = -1	;对方UserId
+		URL:bytes	;URL
+		ChildChannel:int32 = -1	;子频道
+
+ChatRpcSendChatReply↓ 发送聊天回应
+	Result:int32 = -9999	;返回结果
+
+ChatRpcSyncChatNotify↓ 同步聊天通知
+	ChatData:ChatObj	;聊天对象
+	[ChatObj]
+		ChatMsg:ChatMsgObj	;聊天数据
+		[ChatMsgObj]
+			Channel:int32 = 0	;频道
+			Text:string	;文字
+			Voice:bytes	;语音
+			TargetUserId:sint64 = -1	;对方UserId
+			URL:bytes	;URL
+			ChildChannel:int32 = -1	;子频道
+		UserInfo:ChatUserInfoObj	;发言人信息
+		[ChatUserInfoObj]
+			UserId:sint64 = -1	;用户ID
+			UserName:string	;玩家名字
+			Prof:int32 = -1	;职业
+			Level:int32 = -1	;玩家等级
+
+ChatRpcSyncPrivateChatMsgNotify↓ 同步私聊留言通知
+	ChatData:ChatObj*	;聊天对象
+	[ChatObj]
+		ChatMsg:ChatMsgObj	;聊天数据
+		[ChatMsgObj]
+			Channel:int32 = 0	;频道
+			Text:string	;文字
+			Voice:bytes	;语音
+			TargetUserId:sint64 = -1	;对方UserId
+			URL:bytes	;URL
+			ChildChannel:int32 = -1	;子频道
+		UserInfo:ChatUserInfoObj	;发言人信息
+		[ChatUserInfoObj]
+			UserId:sint64 = -1	;用户ID
+			UserName:string	;玩家名字
+			Prof:int32 = -1	;职业
+			Level:int32 = -1	;玩家等级
+
+ChatRpcSvrChatNotify↓ 服务器发送聊天通知
+	ChatData:ChatNetData	;聊天对象
+	[ChatNetData]
+		HyperlinkList:ChatHyperLink*	;所有的超链接信息
+		[ChatHyperLink]
+			Uid:sint64 = -1	;物品唯一ID
+			ConfigID:int32 = -1	;配置表ID
+			Type:int32 = -1	;超链类型
+			Text:string	;描述
+			Userid:sint64 = -1	;用户ID
+			FunId:int32 = -1	;功能Id
+			FunParam:bytes	;功能参数
+		Text:string	;文本
+		UserInfo:ChatUserInfoObj	;发言人信息
+		[ChatUserInfoObj]
+			UserId:sint64 = -1	;用户ID
+			UserName:string	;玩家名字
+			Prof:int32 = -1	;职业
+			Level:int32 = -1	;玩家等级
+		Channel:int32 = 0	;频道
+		ChildChannel:int32 = -1	;子频道
+
+ChatRpcChatFun1
+	TargetUserId:sint64 = -1	;对方UserId
+	TemplateId:int32 = -1	;物品ID
+

@@ -1,0 +1,9 @@
+DungeonKeyDungeonKeyId
+	DungeonKey:string	;Key
+	KeyId:int32 = -1	;KeyId
+	DungeonId:int32 = -1	;副本ID
+	DungeonType:int32 = -1	;副本类型
+	Host:string	;Host
+	Port:int32 = -1	;Port
+
+

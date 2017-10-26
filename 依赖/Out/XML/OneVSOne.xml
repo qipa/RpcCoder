@@ -1,0 +1,133 @@
+<?xml version="1.0"?>
+<Root Module="OneVSOne" CName="一v一" MsgNumStart="41" SyncDataVersion="1" Comment="">
+    <Operate Name="Flush" CName="刷新自己的数据" Comment="">
+        <OP_ASK Name="Ask" CName="请求" MsgID="41" DataStruct="RpcFlushAsk" Comment="" />
+        <OP_REPLY Name="Reply" CName="回应" MsgID="42" DataStruct="RpcFlushReply" Comment="" />
+    </Operate>
+    <Operate Name="Act" CName="发起挑战" Comment="">
+        <OP_ASK Name="Ask" CName="请求" MsgID="43" DataStruct="RpcActAsk" Comment="" />
+        <OP_REPLY Name="Reply" CName="回应" MsgID="44" DataStruct="RpcActReply" Comment="" />
+    </Operate>
+    <Operate Name="ActMessage" CName="挑战消息" Comment="">
+        <OP_SERVER_NOTIFY Name="Notify" CName="通知" MsgID="45" DataStruct="RpcActMessageNotify" Comment="" />
+    </Operate>
+    <Operate Name="ReplyAct" CName="回应谁的挑战" Comment="">
+        <OP_ASK Name="Ask" CName="请求" MsgID="46" DataStruct="RpcReplyActAsk" Comment="" />
+        <OP_REPLY Name="Reply" CName="回应" MsgID="47" DataStruct="RpcReplyActReply" Comment="" />
+    </Operate>
+    <Operate Name="GetTop" CName="排行榜数据" Comment="">
+        <OP_ASK Name="Ask" CName="请求" MsgID="48" DataStruct="RpcGetTopAsk" Comment="" />
+        <OP_REPLY Name="Reply" CName="回应" MsgID="49" DataStruct="RpcGetTopReply" Comment="" />
+    </Operate>
+    <Operate Name="AdjustmentSkill" CName="调整技能" Comment="">
+        <OP_ASK Name="Ask" CName="请求" MsgID="50" DataStruct="RpcAdjustmentSkillAsk" Comment="" />
+        <OP_REPLY Name="Reply" CName="回应" MsgID="51" DataStruct="RpcAdjustmentSkillReply" Comment="" />
+    </Operate>
+    <Operate Name="GetSkill" CName="获取设置的技能" Comment="">
+        <OP_ASK Name="Ask" CName="请求" MsgID="52" DataStruct="RpcGetSkillAsk" Comment="" />
+        <OP_REPLY Name="Reply" CName="回应" MsgID="53" DataStruct="RpcGetSkillReply" Comment="" />
+    </Operate>
+    <Operate Name="GetActMessage" CName="获得攻守的信息" Comment="">
+        <OP_ASK Name="Ask" CName="请求" MsgID="54" DataStruct="RpcGetActMessageAsk" Comment="" />
+        <OP_REPLY Name="Reply" CName="回应" MsgID="55" DataStruct="RpcGetActMessageReply" Comment="" />
+    </Operate>
+    <Operate Name="ACTResultNotify" CName="战斗结果Notify 叶青给我我就给客户端" Comment="">
+        <OP_SERVER_NOTIFY Name="Notify" CName="通知" MsgID="56" DataStruct="RpcACTResultNotifyNotify" Comment="" />
+    </Operate>
+    <Struct Name="RpcFlushAsk" CName="刷新自己的数据请求" ProtoType="RpcProto" Comment="" DataType="RPCData" SaveToDB="False" SyncToClient="False" MaxFieldId="1">
+        <Field PreDefine="optional" FieldType="sint32" FieldId="1" Name="IsOpen" CName="是不是打开界面" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="0" Comment="1是0不是" />
+    </Struct>
+    <Struct Name="RpcFlushReply" CName="刷新自己的数据回应" ProtoType="RpcProto" Comment="" DataType="RPCData" SaveToDB="False" SyncToClient="False" MaxFieldId="8">
+        <Field PreDefine="optional" FieldType="sint32" FieldId="1" Name="Result" CName="返回结果" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-9999" Comment="-9999 模块未启动&#xD;&#xA;-9998 请求字段值范围出错" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="2" Name="Ranking" CName="排行名次" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="3" Name="FightingCapacity" CName="战斗力" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="4" Name="OneVSOneNum" CName="一对一的剩余次数" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+        <Field PreDefine="repeated" FieldType="TimeTop" FieldId="5" Name="TimeRankings" CName="时间名次" ValueSet="" MinValue="6" MaxValue="128" Comment="" />
+        <Field PreDefine="repeated" FieldType="ActPeo" FieldId="6" Name="ActPeos" CName="挑战的人" ValueSet="" MinValue="6" MaxValue="128" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="7" Name="IsOpen" CName="是不是打开界面" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="0" Comment="1是0不是" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="8" Name="LockTime" CName="锁定时间 秒 小于等于0 忽略" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+    </Struct>
+    <Struct Name="ActPeo" CName="挑战的人" ProtoType="RpcProto" Comment="" DataType="ItemData" SaveToDB="False" SyncToClient="False" MaxFieldId="10">
+        <Field PreDefine="optional" FieldType="string" FieldId="1" Name="PlanName" CName="昵称" ValueSet="" MinValue="6" MaxValue="128" DefaultValue="" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="3" Name="Ranking" CName="排行名次" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="4" Name="FightingCapacity" CName="战斗力" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+        <Field PreDefine="optional" FieldType="sint64" FieldId="5" Name="UserId" CName="用户ID" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="游戏world中的唯一ID" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="7" Name="MardID" CName="职业id" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="8" Name="LV" CName="等级" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+        <Field PreDefine="optional" FieldType="string" FieldId="9" Name="HeadPath" CName="头像路径 防止个性化" ValueSet="" MinValue="6" MaxValue="128" DefaultValue="" Comment="" />
+    </Struct>
+    <Struct Name="RpcActAsk" CName="发起挑战请求" ProtoType="RpcProto" Comment="" DataType="RPCData" SaveToDB="False" SyncToClient="False" MaxFieldId="4">
+        <Field PreDefine="optional" FieldType="sint64" FieldId="2" Name="UserId" CName="用户ID" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="游戏world中的唯一ID" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="4" Name="Ranking" CName="排行名次" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+    </Struct>
+    <Struct Name="RpcActReply" CName="发起挑战回应" ProtoType="RpcProto" Comment="" DataType="RPCData" SaveToDB="False" SyncToClient="False" MaxFieldId="8">
+        <Field PreDefine="optional" FieldType="sint32" FieldId="1" Name="Result" CName="返回结果" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-9999" Comment="-9999 模块未启动&#xD;&#xA;-9998 请求字段值范围出错" />
+        <Field PreDefine="optional" FieldType="sint64" FieldId="2" Name="UserId" CName="用户ID" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="游戏world中的唯一ID" />
+        <Field PreDefine="optional" FieldType="string" FieldId="4" Name="PlanName" CName="昵称" ValueSet="" MinValue="6" MaxValue="128" DefaultValue="" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="6" Name="OneVSOneNum" CName="一对一的剩余次数" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="7" Name="Ranking" CName="排行名次" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="8" Name="IsCopy" CName="对方是不是复制人1是0不是" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="0" Comment="" />
+    </Struct>
+    <Struct Name="RpcActMessageNotify" CName="挑战消息通知" ProtoType="RpcProto" Comment="" DataType="RPCData" SaveToDB="False" SyncToClient="False" MaxFieldId="3">
+        <Field PreDefine="optional" FieldType="sint64" FieldId="1" Name="UserId" CName="用户ID" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="游戏world中的唯一ID" />
+        <Field PreDefine="optional" FieldType="string" FieldId="2" Name="PlanName" CName="昵称" ValueSet="" MinValue="6" MaxValue="128" DefaultValue="" Comment="" />
+    </Struct>
+    <Struct Name="RpcReplyActAsk" CName="回应谁的挑战请求" ProtoType="RpcProto" Comment="" DataType="RPCData" SaveToDB="False" SyncToClient="False" MaxFieldId="2">
+        <Field PreDefine="optional" FieldType="sint64" FieldId="1" Name="UserId" CName="用户ID" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="游戏world中的唯一ID" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="2" Name="IsOK" CName="是不是同意了 1是 其他不是" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+    </Struct>
+    <Struct Name="RpcReplyActReply" CName="回应谁的挑战回应" ProtoType="RpcProto" Comment="" DataType="RPCData" SaveToDB="False" SyncToClient="False" MaxFieldId="5">
+        <Field PreDefine="optional" FieldType="sint32" FieldId="1" Name="Result" CName="返回结果" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-9999" Comment="-9999 模块未启动&#xD;&#xA;-9998 请求字段值范围出错" />
+        <Field PreDefine="optional" FieldType="sint64" FieldId="2" Name="UserId" CName="用户ID" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="游戏world中的唯一ID" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="4" Name="IsOK" CName="是不是同意了 1是 其他不是" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+        <Field PreDefine="optional" FieldType="string" FieldId="5" Name="PlanName" CName="昵称" ValueSet="" MinValue="6" MaxValue="128" DefaultValue="" Comment="" />
+    </Struct>
+    <Struct Name="RpcGetTopAsk" CName="排行榜数据请求" ProtoType="RpcProto" Comment="" DataType="RPCData" SaveToDB="False" SyncToClient="False" MaxFieldId="0" />
+    <Struct Name="RpcGetTopReply" CName="排行榜数据回应" ProtoType="RpcProto" Comment="" DataType="RPCData" SaveToDB="False" SyncToClient="False" MaxFieldId="2">
+        <Field PreDefine="optional" FieldType="sint32" FieldId="1" Name="Result" CName="返回结果" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-9999" Comment="-9999 模块未启动&#xD;&#xA;-9998 请求字段值范围出错" />
+        <Field PreDefine="repeated" FieldType="TopMess" FieldId="2" Name="TopMesses" CName="排行榜数据" ValueSet="" MinValue="6" MaxValue="128" Comment="" />
+    </Struct>
+    <Struct Name="RpcAdjustmentSkillAsk" CName="调整技能请求" ProtoType="RpcProto" Comment="" DataType="RPCData" SaveToDB="False" SyncToClient="False" MaxFieldId="1">
+        <Field PreDefine="repeated" FieldType="OneSData" FieldId="1" Name="SkillDate" CName="技能数据" ValueSet="" MinValue="6" MaxValue="128" Comment="" />
+    </Struct>
+    <Struct Name="RpcAdjustmentSkillReply" CName="调整技能回应" ProtoType="RpcProto" Comment="" DataType="RPCData" SaveToDB="False" SyncToClient="False" MaxFieldId="2">
+        <Field PreDefine="optional" FieldType="sint32" FieldId="1" Name="Result" CName="返回结果" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-9999" Comment="-9999 模块未启动&#xD;&#xA;-9998 请求字段值范围出错" />
+        <Field PreDefine="repeated" FieldType="OneSData" FieldId="2" Name="SkillDate" CName="技能数据" ValueSet="" MinValue="6" MaxValue="128" Comment="" />
+    </Struct>
+    <Struct Name="RpcGetSkillAsk" CName="获取设置的技能请求" ProtoType="RpcProto" Comment="" DataType="RPCData" SaveToDB="False" SyncToClient="False" MaxFieldId="0" />
+    <Struct Name="RpcGetSkillReply" CName="获取设置的技能回应" ProtoType="RpcProto" Comment="" DataType="RPCData" SaveToDB="False" SyncToClient="False" MaxFieldId="2">
+        <Field PreDefine="optional" FieldType="sint32" FieldId="1" Name="Result" CName="返回结果" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-9999" Comment="-9999 模块未启动&#xD;&#xA;-9998 请求字段值范围出错" />
+        <Field PreDefine="repeated" FieldType="OneSData" FieldId="2" Name="SkillDate" CName="技能数据" ValueSet="" MinValue="6" MaxValue="128" Comment="" />
+    </Struct>
+    <Struct Name="RpcGetActMessageAsk" CName="获得攻守的信息请求" ProtoType="RpcProto" Comment="" DataType="RPCData" SaveToDB="False" SyncToClient="False" MaxFieldId="0" />
+    <Struct Name="RpcGetActMessageReply" CName="获得攻守的信息回应" ProtoType="RpcProto" Comment="" DataType="RPCData" SaveToDB="False" SyncToClient="False" MaxFieldId="2">
+        <Field PreDefine="optional" FieldType="sint32" FieldId="1" Name="Result" CName="返回结果" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-9999" Comment="-9999 模块未启动&#xD;&#xA;-9998 请求字段值范围出错" />
+        <Field PreDefine="repeated" FieldType="ActMessage" FieldId="2" Name="ActMessages" CName="消息记录" ValueSet="" MinValue="6" MaxValue="128" Comment="" />
+    </Struct>
+    <Struct Name="OneVSOneDate" CName="一对一的数据" ProtoType="SyncProto" Comment="" DataType="ModuleData" SaveToDB="True" SyncToClient="False" MaxFieldId="10">
+        <Field PreDefine="repeated" FieldType="OneSData" FieldId="4" Name="SkillDate" CName="技能数据" ValueSet="" MinValue="6" MaxValue="128" Comment="" />
+        <Field PreDefine="repeated" FieldType="ActMessage" FieldId="5" Name="Log" CName="log日志" ValueSet="" MinValue="6" MaxValue="128" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="6" Name="OneVSOneNum" CName="一对一的剩余次数" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+        <Field PreDefine="optional" FieldType="sint64" FieldId="7" Name="SaveTime" CName="格林威治时间服务器用" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="8" Name="Ranking" CName="排行名次" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="0" Comment="" />
+        <Field PreDefine="repeated" FieldType="TimeTop" FieldId="10" Name="RankingTimes" CName="排行名次 时间段的" ValueSet="" MinValue="6" MaxValue="128" Comment="" />
+    </Struct>
+    <Struct Name="RpcACTResultNotifyNotify" CName="战斗结果Notify 叶青给我我就给客户端通知" ProtoType="RpcProto" Comment="" DataType="RPCData" SaveToDB="False" SyncToClient="False" MaxFieldId="4">
+        <Field PreDefine="optional" FieldType="sint32" FieldId="1" Name="IsChanllengorWon" CName="挑战方是否赢了" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="0" Comment="1 yes 0 no" />
+        <Field PreDefine="optional" FieldType="OVOResultInfo" FieldId="2" Name="Chanllengor" CName="攻击者信息" ValueSet="" MinValue="6" MaxValue="128" Comment="" />
+        <Field PreDefine="optional" FieldType="OVOResultInfo" FieldId="3" Name="BeAttacked" CName="被攻击者信息" ValueSet="" MinValue="6" MaxValue="128" Comment="" />
+    </Struct>
+    <Struct Name="OVOResultInfo" CName="1V1玩家战斗结果信息" ProtoType="RpcProto" Comment="" DataType="ItemData" SaveToDB="False" SyncToClient="False" MaxFieldId="14">
+        <Field PreDefine="optional" FieldType="sint64" FieldId="1" Name="UserId" CName="USERId" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="2" Name="Damage" CName="伤害" ValueSet="" MinValue="0" MaxValue="10000000" DefaultValue="0" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="3" Name="BeHurted" CName="承受伤害" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="0" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="4" Name="Healed" CName="治疗" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="0" Comment="" />
+        <Field PreDefine="optional" FieldType="string" FieldId="5" Name="Name" CName="昵称" ValueSet="" MinValue="6" MaxValue="128" DefaultValue="" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="7" Name="Ranking" CName="现在的排行名次" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="0" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="8" Name="BeforeRanking" CName="之前的排名" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="11" Name="JobID" CName="职业ID" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+        <Field PreDefine="optional" FieldType="string" FieldId="12" Name="HeadICO" CName="自定义头像" ValueSet="" MinValue="6" MaxValue="128" DefaultValue="" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="13" Name="LV" CName="等级" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="14" Name="IsWin" CName="是不是赢了1是0不是" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="0" Comment="" />
+    </Struct>
+</Root>

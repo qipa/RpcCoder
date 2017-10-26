@@ -1,0 +1,38 @@
+TalismanRpcSyncDataAsk↑ 数据同步请求
+
+TalismanRpcSyncDataReply↓ 数据同步回应
+	Result:int32 = -9999	;返回结果
+
+TalismanRpcUpgradeAsk↑ 升级请求
+	ID:int32 = -1	;ID 
+	Type:int32 = -1	;类型
+
+TalismanRpcUpgradeReply↓ 升级回应
+	Result:int32 = -9999	;返回结果
+	ID:int32 = -1	;ID 
+
+TalismanRpcActiveAsk↑ 激活请求
+	ID:int32 = -1	;ID 
+
+TalismanRpcActiveReply↓ 激活回应
+	Result:int32 = -9999	;返回结果
+	ID:int32 = -1	;ID 
+
+TalismanDataFabao
+	FabaoArr:FabaoInfo*	;法宝列表
+	[FabaoInfo]
+		ID:int32 = -1	;ID
+		Lv:int32 = 1	;LV
+		IsActived:int32 = 0	;是否激活
+		ActivedCondID:int32* = -1	;已激活的条件ID
+		Exp:int32 = 0	;经验
+		HitType:int32 = -1	;爆击类型
+
+TalismanFabaoInfo
+	ID:int32 = -1	;ID
+	Lv:int32 = 1	;LV
+	IsActived:int32 = 0	;是否激活
+	ActivedCondID:int32* = -1	;已激活的条件ID
+	Exp:int32 = 0	;经验
+	HitType:int32 = -1	;爆击类型
+

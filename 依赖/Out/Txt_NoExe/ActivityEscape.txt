@@ -1,0 +1,6 @@
+ActivityEscapeRpcSignUpAsk↑ 报名进入请求
+
+ActivityEscapeRpcSignUpReply↓ 报名进入回应
+	Result:int32 = -9999	;返回结果
+	LosePeopleID:sint64* = -1	;次数已满的人员id
+

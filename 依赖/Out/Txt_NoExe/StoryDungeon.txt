@@ -1,0 +1,37 @@
+StoryDungeonStoryDungeonObj
+	Id:int32 = -1	;Id
+	IsLock:bool = true	;副本锁定
+
+StoryDungeonRpcSyncDataAsk↑ SyncData请求
+
+StoryDungeonRpcSyncDataReply↓ SyncData回应
+	Result:int32 = -9999	;返回结果
+
+StoryDungeonRpcChallengeAsk↑ 挑战副本请求
+	Id:int32 = -1	;Id
+
+StoryDungeonRpcChallengeReply↓ 挑战副本回应
+	Result:int32 = -9999	;返回结果
+	ErrorUserName:string	;玩家名字
+
+StoryDungeonRpcWaitForConfirmationNotify↓ 等待玩家确认是否选择进入通知
+	Id:int32 = -1	;Id
+
+StoryDungeonRpcConfirmEnterAsk↑ 确认是否进入请求
+	IsAgree:bool = false	;同意进入
+
+StoryDungeonRpcConfirmEnterReply↓ 确认是否进入回应
+	Result:int32 = -9999	;返回结果
+
+StoryDungeonRpcPlayerConfirmResultNotify↓ 玩家确认或拒绝进入通知
+	UserId:sint64 = -1	;用户ID
+	UserName:string	;玩家名字
+	IsAgree:bool = false	;同意进入
+
+StoryDungeonStoryDungeon
+	StoryDungeon:StoryDungeonObj*	;剧情副本数据
+	[StoryDungeonObj]
+		Id:int32 = -1	;Id
+		IsLock:bool = true	;副本锁定
+	ChallengeNum:int32 = 0	;剩余挑战次数
+

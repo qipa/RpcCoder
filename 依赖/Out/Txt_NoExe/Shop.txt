@@ -1,0 +1,50 @@
+ShopRpcSyncDataAsk↑ 数据同步请求
+
+ShopRpcSyncDataReply↓ 数据同步回应
+	Result:int32 = -9999	;返回结果
+
+ShopRpcBuyAsk↑ 购买请求
+	ShopType:int32 = -1	;商店类型
+	ItemId:int32 = -1	;道具id
+	Pos:int32 = -1	;道具位置
+
+ShopRpcBuyReply↓ 购买回应
+	Result:int32 = -9999	;返回结果
+	ShopType:int32 = -1	;商店类型
+	ItemId:int32 = -1	;道具id
+	Pos:int32 = -1	;道具位置
+
+ShopRpcRefreshItemAsk↑ 刷新道具请求
+	ShopType:int32 = -1	;商店类型
+
+ShopRpcRefreshItemReply↓ 刷新道具回应
+	Result:int32 = -9999	;返回结果
+	ShopType:int32 = -1	;商店类型
+
+ShopShopData
+	ShopArray:ShopObj*	;商店
+	[ShopObj]
+		ShopType:int32 = -1	;商店类型
+		ItemArray:ItemObj*	;道具
+		[ItemObj]
+			ItemId:int32 = -1	;道具id
+			Count:int32 = -1	;数量
+			Pos:int32 = -1	;道具位置
+		LastRefreshTime:sint64 = -1	;上次刷新时间
+		RefreshTimes:int32 = -1	;刷新次数
+
+ShopShopObj
+	ShopType:int32 = -1	;商店类型
+	ItemArray:ItemObj*	;道具
+	[ItemObj]
+		ItemId:int32 = -1	;道具id
+		Count:int32 = -1	;数量
+		Pos:int32 = -1	;道具位置
+	LastRefreshTime:sint64 = -1	;上次刷新时间
+	RefreshTimes:int32 = -1	;刷新次数
+
+ShopItemObj
+	ItemId:int32 = -1	;道具id
+	Count:int32 = -1	;数量
+	Pos:int32 = -1	;道具位置
+

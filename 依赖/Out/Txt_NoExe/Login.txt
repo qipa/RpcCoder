@@ -1,0 +1,11 @@
+LoginRpcKeyAuthAsk↑ 密钥认证请求
+	DistId:int32 = -1	;区ID
+	RsaData:string	;加密数据
+
+LoginRpcKeyAuthReply↓ 密钥认证回应
+	Result:int32 = -9999	;返回结果
+	UserId:sint64 = -1	;用户ID
+	PlatName:string	;平台账号名
+
+LoginRpcKickOffNotify↓ 被踢下线通知
+

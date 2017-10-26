@@ -1,0 +1,69 @@
+GodWeaponRpcSyncDataAsk↑ 数据同步请求
+
+GodWeaponRpcSyncDataReply↓ 数据同步回应
+	Result:int32 = -9999	;返回结果
+
+GodWeaponRpcAwakenAsk↑ 觉醒请求
+	Id:int32 = -1	;神器Id
+
+GodWeaponRpcAwakenReply↓ 觉醒回应
+	Result:int32 = -9999	;返回结果
+	Id:int32 = -1	;神器Id
+
+GodWeaponGodWeaponData
+	GodWeaponArray:GodWeaponObj*	;神器数组
+	[GodWeaponObj]
+		Id:int32 = -1	;神器id
+		Quality:int32 = 0	;品质
+		Star:int32 = 0	;星级
+		GemArray:GemObj*	;宝石1
+		[GemObj]
+			Id:int32 = -1	;宝石id
+			Pos:int32 = -1	;位置
+	GemBagArray:GemGridObj*	;宝石数组
+	[GemGridObj]
+		GemId:int32 = -1	;宝石id
+		Count:int32 = -1	;宝石数量
+
+GodWeaponRpcInlayAsk↑ 宝石镶嵌请求
+	Id:int32 = -1	;神器Id
+	GemId:int32 = -1	;宝石id
+	Pos:int32 = -1	;位置
+
+GodWeaponRpcInlayReply↓ 宝石镶嵌回应
+	Result:int32 = -9999	;返回结果
+	Id:int32 = -1	;神器Id
+	GemId:int32 = -1	;宝石id
+	Pos:int32 = -1	;位置
+
+GodWeaponRpcUnloadAsk↑ 卸下宝石请求
+	Id:int32 = -1	;神器Id
+	Pos:int32 = -1	;位置
+
+GodWeaponRpcUnloadReply↓ 卸下宝石回应
+	Result:int32 = -9999	;返回结果
+	Id:int32 = -1	;神器Id
+	Pos:int32 = -1	;位置
+
+GodWeaponRpcCompoundAsk↑ 宝石合成请求
+
+GodWeaponRpcCompoundReply↓ 宝石合成回应
+	Result:int32 = -9999	;返回结果
+
+GodWeaponGemGridObj
+	GemId:int32 = -1	;宝石id
+	Count:int32 = -1	;宝石数量
+
+GodWeaponGemObj
+	Id:int32 = -1	;宝石id
+	Pos:int32 = -1	;位置
+
+GodWeaponGodWeaponObj
+	Id:int32 = -1	;神器id
+	Quality:int32 = 0	;品质
+	Star:int32 = 0	;星级
+	GemArray:GemObj*	;宝石1
+	[GemObj]
+		Id:int32 = -1	;宝石id
+		Pos:int32 = -1	;位置
+

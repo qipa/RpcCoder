@@ -1,0 +1,114 @@
+SkillSkillObj
+	SkillId:int32 = -1	;技能Id
+	Lv:int32 = 1	;等级
+	IsLearn:bool = false	;是否学习
+
+SkillSkillData
+	SkillArray:SkillObj*	;全部技能
+	[SkillObj]
+		SkillId:int32 = -1	;技能Id
+		Lv:int32 = 1	;等级
+		IsLearn:bool = false	;是否学习
+	ShortcutArray:ShortcutObj*	;快捷栏
+	[ShortcutObj]
+		SkillId:int32* = -1	;技能Id
+		Type:int32 = -1	;类型
+	ShortcutId:int32 = -1	;方案Id，从0开始
+	TalentSkill:TalentSlot*	;天赋技能
+	[TalentSlot]
+		SkillId:int32 = -1	;技能Id
+		Level:int32 = 0	;槽位等级
+		IsLock:bool = true	;是否开启
+	TotalCostExp:int32 = 0	;累计技能消耗经验
+	TalentLevel:int32 = 0	;修为等级
+	TalentPoint:int32 = 0	;天赋点
+	LifeSkillArray:SkillObj*	;生活技能
+	[SkillObj]
+		SkillId:int32 = -1	;技能Id
+		Lv:int32 = 1	;等级
+		IsLearn:bool = false	;是否学习
+
+SkillShortcutObj
+	SkillId:int32* = -1	;技能Id
+	Type:int32 = -1	;类型
+
+SkillRpcSyncDataAsk↑ 数据同步请求
+
+SkillRpcSyncDataReply↓ 数据同步回应
+	Result:int32 = -9999	;返回结果
+
+SkillRpcLearnAsk↑ 学习请求
+	SkillId:int32 = -1	;技能Id
+
+SkillRpcLearnReply↓ 学习回应
+	Result:int32 = -9999	;返回结果
+	SkillId:int32 = -1	;技能Id
+
+SkillRpcLvUpAsk↑ 升级请求
+	SkillId:int32 = -1	;技能Id
+
+SkillRpcLvUpReply↓ 升级回应
+	Result:int32 = -9999	;返回结果
+	SkillId:int32 = -1	;技能Id
+
+SkillRpcChangeShortcutAsk↑ 修改快捷栏请求
+	SkillId:int32 = -1	;技能Id
+	Pos:int32 = -1	;位置
+	Id:int32 = -1	;方案1=0
+
+SkillRpcChangeShortcutReply↓ 修改快捷栏回应
+	Result:int32 = -9999	;返回结果
+	SkillId:int32 = -1	;技能Id
+	Pos:int32 = -1	;位置
+	Id:int32 = -1	;方案1=0
+
+SkillRpcUseShortcutAsk↑ 使用技能方案请求
+	Id:int32 = -1	;方案1=0
+
+SkillRpcUseShortcutReply↓ 使用技能方案回应
+	Result:int32 = -9999	;返回结果
+	Id:int32 = -1	;方案1=0
+
+SkillRpcOneKeyLvUpAsk↑ 一键升级请求
+	SkillId:int32 = -1	;技能Id
+
+SkillRpcOneKeyLvUpReply↓ 一键升级回应
+	Result:int32 = -9999	;返回结果
+	SkillId:int32 = -1	;技能Id
+
+SkillTalentSlot
+	SkillId:int32 = -1	;技能Id
+	Level:int32 = 0	;槽位等级
+	IsLock:bool = true	;是否开启
+
+SkillRpcTalentChangeSkillAsk↑ 天赋槽位切换技能请求
+	Index:int32 = -1	;槽位索引
+	SkillId:int32 = -1	;技能id
+
+SkillRpcTalentChangeSkillReply↓ 天赋槽位切换技能回应
+	Result:int32 = -9999	;返回结果
+
+SkillRpcTalentResetAsk↑ 天赋重置请求
+
+SkillRpcTalentResetReply↓ 天赋重置回应
+	Result:int32 = -9999	;返回结果
+
+SkillRpcTalentLvObj
+	Index:int32 = 0	;槽位索引
+	Level:int32 = 0	;槽位最终的等级
+
+SkillRpcTalentLvUpAsk↑ 天赋槽位升级请求
+	Talent:RpcTalentLvObj*	;天赋
+	[RpcTalentLvObj]
+		Index:int32 = 0	;槽位索引
+		Level:int32 = 0	;槽位最终的等级
+
+SkillRpcTalentLvUpReply↓ 天赋槽位升级回应
+	Result:int32 = -9999	;返回结果
+
+SkillRpcLifeSkillUpAsk↑ 升级生活技能请求
+	LifeSkillId:int32 = -1	;生活技能表id
+
+SkillRpcLifeSkillUpReply↓ 升级生活技能回应
+	Result:int32 = -9999	;返回结果
+

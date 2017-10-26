@@ -1,0 +1,168 @@
+HeroRpcSyncDataAsk↑ 英雄数据更新请求
+
+HeroRpcSyncDataReply↓ 英雄数据更新回应
+	Result:int32 = -9999	;返回结果
+
+HeroHero
+	WuShengLv:int32 = 0	;武圣等级
+	WuShengExp:int32 = 0	;武圣经验
+	EveryHero:HeroData*	;每一个英雄
+	[HeroData]
+		Lv:int32 = 1	;等级
+		Exp:int32 = 0	;经验
+		StarStage:int32 = 1	;星阶
+		StarLv:int32 = 0	;星级
+		HerdId:int32 = -1	;英雄id
+		StoneArr:StoneInfo*	;星石附魔
+		[StoneInfo]
+			Lv:int32 = -1	;星石及附魔等级
+			Exp:int32 = 0	;经验
+		DestinyLv:int32 = 0	;天命等级
+		SkillData:SkillObj*	;技能数据
+		[SkillObj]
+			SkillId:int32 = -1	;技能id
+			SkillLevel:int32 = -1	;技能等级
+		Attrs:int32* = -1	;属性列表
+		Military:int32 = -1	;战力
+		StrAttr:int32 = -1	;力量属性
+		DexAttr:int32 = -1	;敏捷属性
+		IntAttr:int32 = -1	;智力属性
+		PercentAttrs:float* = -1	;百分比属性加成
+		SkillMilitary:int32 = -1	;技能战力
+		SpecialAttr:AttrObj*	;特殊属性
+		[AttrObj]
+			Id:int32 = -1	;属性id
+			Value:int32 = -1	;属性值
+		ExtraMilitary:int32 = -1	;附加战力
+	SkillPoint:int32 = -1	;技能点数
+	SkillPointTime:int32 = -1	;技能点时间计时
+	CurTime:int32 = -1	;当前时间
+	MilitaryExp:int32 = 0	;战力换算剩余点数
+
+HeroHeroData
+	Lv:int32 = 1	;等级
+	Exp:int32 = 0	;经验
+	StarStage:int32 = 1	;星阶
+	StarLv:int32 = 0	;星级
+	HerdId:int32 = -1	;英雄id
+	StoneArr:StoneInfo*	;星石附魔
+	[StoneInfo]
+		Lv:int32 = -1	;星石及附魔等级
+		Exp:int32 = 0	;经验
+	DestinyLv:int32 = 0	;天命等级
+	SkillData:SkillObj*	;技能数据
+	[SkillObj]
+		SkillId:int32 = -1	;技能id
+		SkillLevel:int32 = -1	;技能等级
+	Attrs:int32* = -1	;属性列表
+	Military:int32 = -1	;战力
+	StrAttr:int32 = -1	;力量属性
+	DexAttr:int32 = -1	;敏捷属性
+	IntAttr:int32 = -1	;智力属性
+	PercentAttrs:float* = -1	;百分比属性加成
+	SkillMilitary:int32 = -1	;技能战力
+	SpecialAttr:AttrObj*	;特殊属性
+	[AttrObj]
+		Id:int32 = -1	;属性id
+		Value:int32 = -1	;属性值
+	ExtraMilitary:int32 = -1	;附加战力
+
+HeroRpcComposeAsk↑ 合成请求
+	HerdId:int32 = -1	;英雄id
+
+HeroRpcComposeReply↓ 合成回应
+	Result:int32 = -9999	;返回结果
+	HerdId:int32 = -1	;英雄id
+
+HeroRpcLvUpAsk↑ 升级请求
+	HerdId:int32 = -1	;英雄id
+	ItemId:int32 = -1	;升级道具id
+
+HeroRpcLvUpReply↓ 升级回应
+	Result:int32 = -9999	;返回结果
+	HerdId:int32 = -1	;英雄id
+	ItemId:int32 = -1	;升级道具id
+
+HeroRpcStarLvUpAsk↑ 英雄升星请求
+	HerdId:int32 = -1	;英雄id
+
+HeroRpcStarLvUpReply↓ 英雄升星回应
+	Result:int32 = -9999	;返回结果
+	HerdId:int32 = -1	;英雄id
+
+HeroRpcStarStageUpAsk↑ 星阶进化请求
+	HerdId:int32 = -1	;英雄id
+
+HeroRpcStarStageUpReply↓ 星阶进化回应
+	Result:int32 = -9999	;返回结果
+	HerdId:int32 = -1	;英雄id
+
+HeroRpcDebrisChangeAsk↑ 碎片转化请求
+	HerdId:int32 = -1	;英雄id
+	Num:int32 = -1	;次数
+
+HeroRpcDebrisChangeReply↓ 碎片转化回应
+	Result:int32 = -9999	;返回结果
+	HerdId:int32 = -1	;英雄id
+	Num:int32 = -1	;次数
+
+HeroRpcDestinyEuipAsk↑ 天命穿戴请求
+	HerdId:int32 = -1	;英雄id
+	Pos:int32 = -1	;位置 -1为穿戴所有
+
+HeroRpcDestinyEuipReply↓ 天命穿戴回应
+	Result:int32 = -9999	;返回结果
+	HerdId:int32 = -1	;英雄id
+	Pos:int32 = -1	;位置 -1为穿戴所有
+
+HeroRpcDestinyLvUpAsk↑ 天命升级请求
+	HerdId:int32 = -1	;英雄id
+
+HeroRpcDestinyLvUpReply↓ 天命升级回应
+	Result:int32 = -9999	;返回结果
+	HerdId:int32 = -1	;英雄id
+
+HeroRpcAddMagicAsk↑ 附魔请求
+	HerdId:int32 = -1	;英雄id
+	StonePos:int32 = -1	;星石位置
+	ItemId:int32* = -1	;道具id
+	Pos:int32* = -1	;物品位置
+	Type:int32 = 0	;附魔类型
+
+HeroRpcAddMagicReply↓ 附魔回应
+	Result:int32 = -9999	;返回结果
+	HerdId:int32 = -1	;英雄id
+	StarStoneId:int32 = -1	;星石id
+	ItemId:int32 = -1	;道具id
+
+HeroRpcSkillLvUpAsk↑ 技能升级请求
+	HerdId:int32 = -1	;英雄id
+	SkillId:int32 = -1	;技能id
+
+HeroRpcSkillLvUpReply↓ 技能升级回应
+	Result:int32 = -9999	;返回结果
+	HerdId:int32 = -1	;英雄id
+	SkillId:int32 = -1	;技能id
+
+HeroRpcWuShengLvUpAsk↑ 武圣升级请求
+
+HeroRpcWuShengLvUpReply↓ 武圣升级回应
+	Result:int32 = -9999	;返回结果
+
+HeroStoneInfo
+	Lv:int32 = -1	;星石及附魔等级
+	Exp:int32 = 0	;经验
+
+HeroSkillObj
+	SkillId:int32 = -1	;技能id
+	SkillLevel:int32 = -1	;技能等级
+
+HeroRpcSkillTimeAsk↑ 技能点计时请求
+
+HeroRpcSkillTimeReply↓ 技能点计时回应
+	Result:int32 = -9999	;返回结果
+
+HeroAttrObj
+	Id:int32 = -1	;属性id
+	Value:int32 = -1	;属性值
+

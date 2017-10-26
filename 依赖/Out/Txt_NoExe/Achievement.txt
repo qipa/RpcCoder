@@ -1,0 +1,28 @@
+AchievementAchiObj
+	GroupId:int32 = -1	;组id，使用解锁条件
+	Star:int32 = -1	;星级
+	Status:int32 = -1	;完成状态(0未完成,1完成未领奖，2已领奖）
+	Id:int32 = -1	;成就Id
+	Type:int32 = -1	;成长，活动，社交
+
+AchievementRpcGetTheRewardsAsk↑ 领取奖励请求
+	GroupId:int32 = -1	;组id，使用解锁条件
+
+AchievementRpcGetTheRewardsReply↓ 领取奖励回应
+	Result:int32 = -9999	;返回结果
+	GroupId:int32 = -1	;组id，使用解锁条件
+
+AchievementAchiData
+	AchiData:AchiObj*	;成就数据
+	[AchiObj]
+		GroupId:int32 = -1	;组id，使用解锁条件
+		Star:int32 = -1	;星级
+		Status:int32 = -1	;完成状态(0未完成,1完成未领奖，2已领奖）
+		Id:int32 = -1	;成就Id
+		Type:int32 = -1	;成长，活动，社交
+
+AchievementRpcSyncDataAsk↑ 同步数据请求
+
+AchievementRpcSyncDataReply↓ 同步数据回应
+	Result:int32 = -9999	;返回结果
+

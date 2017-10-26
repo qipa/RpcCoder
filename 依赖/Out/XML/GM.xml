@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<Root Module="GM" CName="GM指令" MsgNumStart="17" SyncDataVersion="1" Comment="">
+    <Operate Name="Action" CName="指令动作" Comment="">
+        <OP_ASK Name="Ask" CName="请求" MsgID="17" DataStruct="RpcActionAsk" Comment="" />
+        <OP_REPLY Name="Reply" CName="回应" MsgID="18" DataStruct="RpcActionReply" Comment="" />
+    </Operate>
+    <Struct Name="RpcActionAsk" CName="指令动作请求" ProtoType="RpcProto" Comment="" DataType="RPCData" SaveToDB="False" SyncToClient="False" MaxFieldId="1">
+        <Field PreDefine="optional" FieldType="string" FieldId="1" Name="Value" CName="指令内容" ValueSet="" MinValue="6" MaxValue="128" DefaultValue="" Comment="" />
+    </Struct>
+    <Struct Name="RpcActionReply" CName="指令动作回应" ProtoType="RpcProto" Comment="" DataType="RPCData" SaveToDB="False" SyncToClient="False" MaxFieldId="2">
+        <Field PreDefine="optional" FieldType="sint32" FieldId="1" Name="Result" CName="返回结果" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-9999" Comment="-9999 模块未启动&#xD;&#xA;-9998 请求字段值范围出错" />
+        <Field PreDefine="optional" FieldType="string" FieldId="2" Name="Value" CName="指令内容" ValueSet="" MinValue="6" MaxValue="128" DefaultValue="" Comment="" />
+    </Struct>
+</Root>

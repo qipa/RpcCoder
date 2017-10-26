@@ -1,0 +1,42 @@
+CapsuleRpcSyncDataAsk↑ 数据同步请求
+
+CapsuleRpcSyncDataReply↓ 数据同步回应
+	Result:int32 = -9999	;返回结果
+
+CapsuleCapsuleObj
+	Id:int32 = -1	;扭蛋id
+	CumulativeUse:int32 = -1	;累计使用次数
+	FreeCount:int32 = -1	;每日免费次数
+
+CapsuleCapsuleData
+	EquipDebris:int32 = -1	;装备抽奖给的碎片
+	CapsuleArray:CapsuleObj*	;扭蛋数组
+	[CapsuleObj]
+		Id:int32 = -1	;扭蛋id
+		CumulativeUse:int32 = -1	;累计使用次数
+		FreeCount:int32 = -1	;每日免费次数
+
+CapsuleRpcBuyAsk↑ 购买抽奖请求
+	Id:int32 = -1	;扭蛋id
+	Type:int32 = -1	;购买次数类型
+
+CapsuleRpcBuyReply↓ 购买抽奖回应
+	Result:int32 = -9999	;返回结果
+	ItemArray:ItemObj*	;道具
+	[ItemObj]
+		ItemId:int32 = -1	;道具id
+		Count:int32 = -1	;数量
+	Id:int32 = -1	;扭蛋id
+	Type:int32 = -1	;购买次数类型
+
+CapsuleRpcExchangeAsk↑ 碎片兑换请求
+	ItemId:int32 = -1	;道具id
+
+CapsuleRpcExchangeReply↓ 碎片兑换回应
+	Result:int32 = -9999	;返回结果
+	ItemId:int32 = -1	;道具id
+
+CapsuleItemObj
+	ItemId:int32 = -1	;道具id
+	Count:int32 = -1	;数量
+

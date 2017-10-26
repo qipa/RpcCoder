@@ -1,0 +1,376 @@
+<?xml version="1.0"?>
+<Root Module="Fight" CName="战斗" MsgNumStart="9" SyncDataVersion="1" Comment="">
+    <Operate Name="Ready" CName="游戏准备就绪" Comment="">
+        <OP_ASK Name="Ask" CName="请求" MsgID="9" DataStruct="RpcReadyAsk" Comment="" />
+        <OP_REPLY Name="Reply" CName="回应" MsgID="10" DataStruct="RpcReadyReply" Comment="" />
+    </Operate>
+    <Operate Name="Action" CName="动作" Comment="">
+        <OP_DUPLEX_NOTIFY Name="Notify" CName="通知" MsgID="11" DataStruct="RpcActionNotify" Comment="" />
+    </Operate>
+    <Operate Name="Result" CName="战斗结果" Comment="">
+        <OP_SERVER_NOTIFY Name="Notify" CName="通知" MsgID="12" DataStruct="RpcResultNotify" Comment="" />
+    </Operate>
+    <Operate Name="Enter" CName="进入副本" Comment="">
+        <OP_ASK Name="Ask" CName="请求" MsgID="13" DataStruct="RpcEnterAsk" Comment="" />
+        <OP_REPLY Name="Reply" CName="回应" MsgID="14" DataStruct="RpcEnterReply" Comment="" />
+    </Operate>
+    <Operate Name="Start" CName="战斗开始" Comment="">
+        <OP_SERVER_NOTIFY Name="Notify" CName="通知" MsgID="15" DataStruct="RpcStartNotify" Comment="" />
+    </Operate>
+    <Struct Name="RpcReadyAsk" CName="准备就绪请求" ProtoType="RpcProto" Comment="" DataType="RPCData" SaveToDB="False" SyncToClient="False" MaxFieldId="1" />
+    <Struct Name="RpcReadyReply" CName="准备就绪回应" ProtoType="RpcProto" Comment="" DataType="RPCData" SaveToDB="False" SyncToClient="False" MaxFieldId="5">
+        <Field PreDefine="optional" FieldType="sint32" FieldId="1" Name="Result" CName="返回结果" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-9999" Comment="-9999 模块未启动&#xD;&#xA;-9998 请求字段值范围出错" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="2" Name="Tick" CName="当前Tick" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="3" Name="RandNum" CName="当前随机数" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="4" Name="IdHelper" CName="ID管理器的值" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+        <Field PreDefine="repeated" FieldType="bytes" FieldId="5" Name="ActionArr" CName="创建的Action列表" ValueSet="" MinValue="6" MaxValue="128" DefaultValue="" Comment="" />
+    </Struct>
+    <Struct Name="RpcActionNotify" CName="动作通知" ProtoType="RpcProto" Comment="" DataType="RPCData" SaveToDB="False" SyncToClient="False" MaxFieldId="2">
+        <Field PreDefine="optional" FieldType="bytes" FieldId="1" Name="Data" CName="动作数据" ValueSet="" MinValue="6" MaxValue="128" DefaultValue="" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="2" Name="Frame" CName="当前帧号" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+    </Struct>
+    <Struct Name="RpcResultNotify" CName="战斗结果通知" ProtoType="RpcProto" Comment="" DataType="RPCData" SaveToDB="False" SyncToClient="False" MaxFieldId="10">
+        <Field PreDefine="optional" FieldType="sint32" FieldId="1" Name="Result" CName="结果" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="2" Name="DengeonId" CName="副本Id" ValueSet="" MinValue="6" MaxValue="128" DefaultValue="-1" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="4" Name="Star" CName="星级" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="5" Name="FightTime" CName="战斗时间" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+        <Field PreDefine="repeated" FieldType="PrizeInfo" FieldId="6" Name="PrizeList" CName="奖励列表" ValueSet="" MinValue="6" MaxValue="128" Comment="" />
+        <Field PreDefine="repeated" FieldType="KillInfo" FieldId="7" Name="KillList" CName="杀戮列表" ValueSet="" MinValue="6" MaxValue="128" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="8" Name="FirstStarLight" CName="第一颗星是否亮了" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="9" Name="SecondStarLight" CName="第二颗星是否亮了" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="10" Name="ThirdStarLight" CName="第三颗星是否亮了" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+    </Struct>
+    <Struct Name="RpcEnterAsk" CName="进入副本请求" ProtoType="RpcProto" Comment="" DataType="RPCData" SaveToDB="False" SyncToClient="False" MaxFieldId="3">
+        <Field PreDefine="optional" FieldType="sint64" FieldId="1" Name="UserId" CName="用户id" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+        <Field PreDefine="optional" FieldType="string" FieldId="2" Name="DungeonKey" CName="副本钥匙" ValueSet="" MinValue="6" MaxValue="128" DefaultValue="" Comment="" />
+        <Field PreDefine="optional" FieldType="string" FieldId="3" Name="SessionKey" CName="SessionKey" ValueSet="" MinValue="6" MaxValue="128" DefaultValue="" Comment="" />
+    </Struct>
+    <Struct Name="RpcEnterReply" CName="进入副本回应" ProtoType="RpcProto" Comment="" DataType="RPCData" SaveToDB="False" SyncToClient="False" MaxFieldId="5">
+        <Field PreDefine="optional" FieldType="sint32" FieldId="1" Name="Result" CName="返回结果" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-9999" Comment="-9999 模块未启动&#xD;&#xA;-9998 请求字段值范围出错" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="2" Name="Tick" CName="当前Tick" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="3" Name="RandNum" CName="当前随机数" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="4" Name="IdHelper" CName="ID管理器的值" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+        <Field PreDefine="repeated" FieldType="bytes" FieldId="5" Name="ActionArr" CName="创建的Action列表" ValueSet="" MinValue="6" MaxValue="128" DefaultValue="" Comment="" />
+    </Struct>
+    <Struct Name="PrizeInfo" CName="奖励列表" ProtoType="RpcProto" Comment="" DataType="ItemData" SaveToDB="False" SyncToClient="False" MaxFieldId="2">
+        <Field PreDefine="optional" FieldType="sint32" FieldId="1" Name="Id" CName="奖励ID" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="2" Name="Count" CName="奖励数量" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+    </Struct>
+    <Struct Name="KillInfo" CName="杀戮信息" ProtoType="RpcProto" Comment="" DataType="ItemData" SaveToDB="False" SyncToClient="False" MaxFieldId="2">
+        <Field PreDefine="optional" FieldType="sint32" FieldId="1" Name="Id" CName="对方Id" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="2" Name="Count" CName="数量" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+    </Struct>
+    <Struct Name="RpcStartNotify" CName="战斗开始通知" ProtoType="RpcProto" Comment="" DataType="RPCData" SaveToDB="False" SyncToClient="False" MaxFieldId="3" />
+    <Struct Name="UseSkillAction" CName="使用技能动作" ProtoType="RpcProto" Comment="" DataType="ItemData" SaveToDB="False" SyncToClient="False" MaxFieldId="8">
+        <Field PreDefine="optional" FieldType="sint32" FieldId="1" Name="ObjId" CName="obj id" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="2" Name="SkillId" CName="技能ID" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+        <Field PreDefine="optional" FieldType="bytes" FieldId="3" Name="PosInfo" CName="位置信息" ValueSet="" MinValue="6" MaxValue="128" DefaultValue="" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="4" Name="TargetObjId" CName="主目标ID" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+        <Field PreDefine="optional" FieldType="bytes" FieldId="5" Name="TargetPos" CName="目标位置信息" ValueSet="" MinValue="6" MaxValue="128" DefaultValue="" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="6" Name="Type" CName="类型" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="0" Comment="0 使用技能&#xD;&#xA;1 吟唱开始&#xD;&#xA;2 吟唱中断&#xD;&#xA;3 吟唱结束&#xD;&#xA;4 播放吟唱技能&#xD;&#xA;&#xD;&#xA;5 引导开始&#xD;&#xA;6 引导中断&#xD;&#xA;7 引导结束" />
+        <Field PreDefine="repeated" FieldType="float" FieldId="7" Name="V3Pos" CName="V3Pos" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="8" Name="Time" CName="吟唱或引导时间(毫秒)" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+    </Struct>
+    <Struct Name="BuffAction" CName="BUFF操作动作类" ProtoType="RpcProto" Comment="" DataType="ItemData" SaveToDB="False" SyncToClient="False" MaxFieldId="8">
+        <Field PreDefine="optional" FieldType="sint32" FieldId="2" Name="ObjId" CName="obj id" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="3" Name="AttackerId" CName="攻击者ObjId" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="4" Name="OpType" CName="操作类型" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="5" Name="BuffId" CName="BuffId" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="7" Name="RemainTime" CName="剩余时间" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="8" Name="BuffLv" CName="Buff等级" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+    </Struct>
+    <Struct Name="CharHitAction" CName="攻击动作" ProtoType="RpcProto" Comment="" DataType="ItemData" SaveToDB="False" SyncToClient="False" MaxFieldId="33">
+        <Field PreDefine="optional" FieldType="sint32" FieldId="2" Name="ObjId" CName="obj id" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="3" Name="SkillId" CName="技能ID" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+        <Field PreDefine="repeated" FieldType="HitTargetInfo" FieldId="7" Name="TargetList" CName="目标列表" ValueSet="" MinValue="6" MaxValue="128" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="8" Name="Seq" CName="技能攻击到人的序列号" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+        <Field PreDefine="optional" FieldType="bytes" FieldId="11" Name="PosInfo" CName="位置信息" ValueSet="" MinValue="6" MaxValue="128" DefaultValue="" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="25" Name="BackDir" CName="后退方向" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="0" Comment="0右&#xD;&#xA;2左" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="30" Name="SegmentIndex" CName="技能动作段索引" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="31" Name="AttackSegment" CName="攻击段数" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+        <Field PreDefine="optional" FieldType="bool" FieldId="32" Name="IsHitGround" CName="受击后目标倒地" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="false" Comment="" />
+    </Struct>
+    <Struct Name="OfflineAction" CName="断线动作" ProtoType="RpcProto" Comment="" DataType="ItemData" SaveToDB="False" SyncToClient="False" MaxFieldId="3">
+        <Field PreDefine="optional" FieldType="sint32" FieldId="1" Name="ObjId" CName="obj Id" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+        <Field PreDefine="optional" FieldType="bool" FieldId="2" Name="IsOffline" CName="是否下线" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="false" Comment="0 上线行为&#xD;&#xA;1 下线行为" />
+        <Field PreDefine="optional" FieldType="bool" FieldId="3" Name="IsAIDelegate" CName="是否AI接管" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="false" Comment="1 AI托管，客户端需要视为怪物&#xD;&#xA;0 AI不托管了，客户端需视为玩家&#xD;&#xA;" />
+    </Struct>
+    <Struct Name="StateAction" CName="状态机动作" ProtoType="RpcProto" Comment="" DataType="ItemData" SaveToDB="False" SyncToClient="False" MaxFieldId="6">
+        <Field PreDefine="optional" FieldType="sint32" FieldId="1" Name="Type" CName="状态类型" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="2" Name="ObjId" CName="obj id" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+        <Field PreDefine="optional" FieldType="bytes" FieldId="3" Name="PosInfo" CName="位置信息" ValueSet="" MinValue="6" MaxValue="128" DefaultValue="" Comment="" />
+        <Field PreDefine="optional" FieldType="bytes" FieldId="4" Name="TargetPos" CName="目标位置信息" ValueSet="" MinValue="6" MaxValue="128" DefaultValue="" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="5" Name="IntPara" CName="INT参数" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="6" Name="LadderObjId" CName="梯子ObjId" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+    </Struct>
+    <Struct Name="CharDeadAction" CName="角色死亡动作" ProtoType="RpcProto" Comment="" DataType="ItemData" SaveToDB="False" SyncToClient="False" MaxFieldId="2">
+        <Field PreDefine="optional" FieldType="sint32" FieldId="1" Name="ObjId" CName="obj id" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+        <Field PreDefine="optional" FieldType="bytes" FieldId="2" Name="PosInfo" CName="位置信息" ValueSet="" MinValue="6" MaxValue="128" DefaultValue="" Comment="" />
+    </Struct>
+    <Struct Name="CharReviveAction" CName="角色复活动作" ProtoType="RpcProto" Comment="" DataType="ItemData" SaveToDB="False" SyncToClient="False" MaxFieldId="11">
+        <Field PreDefine="optional" FieldType="sint32" FieldId="1" Name="ObjId" CName="obj id" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+        <Field PreDefine="optional" FieldType="bytes" FieldId="2" Name="PosInfo" CName="位置信息" ValueSet="" MinValue="6" MaxValue="128" DefaultValue="" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="3" Name="CurHp" CName="当前血量" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="0" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="4" Name="Type" CName="类型" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="-1 请求复活&#xD;&#xA;0 复活&#xD;&#xA;1 读条开始&#xD;&#xA;2 读条结束&#xD;&#xA;" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="5" Name="Time" CName="读条时间" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="6" Name="ManualRevive" CName="是否需要手动复活" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="0" Comment="0不需手动 1需手动" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="7" Name="RemainTimes" CName="免费复活剩余次数" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="8" Name="NeedMoney" CName="需要复活的钱" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="10" Name="MaxHP" CName="最大血量" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="0" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="11" Name="TotalTimes" CName="总复活次数" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+    </Struct>
+    <Struct Name="HitTargetInfo" CName="攻击目标信息" ProtoType="RpcProto" Comment="" DataType="ItemData" SaveToDB="False" SyncToClient="False" MaxFieldId="5">
+        <Field PreDefine="optional" FieldType="sint32" FieldId="1" Name="ObjId" CName="ObjId" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+        <Field PreDefine="optional" FieldType="bytes" FieldId="2" Name="PosInfo" CName="位置信息" ValueSet="" MinValue="6" MaxValue="128" DefaultValue="" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="3" Name="Flag" CName="标记" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="0" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="5" Name="EnemyIndex" CName="本次攻击敌人计数" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+    </Struct>
+    <Struct Name="ComboSkillAction" CName="连击技能动作" ProtoType="RpcProto" Comment="" DataType="ItemData" SaveToDB="False" SyncToClient="False" MaxFieldId="4">
+        <Field PreDefine="optional" FieldType="sint32" FieldId="2" Name="ObjId" CName="obj id" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="3" Name="SkillId" CName="技能ID" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="4" Name="Flag" CName="连击标志" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="-1 通知连击&#xD;&#xA;1  开始切换到连击技能" />
+    </Struct>
+    <Struct Name="EndSkillAction" CName="结束技能动作" ProtoType="RpcProto" Comment="" DataType="ItemData" SaveToDB="False" SyncToClient="False" MaxFieldId="4">
+        <Field PreDefine="optional" FieldType="sint32" FieldId="1" Name="ObjId" CName="obj id" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="2" Name="SkillId" CName="技能ID" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+        <Field PreDefine="optional" FieldType="bytes" FieldId="3" Name="PosInfo" CName="位置信息" ValueSet="" MinValue="6" MaxValue="128" DefaultValue="" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="4" Name="ComboSkillId" CName="连击技能ID" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+    </Struct>
+    <Struct Name="CityAction" CName="主城状态同步" ProtoType="RpcProto" Comment="" DataType="ItemData" SaveToDB="False" SyncToClient="False" MaxFieldId="5">
+        <Field PreDefine="optional" FieldType="sint32" FieldId="1" Name="Type" CName="状态类型" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="2" Name="ObjId" CName="obj id" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+        <Field PreDefine="optional" FieldType="bytes" FieldId="3" Name="PosInfo" CName="位置信息" ValueSet="" MinValue="6" MaxValue="128" DefaultValue="" Comment="" />
+        <Field PreDefine="optional" FieldType="bytes" FieldId="4" Name="TargetPos" CName="目标位置信息" ValueSet="" MinValue="6" MaxValue="128" DefaultValue="" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="5" Name="IntPara" CName="INT参数" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+    </Struct>
+    <Struct Name="SnipeAction" CName="狙击动作" ProtoType="RpcProto" Comment="" DataType="ItemData" SaveToDB="False" SyncToClient="False" MaxFieldId="4">
+        <Field PreDefine="optional" FieldType="sint32" FieldId="1" Name="Type" CName="状态类型" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="1 添加&#xD;&#xA;2 删除&#xD;&#xA;3 移动&#xD;&#xA;" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="2" Name="ObjId" CName="obj id" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+        <Field PreDefine="optional" FieldType="bytes" FieldId="3" Name="TargetPos" CName="目标位置信息" ValueSet="" MinValue="6" MaxValue="128" DefaultValue="" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="4" Name="CampId" CName="狙击者阵营ID" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+    </Struct>
+    <Struct Name="HurtAction" CName="伤害动作" ProtoType="RpcProto" Comment="" DataType="ItemData" SaveToDB="False" SyncToClient="False" MaxFieldId="35">
+        <Field PreDefine="optional" FieldType="sint32" FieldId="1" Name="ObjId" CName="obj id" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="2" Name="SkillId" CName="技能ID" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+        <Field PreDefine="optional" FieldType="bool" FieldId="3" Name="AttackBack" CName="是否击退" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="false" Comment="" />
+        <Field PreDefine="optional" FieldType="bool" FieldId="6" Name="AttackAir" CName="是否浮空" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="false" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="15" Name="BackDir" CName="后退方向" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="0" Comment="0右&#xD;&#xA;2左" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="16" Name="TargetObjId" CName="目标ObjId" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="17" Name="OwnHP" CName="自己的血量" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="18" Name="TargetHP" CName="目标血量" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="19" Name="OwnHPChange" CName="自己血量变化" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="20" Name="TargetHPChange" CName="目标血量变化" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+        <Field PreDefine="optional" FieldType="bool" FieldId="23" Name="IsCrit" CName="是否暴击" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="false" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="24" Name="TotalDamage" CName="总伤害" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="30" Name="SegmentIndex" CName="技能动作段索引" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="31" Name="HurtType" CName="伤害类型" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="-1 技能伤害&#xD;&#xA;1 BUFF伤害" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="32" Name="AttackSegment" CName="攻击段数" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+        <Field PreDefine="optional" FieldType="bool" FieldId="33" Name="IsHitGround" CName="受击后目标倒地" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="false" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="34" Name="TargetMaxHP" CName="目标最大血量" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="35" Name="EnemyIndex" CName="本次攻击敌人计数" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+    </Struct>
+    <Struct Name="DodgeAction" CName="闪避动作" ProtoType="RpcProto" Comment="" DataType="ItemData" SaveToDB="False" SyncToClient="False" MaxFieldId="4">
+        <Field PreDefine="optional" FieldType="sint32" FieldId="1" Name="ObjId" CName="obj id" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="2" Name="SkillId" CName="技能ID" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="3" Name="AttackerObjId" CName="攻击者ID" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="4" Name="Type" CName="类型" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="1" Comment="1 MISS&#xD;&#xA;2 无敌" />
+    </Struct>
+    <Struct Name="RemoveObjAction" CName="删除对像" ProtoType="RpcProto" Comment="" DataType="ItemData" SaveToDB="False" SyncToClient="False" MaxFieldId="2">
+        <Field PreDefine="optional" FieldType="sint32" FieldId="1" Name="ObjId" CName="obj id" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+    </Struct>
+    <Struct Name="StormBaseAction" CName="暴风基地信息" ProtoType="RpcProto" Comment="" DataType="ItemData" SaveToDB="False" SyncToClient="False" MaxFieldId="6">
+        <Field PreDefine="optional" FieldType="sint32" FieldId="1" Name="Type" CName="类型" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="0 Mark change&#xD;&#xA;1 Owner change" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="2" Name="Mark" CName="标记位置" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="3" Name="CampId" CName="归属阵营ID" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="4" Name="ObjId" CName="obj id" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="5" Name="ID" CName="ID" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+        <Field PreDefine="optional" FieldType="string" FieldId="6" Name="Name" CName="Name" ValueSet="" MinValue="6" MaxValue="128" DefaultValue="" Comment="" />
+    </Struct>
+    <Struct Name="StormResAction" CName="暴风资源信息" ProtoType="RpcProto" Comment="" DataType="ItemData" SaveToDB="False" SyncToClient="False" MaxFieldId="4">
+        <Field PreDefine="optional" FieldType="sint32" FieldId="1" Name="BaseId" CName="基地ID" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="2" Name="CampId" CName="归属阵营ID" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="3" Name="UpdateNum" CName="资源更新量" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="4" Name="TotalNum" CName="资源总量" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+    </Struct>
+    <Struct Name="StormFlagAction" CName="暴风旗信息" ProtoType="RpcProto" Comment="" DataType="ItemData" SaveToDB="False" SyncToClient="False" MaxFieldId="6">
+        <Field PreDefine="optional" FieldType="sint32" FieldId="1" Name="Type" CName="动作类型" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="1" Comment="1 开始拔旗&#xD;&#xA;2 拔旗结果&#xD;&#xA;3 开始扔旗&#xD;&#xA;4 扔旗结果&#xD;&#xA;5 转移&#xD;&#xA;" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="2" Name="Time" CName="时间" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="3" Name="FlagObjId" CName="旗ObjId" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="4" Name="ObjId1" CName="ObjId1" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="5" Name="ObjId2" CName="ObjId2" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="6" Name="Result" CName="操作旗子结果" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="0 失败 1 成功" />
+    </Struct>
+    <Struct Name="StormCampAction" CName="暴风阵营信息" ProtoType="RpcProto" Comment="" DataType="ItemData" SaveToDB="False" SyncToClient="False" MaxFieldId="6">
+        <Field PreDefine="repeated" FieldType="sint32" FieldId="1" Name="ObjArr" CName="阵营人员ObjId列表" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="2" Name="CampId" CName="阵营ID" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="3" Name="TotalNum" CName="资源总量" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="0" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="4" Name="Color" CName="阵营颜色" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="1 红&#xD;&#xA;2 蓝" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="5" Name="Type" CName="操作类型" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="1 阵营初始化&#xD;&#xA;2 积分变化&#xD;&#xA;" />
+    </Struct>
+    <Struct Name="StormResultAction" CName="暴风战斗结果信息" ProtoType="RpcProto" Comment="" DataType="ItemData" SaveToDB="False" SyncToClient="False" MaxFieldId="3">
+        <Field PreDefine="repeated" FieldType="StormCampInfo" FieldId="1" Name="CampArr" CName="阵营列表" ValueSet="" MinValue="6" MaxValue="128" Comment="" />
+        <Field PreDefine="optional" FieldType="bool" FieldId="3" Name="IsSvrSend" CName="是否为服务器发送" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="false" Comment="" />
+    </Struct>
+    <Struct Name="StormCampInfo" CName="暴风阵营结果统计信息" ProtoType="RpcProto" Comment="" DataType="ItemData" SaveToDB="False" SyncToClient="False" MaxFieldId="4">
+        <Field PreDefine="repeated" FieldType="StormPlayerInfo" FieldId="1" Name="PlayerArr" CName="成员信息" ValueSet="" MinValue="6" MaxValue="128" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="2" Name="CampId" CName="阵营ID" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="3" Name="TotalNum" CName="资源总量" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+    </Struct>
+    <Struct Name="StormPlayerInfo" CName="暴风个人战斗统计信息" ProtoType="RpcProto" Comment="" DataType="ItemData" SaveToDB="False" SyncToClient="False" MaxFieldId="10">
+        <Field PreDefine="optional" FieldType="sint32" FieldId="1" Name="KilledNum" CName="杀人数" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="0" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="2" Name="DeadTimes" CName="死亡次数" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="0" Comment="" />
+        <Field PreDefine="optional" FieldType="string" FieldId="4" Name="Name" CName="名字" ValueSet="" MinValue="6" MaxValue="128" DefaultValue="" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="5" Name="FlagTimes" CName="放旗数" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="0" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="6" Name="Prof" CName="职业" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+        <Field PreDefine="optional" FieldType="sint64" FieldId="7" Name="OutputDamage" CName="总输出伤害" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+        <Field PreDefine="optional" FieldType="sint64" FieldId="8" Name="EndureDamage" CName="承受伤害" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+        <Field PreDefine="optional" FieldType="sint64" FieldId="9" Name="TreatDamage" CName="总治疗量" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="10" Name="ObjId" CName="玩家ObjId" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+    </Struct>
+    <Struct Name="CreateAction" CName="创建对像动作" ProtoType="RpcProto" Comment="" DataType="ItemData" SaveToDB="False" SyncToClient="False" MaxFieldId="18">
+        <Field PreDefine="optional" FieldType="sint64" FieldId="1" Name="UserId" CName="用户ID" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="创建玩家时会用到" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="2" Name="ConfigId" CName="配置文件中的ID" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="如英雄、怪物、陷阱等ID" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="3" Name="ObjId" CName="内核中用到的对像ID" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+        <Field PreDefine="optional" FieldType="bytes" FieldId="4" Name="PosInfo" CName="位置信息" ValueSet="" MinValue="6" MaxValue="128" DefaultValue="" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="5" Name="ObjType" CName="创建类型 " ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="6" Name="CampId" CName="阵营ID" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+        <Field PreDefine="optional" FieldType="bytes" FieldId="7" Name="PosInfo2" CName="位置信息" ValueSet="" MinValue="6" MaxValue="128" DefaultValue="" Comment="" />
+        <Field PreDefine="repeated" FieldType="sint32" FieldId="8" Name="IntParaList" CName="整数参数列表" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+        <Field PreDefine="repeated" FieldType="float" FieldId="9" Name="FloatParaList" CName="字符串参数列表" ValueSet="" MinValue="6" MaxValue="128" DefaultValue="-1" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="10" Name="CurState" CName="当前状态" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="-1 不处理&#xD;&#xA;&#xD;&#xA;英雄为当前是否为AI托管&#xD;&#xA;&#xD;&#xA;传送点为当前剩余次数&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="11" Name="CurHp" CName="当前血量" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+        <Field PreDefine="optional" FieldType="string" FieldId="12" Name="Name" CName="名字" ValueSet="" MinValue="6" MaxValue="128" DefaultValue="" Comment="用于玩家的名字" />
+        <Field PreDefine="repeated" FieldType="EquipSkillBuff2" FieldId="13" Name="EquipBuffArr" CName="装备的BUFF列表" ValueSet="" MinValue="6" MaxValue="128" Comment="" />
+        <Field PreDefine="repeated" FieldType="EquipSkillBuff2" FieldId="14" Name="EquipSkillArr" CName="装备的技能" ValueSet="" MinValue="6" MaxValue="128" Comment="" />
+        <Field PreDefine="repeated" FieldType="KeyValue2" FieldId="15" Name="AttrArr" CName="属性列表" ValueSet="" MinValue="6" MaxValue="128" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="16" Name="Level" CName="等级" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="17" Name="TableType" CName="TableType" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+        <Field PreDefine="optional" FieldType="bool" FieldId="18" Name="IsShowEffect" CName="是否显示特效" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="false" Comment="" />
+    </Struct>
+    <Struct Name="QuickFinishAction" CName="快速杀怪动作" ProtoType="RpcProto" Comment="" DataType="ItemData" SaveToDB="False" SyncToClient="False" MaxFieldId="1">
+        <Field PreDefine="optional" FieldType="sint32" FieldId="1" Name="Type" CName="杀对像类型" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="0" Comment="0怪 1人" />
+    </Struct>
+    <Struct Name="FinishLevelAction" CName="节点或副本结束" ProtoType="RpcProto" Comment="" DataType="ItemData" SaveToDB="False" SyncToClient="False" MaxFieldId="3">
+        <Field PreDefine="optional" FieldType="sint32" FieldId="1" Name="Result" CName="战局情况" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="-1 失败&#xD;&#xA; 0 平局&#xD;&#xA; 1 胜利&#xD;&#xA;" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="2" Name="Type" CName="类型" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="2" Comment="1节点&#xD;&#xA;2副本" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="3" Name="WallObjId" CName="节点墙ObjId" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+    </Struct>
+    <Struct Name="TowerLockAction" CName="塔锁定对象动作" ProtoType="RpcProto" Comment="" DataType="ItemData" SaveToDB="False" SyncToClient="False" MaxFieldId="3">
+        <Field PreDefine="optional" FieldType="sint32" FieldId="1" Name="TargetObjId" CName="目标ObjId" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="2" Name="ObjId" CName="obj id" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="3" Name="Type" CName="类型" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="0" Comment="1 加锁&#xD;&#xA;0 解锁" />
+    </Struct>
+    <Struct Name="StormStartAction" CName="暴风战斗开始" ProtoType="RpcProto" Comment="" DataType="ItemData" SaveToDB="False" SyncToClient="False" MaxFieldId="2">
+        <Field PreDefine="optional" FieldType="sint32" FieldId="1" Name="Type" CName="类型" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="1倒计时 &#xD;&#xA;2开始" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="2" Name="Time" CName="倒计时或剩余时间" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+    </Struct>
+    <Struct Name="EscapeStartAction" CName="大逃杀开始" ProtoType="RpcProto" Comment="" DataType="ItemData" SaveToDB="False" SyncToClient="False" MaxFieldId="2">
+        <Field PreDefine="optional" FieldType="sint32" FieldId="1" Name="Type" CName="类型" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="1倒计时 &#xD;&#xA;2开始" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="2" Name="Time" CName="倒计时或剩余时间" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+    </Struct>
+    <Struct Name="EscapeResultAction" CName="大逃杀结果" ProtoType="RpcProto" Comment="" DataType="ItemData" SaveToDB="False" SyncToClient="False" MaxFieldId="1">
+        <Field PreDefine="optional" FieldType="sint32" FieldId="1" Name="Result" CName="结果" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+    </Struct>
+    <Struct Name="GMAddHpAction" CName="GM加减血量" ProtoType="RpcProto" Comment="" DataType="ItemData" SaveToDB="False" SyncToClient="False" MaxFieldId="2">
+        <Field PreDefine="optional" FieldType="sint32" FieldId="1" Name="ObjId" CName="对像ID" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="-1为自己" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="2" Name="AddNum" CName="加血量" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+    </Struct>
+    <Struct Name="TRandSkillAction" CName="所有人随机放技能" ProtoType="RpcProto" Comment="" DataType="ItemData" SaveToDB="False" SyncToClient="False" MaxFieldId="0" />
+    <Struct Name="GuildDBeginAction" CName="帮会副本开始" ProtoType="RpcProto" Comment="" DataType="ItemData" SaveToDB="False" SyncToClient="False" MaxFieldId="2">
+        <Field PreDefine="optional" FieldType="sint32" FieldId="1" Name="Type" CName="类型" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="1倒计时 &#xD;&#xA;2开始" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="2" Name="Time" CName="剩余时间" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+    </Struct>
+    <Struct Name="GuildDEndAction" CName="帮会副本结束" ProtoType="RpcProto" Comment="" DataType="ItemData" SaveToDB="False" SyncToClient="False" MaxFieldId="1">
+        <Field PreDefine="optional" FieldType="sint32" FieldId="1" Name="Time" CName="剩余时间" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+    </Struct>
+    <Struct Name="TransferAction" CName="场景间传送" ProtoType="RpcProto" Comment="" DataType="ItemData" SaveToDB="False" SyncToClient="False" MaxFieldId="4">
+        <Field PreDefine="optional" FieldType="sint32" FieldId="1" Name="DungeonId" CName="场景ID" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="2" Name="DungeonType" CName="场景类型" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="3" Name="BirthPoint" CName="出生点" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="4" Name="FaceDir" CName="朝向" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="0" Comment="" />
+    </Struct>
+    <Struct Name="HeroFightInfoAction" CName="英雄战斗信息" ProtoType="RpcProto" Comment="" DataType="ItemData" SaveToDB="False" SyncToClient="False" MaxFieldId="3">
+        <Field PreDefine="repeated" FieldType="HeroFightInfo" FieldId="1" Name="HeroInfoArr" CName="英雄信息列表" ValueSet="" MinValue="6" MaxValue="128" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="2" Name="FunctionId" CName="副本功能类型" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="3" Name="MyCampId" CName="自己的阵营ID" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+    </Struct>
+    <Struct Name="GuildFightBeginAction" CName="帮会战开始" ProtoType="RpcProto" Comment="" DataType="ItemData" SaveToDB="False" SyncToClient="False" MaxFieldId="2">
+        <Field PreDefine="optional" FieldType="sint32" FieldId="1" Name="Type" CName="类型" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="1倒计时 &#xD;&#xA;2开始" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="2" Name="Time" CName="剩余时间" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+    </Struct>
+    <Struct Name="GuildFightEndAction" CName="帮会战结束" ProtoType="RpcProto" Comment="" DataType="ItemData" SaveToDB="False" SyncToClient="False" MaxFieldId="2">
+        <Field PreDefine="optional" FieldType="sint32" FieldId="1" Name="Time" CName="剩余时间" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="2" Name="VictoryCampId" CName="胜利阵营" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+    </Struct>
+    <Struct Name="GuildFightHpAction" CName="帮会战阵营血量信息" ProtoType="RpcProto" Comment="" DataType="ItemData" SaveToDB="False" SyncToClient="False" MaxFieldId="3">
+        <Field PreDefine="optional" FieldType="sint32" FieldId="1" Name="CampId" CName="阵营ID" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="2" Name="MaxHp" CName="最大血量" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="0" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="3" Name="CurHp" CName="当前血量" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="0" Comment="" />
+    </Struct>
+    <Struct Name="EffectTranslateAction" CName="移动控制动作" ProtoType="RpcProto" Comment="" DataType="ItemData" SaveToDB="False" SyncToClient="False" MaxFieldId="18">
+        <Field PreDefine="optional" FieldType="sint32" FieldId="1" Name="ObjId" CName="对像ID" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="2" Name="ObjType" CName="对像类型" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="3" Name="TargetObjId" CName="目标对像ID" ValueSet="" MinValue="6" MaxValue="128" DefaultValue="-1" Comment="" />
+        <Field PreDefine="optional" FieldType="bytes" FieldId="4" Name="TargetPos" CName="目标位置" ValueSet="" MinValue="6" MaxValue="128" DefaultValue="" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="5" Name="Angle" CName="方向角" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="6" Name="Speed" CName="速度" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="8" Name="Distance" CName="距离" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+        <Field PreDefine="optional" FieldType="bytes" FieldId="9" Name="PosInfo" CName="对像自身位置" ValueSet="" MinValue="6" MaxValue="128" DefaultValue="" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="10" Name="Status" CName="状态" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="0" Comment="1 老鹰来了&#xD;&#xA;2 老鹰抓人&#xD;&#xA;3 老鹰放人" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="11" Name="SkillId" CName="SkillId" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="12" Name="SegementIndex" CName="技能段索引" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+        <Field PreDefine="optional" FieldType="string" FieldId="13" Name="SpriteName" CName="spriteName" ValueSet="" MinValue="6" MaxValue="128" DefaultValue="" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="14" Name="BulletType" CName="子弹类型" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+        <Field PreDefine="optional" FieldType="bool" FieldId="15" Name="IsIrregularityEffect" CName="IsIrregularityEffect" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="false" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="17" Name="TranslateType" CName="TranslateType" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="0" Comment="" />
+        <Field PreDefine="optional" FieldType="float" FieldId="18" Name="Time" CName="Time" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+    </Struct>
+    <Struct Name="CollectAction" CName="采集" ProtoType="RpcProto" Comment="" DataType="ItemData" SaveToDB="False" SyncToClient="False" MaxFieldId="3">
+        <Field PreDefine="optional" FieldType="sint32" FieldId="1" Name="Status" CName="1是开始,2是结束,3是中断" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="1" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="2" Name="Player_ObjId" CName="玩家的ObjId" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="3" Name="Collection_ObjId" CName="采集物品的ObjId" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+    </Struct>
+    <Struct Name="CollectionShowEffectAction" CName="采集物是否播特效" ProtoType="RpcProto" Comment="" DataType="ItemData" SaveToDB="False" SyncToClient="False" MaxFieldId="2">
+        <Field PreDefine="optional" FieldType="sint32" FieldId="1" Name="ObjId" CName="内核中用到的对像ID" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+        <Field PreDefine="optional" FieldType="bool" FieldId="2" Name="IsShowEffect" CName="是否显示特效" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="false" Comment="" />
+    </Struct>
+    <Struct Name="AutoFightAction" CName="自动战斗" ProtoType="RpcProto" Comment="" DataType="ItemData" SaveToDB="False" SyncToClient="False" MaxFieldId="2">
+        <Field PreDefine="optional" FieldType="sint32" FieldId="1" Name="Type" CName="类型" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="0" Comment="0 取消自动战斗&#xD;&#xA;1 开始自动战斗" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="2" Name="ObjId" CName="内核中用到的对像ID" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+    </Struct>
+    <Struct Name="UseItemAction" CName="使用道具" ProtoType="RpcProto" Comment="" DataType="ItemData" SaveToDB="False" SyncToClient="False" MaxFieldId="3">
+        <Field PreDefine="optional" FieldType="sint32" FieldId="1" Name="TemplateId" CName="道具配置Id" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="2" Name="Status" CName="1是开始,2是结束,3是中断" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="1" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="3" Name="Player_ObjId" CName="玩家的ObjId" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+    </Struct>
+    <Struct Name="StormKillEffectAction" CName="五行旗杀人特效" ProtoType="RpcProto" Comment="" DataType="ItemData" SaveToDB="False" SyncToClient="False" MaxFieldId="2">
+        <Field PreDefine="optional" FieldType="sint32" FieldId="1" Name="ObjId" CName="自己" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="2" Name="Num" CName="杀人数量" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+    </Struct>
+    <Struct Name="OneVSOneStartAction" CName="1V1开始" ProtoType="RpcProto" Comment="" DataType="ItemData" SaveToDB="False" SyncToClient="False" MaxFieldId="2">
+        <Field PreDefine="optional" FieldType="sint32" FieldId="1" Name="Type" CName="类型" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="1倒计时 &#xD;&#xA;2开始" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="2" Name="Time" CName="倒计时或剩余时间" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+    </Struct>
+    <Struct Name="OneVSOneResultAction" CName="1V1结果" ProtoType="RpcProto" Comment="" DataType="ItemData" SaveToDB="False" SyncToClient="False" MaxFieldId="1">
+        <Field PreDefine="optional" FieldType="sint32" FieldId="1" Name="Result" CName="结果" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+    </Struct>
+    <Struct Name="SightAction" CName="视野变化" ProtoType="RpcProto" Comment="" DataType="ItemData" SaveToDB="False" SyncToClient="False" MaxFieldId="2">
+        <Field PreDefine="repeated" FieldType="bytes" FieldId="2" Name="ActionArr" CName="创建的Action列表" ValueSet="" MinValue="6" MaxValue="128" DefaultValue="" Comment="" />
+    </Struct>
+    <Struct Name="EventTriggerAction" CName="事件触发" ProtoType="RpcProto" Comment="" DataType="ItemData" SaveToDB="False" SyncToClient="False" MaxFieldId="1">
+        <Field PreDefine="optional" FieldType="sint32" FieldId="1" Name="EventId" CName="事件配置Id" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+    </Struct>
+    <Struct Name="QuitAction" CName="QuitAction" ProtoType="RpcProto" Comment="" DataType="ItemData" SaveToDB="False" SyncToClient="False" MaxFieldId="1">
+        <Field PreDefine="optional" FieldType="sint32" FieldId="1" Name="Type" CName="type类型" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="0" Comment="1为1v1特殊处理" />
+    </Struct>
+    <Struct Name="ProductAction" CName="生产" ProtoType="RpcProto" Comment="" DataType="ItemData" SaveToDB="False" SyncToClient="False" MaxFieldId="9">
+        <Field PreDefine="optional" FieldType="sint32" FieldId="1" Name="Status" CName="1是开始,2是结束,3是中断" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="3" Name="LifeSkillId" CName="生活技能表ID" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="5" Name="Player_ObjId" CName="玩家的ObjId" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="9" Name="ProductionId" CName="产出物品id" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+    </Struct>
+    <Struct Name="StartEndAction" CName="开始结束" ProtoType="RpcProto" Comment="" DataType="ItemData" SaveToDB="False" SyncToClient="False" MaxFieldId="2">
+        <Field PreDefine="optional" FieldType="sint32" FieldId="1" Name="Type" CName="0:开始, 1:结束" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="0" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="2" Name="Time" CName="秒时间" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="0" Comment="" />
+    </Struct>
+</Root>

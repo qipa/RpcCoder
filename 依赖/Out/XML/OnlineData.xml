@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<Root Module="OnlineData" CName="在线数据" MsgNumStart="28" SyncDataVersion="1" Comment="">
+    <Struct Name="OnlineData" CName="在线数据" ProtoType="SyncProto" Comment="" DataType="UserData" SaveToDB="False" SyncToClient="True" MaxFieldId="10">
+        <Field PreDefine="repeated" FieldType="BagRecycleGridObj" FieldId="1" Name="BagRecycleBin" CName="回收站" ValueSet="" MinValue="6" MaxValue="128" Comment="" />
+        <Field PreDefine="repeated" FieldType="RoleAttrObj" FieldId="2" Name="RoleAttr" CName="角色属性" ValueSet="" MinValue="6" MaxValue="128" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="4" Name="RecommendFriendOffset" CName="推荐好友偏移" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="0" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="5" Name="RecommendFriendFlushTime" CName="推荐好友刷新时间" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+        <Field PreDefine="repeated" FieldType="sint64" FieldId="6" Name="RecommendFriendLastList" CName="上次推荐的好友" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+        <Field PreDefine="repeated" FieldType="sint64" FieldId="7" Name="FollowmeUserId" CName="跟随我的人" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+        <Field PreDefine="optional" FieldType="sint64" FieldId="9" Name="FollowWho" CName="跟随谁" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+        <Field PreDefine="optional" FieldType="sint64" FieldId="10" Name="ThiefObjId" CName="江洋大盗" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+    </Struct>
+    <Struct Name="RoleAttrObj" CName="角色属性对象" ProtoType="SyncProto" Comment="" DataType="ItemData" SaveToDB="False" SyncToClient="False" MaxFieldId="2">
+        <Field PreDefine="optional" FieldType="sint32" FieldId="1" Name="Id" CName="属性Id" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+        <Field PreDefine="optional" FieldType="float" FieldId="2" Name="Value" CName="值" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+    </Struct>
+</Root>

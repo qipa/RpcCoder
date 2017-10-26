@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<Root Module="DropItem" CName="掉落物" MsgNumStart="35" SyncDataVersion="1" Comment="">
+    <Operate Name="DropItemNotice" CName="物品掉落通知" Comment="">
+        <OP_SERVER_NOTIFY Name="Notify" CName="通知" MsgID="35" DataStruct="RpcDropItemNoticeNotify" Comment="" />
+    </Operate>
+    <Operate Name="PickupItem" CName="捡物品" Comment="">
+        <OP_ASK Name="Ask" CName="请求" MsgID="36" DataStruct="RpcPickupItemAsk" Comment="" />
+        <OP_REPLY Name="Reply" CName="回应" MsgID="37" DataStruct="RpcPickupItemReply" Comment="" />
+    </Operate>
+    <Operate Name="DelDropItem" CName="删除掉落" Comment="">
+        <OP_SERVER_NOTIFY Name="Notify" CName="通知" MsgID="38" DataStruct="RpcDelDropItemNotify" Comment="" />
+    </Operate>
+    <Struct Name="DropItem" CName="掉落物品数据" ProtoType="SyncProto" Comment="" DataType="ModuleData" SaveToDB="False" SyncToClient="False" MaxFieldId="4">
+        <Field PreDefine="repeated" FieldType="DropItemObj" FieldId="1" Name="DropItem" CName="掉落的物品" ValueSet="" MinValue="6" MaxValue="128" Comment="" />
+        <Field PreDefine="repeated" FieldType="BagEquipObj" FieldId="4" Name="EquipAllData" CName="装备全部数据" ValueSet="" MinValue="6" MaxValue="128" Comment="" />
+    </Struct>
+    <Struct Name="RpcDropItemNoticeNotify" CName="物品掉落通知通知" ProtoType="RpcProto" Comment="" DataType="RPCData" SaveToDB="False" SyncToClient="False" MaxFieldId="1">
+        <Field PreDefine="repeated" FieldType="DropItemObj" FieldId="1" Name="DropItem" CName="掉落的物品" ValueSet="" MinValue="6" MaxValue="128" Comment="" />
+    </Struct>
+    <Struct Name="RpcPickupItemAsk" CName="捡物品请求" ProtoType="RpcProto" Comment="" DataType="RPCData" SaveToDB="False" SyncToClient="False" MaxFieldId="2">
+        <Field PreDefine="optional" FieldType="sint32" FieldId="2" Name="UId" CName="下标" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+    </Struct>
+    <Struct Name="RpcPickupItemReply" CName="捡物品回应" ProtoType="RpcProto" Comment="" DataType="RPCData" SaveToDB="False" SyncToClient="False" MaxFieldId="1">
+        <Field PreDefine="optional" FieldType="sint32" FieldId="1" Name="Result" CName="返回结果" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-9999" Comment="-9999 模块未启动&#xD;&#xA;-9998 请求字段值范围出错" />
+    </Struct>
+    <Struct Name="RpcDelDropItemNotify" CName="删除掉落通知" ProtoType="RpcProto" Comment="" DataType="RPCData" SaveToDB="False" SyncToClient="False" MaxFieldId="1">
+        <Field PreDefine="optional" FieldType="sint32" FieldId="1" Name="UId" CName="下标" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+    </Struct>
+</Root>

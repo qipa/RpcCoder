@@ -1,0 +1,120 @@
+TaskRpcSyncDataAsk↑ 数据同步请求
+
+TaskRpcSyncDataReply↓ 数据同步回应
+	Result:int32 = -9999	;返回结果
+
+TaskTaskObj
+	TaskId:int32 = -1	;任务Id
+	TaskState:int32 = -1	;任务状态
+	TaskTarget:TaskTargetObj*	;任务目标
+	[TaskTargetObj]
+		TargetType:int32 = -1	;目标类型
+		TargetId:int32 = -1	;目标Id
+		CurNum:int32 = -1	;当前数量
+		TotalNum:int32 = -1	;总数量
+		Id:int32 = -1	;第几个目标
+	TaskType:int32 = -1	;任务类型
+	IsOrder:bool = true	;顺序完成目标
+	IsAutoSubmit:bool = false	;是否自动提交
+	CollectionId:int32 = -1	;采集物Id
+	DungeonId:int32 = -1	;任务条件所在副本Id
+	Guild:int32 = -1	;帮派Id
+	ObjId:int32 = -1	;ObjId
+
+TaskTaskData
+	AllTaskArray:TaskObj*	;全部任务数组
+	[TaskObj]
+		TaskId:int32 = -1	;任务Id
+		TaskState:int32 = -1	;任务状态
+		TaskTarget:TaskTargetObj*	;任务目标
+		[TaskTargetObj]
+			TargetType:int32 = -1	;目标类型
+			TargetId:int32 = -1	;目标Id
+			CurNum:int32 = -1	;当前数量
+			TotalNum:int32 = -1	;总数量
+			Id:int32 = -1	;第几个目标
+		TaskType:int32 = -1	;任务类型
+		IsOrder:bool = true	;顺序完成目标
+		IsAutoSubmit:bool = false	;是否自动提交
+		CollectionId:int32 = -1	;采集物Id
+		DungeonId:int32 = -1	;任务条件所在副本Id
+		Guild:int32 = -1	;帮派Id
+		ObjId:int32 = -1	;ObjId
+	UnacceptedTaskArray:UnacceptedTaskObj*	;可接任务
+	[UnacceptedTaskObj]
+		TaskId:int32 = -1	;任务Id
+		TaskType:int32 = -1	;任务类型
+	ProfTaskId:int32 = 0	;师门任务环数
+	ProfTaskCompCount:int32 = 0	;师门任务完成次数
+	OneDragonTaskId:int32* = -1	;使用过的一条龙任务Id
+	OneDragonRingNum:int32 = 0	;一条龙环数
+	OneDragonComplateCount:int32 = 0	;一条龙完成次数
+	OneDragonDungeonId:int32 = -1	;一条龙副本Id
+	GuildSpyComplateCount:int32 = 0	;帮会刺探完成次数
+
+TaskRpcCompleteTaskAsk↑ 完成任务目标请求
+	TaskId:int32 = -1	;任务Id
+	Target:int32 = -1	;目标
+
+TaskRpcCompleteTaskReply↓ 完成任务目标回应
+	Result:int32 = -9999	;返回结果
+	TaskId:int32 = -1	;任务Id
+	Target:int32 = -1	;目标
+
+TaskRpcSubmitTaskAsk↑ 提交任务请求
+	TaskId:int32 = -1	;任务Id
+
+TaskRpcSubmitTaskReply↓ 提交任务回应
+	Result:int32 = -9999	;返回结果
+	TaskId:int32 = -1	;任务Id
+	NextTaskId:int32 = -1	;下一个任务id
+
+TaskRpcUpdateTaskNotify↓ 更新任务通知
+	TaskId:int32 = -1	;任务Id
+	TaskState:int32 = -1	;任务状态
+	TaskTargetCount:int32* = -1	;任务目标数量
+
+TaskRpcAcceptTaskAsk↑ 接受任务请求
+	TaskId:int32 = -1	;任务Id
+
+TaskRpcAcceptTaskReply↓ 接受任务回应
+	Result:int32 = -9999	;返回结果
+	TaskId:int32 = -1	;任务Id
+
+TaskTaskTargetObj
+	TargetType:int32 = -1	;目标类型
+	TargetId:int32 = -1	;目标Id
+	CurNum:int32 = -1	;当前数量
+	TotalNum:int32 = -1	;总数量
+	Id:int32 = -1	;第几个目标
+
+TaskUnacceptedTaskObj
+	TaskId:int32 = -1	;任务Id
+	TaskType:int32 = -1	;任务类型
+
+TaskRpcStartProfTaskAsk↑ 开始师门任务请求
+
+TaskRpcStartProfTaskReply↓ 开始师门任务回应
+	Result:int32 = -9999	;返回结果
+	TaskId:int32 = -1	;任务Id
+
+TaskRpcStartOneDragonAsk↑ 开始一条龙请求
+
+TaskRpcStartOneDragonReply↓ 开始一条龙回应
+	Result:int32 = -9999	;返回结果
+	TaskId:int32 = -1	;任务Id
+
+TaskRpcAddTaskNotify↓ 增加任务通知
+	TaskId:int32 = -1	;任务Id
+	TaskState:int32 = -1	;任务状态
+
+TaskRpcDelTaskNotify↓ 删除任务通知
+	TaskId:int32 = -1	;任务Id
+	TaskState:int32 = -1	;任务状态
+
+TaskRpcStartGuildSpyAsk↑ 开始帮会刺探请求
+
+TaskRpcStartGuildSpyReply↓ 开始帮会刺探回应
+	Result:int32 = -9999	;返回结果
+	TaskId:int32 = -1	;任务Id
+

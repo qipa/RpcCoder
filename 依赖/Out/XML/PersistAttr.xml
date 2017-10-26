@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<Root Module="PersistAttr" CName="常驻内存属性模块" MsgNumStart="10" SyncDataVersion="1" Comment="">
+    <Operate Name="SyncData" CName="同步背包数据" Comment="">
+        <OP_ASK Name="Ask" CName="请求" MsgID="10" DataStruct="RpcSyncDataAsk" Comment="" />
+        <OP_REPLY Name="Reply" CName="回应" MsgID="11" DataStruct="RpcSyncDataReply" Comment="" />
+    </Operate>
+    <Struct Name="PersistAttr" CName="Cache属性数据" ProtoType="SyncProto" Comment="" DataType="CacheData" SaveToDB="True" SyncToClient="True" MaxFieldId="44">
+        <Field PreDefine="optional" FieldType="string" FieldId="1" Name="UserName" CName="战队名字" ValueSet="" MinValue="6" MaxValue="32" DefaultValue="" Comment="" />
+        <Field PreDefine="optional" FieldType="sint64" FieldId="3" Name="UserId" CName="用户ID" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="游戏world中的唯一ID" />
+        <Field PreDefine="optional" FieldType="string" FieldId="4" Name="PlatName" CName="游戏中心账号名" ValueSet="" MinValue="6" MaxValue="32" DefaultValue="" Comment="" />
+        <Field PreDefine="optional" FieldType="sint64" FieldId="21" Name="AccountId" CName="游戏中心账号ID" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="30" Name="Level" CName="战队等级" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="31" Name="Rank" CName="官阶" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="32" Name="FightPower" CName="战力" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="33" Name="Sec" CName="登录时间秒" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="35" Name="Prof" CName="职业" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="36" Name="OnlineState" CName="在线状态" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="0离线1在线" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="37" Name="TeamId" CName="组队id" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="39" Name="ShopScore" CName="几分商城" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="42" Name="DungeonId" CName="当前场景Id" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+        <Field PreDefine="optional" FieldType="string" FieldId="43" Name="SessionKey" CName="SessionKey" ValueSet="" MinValue="6" MaxValue="128" DefaultValue="" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="44" Name="GuildId" CName="帮会Id" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+    </Struct>
+    <Struct Name="RpcSyncDataAsk" CName="同步背包数据请求" ProtoType="RpcProto" Comment="" DataType="RPCData" SaveToDB="False" SyncToClient="False" MaxFieldId="0" />
+    <Struct Name="RpcSyncDataReply" CName="同步背包数据回应" ProtoType="RpcProto" Comment="" DataType="RPCData" SaveToDB="False" SyncToClient="False" MaxFieldId="1">
+        <Field PreDefine="optional" FieldType="sint32" FieldId="1" Name="Result" CName="返回结果" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-9999" Comment="-9999 模块未启动&#xD;&#xA;-9998 请求字段值范围出错" />
+    </Struct>
+</Root>

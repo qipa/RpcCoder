@@ -1,0 +1,417 @@
+FightRpcReadyAsk↑ 准备就绪请求
+
+FightRpcReadyReply↓ 准备就绪回应
+	Result:int32 = -9999	;返回结果
+	Tick:int32 = -1	;当前Tick
+	RandNum:int32 = -1	;当前随机数
+	IdHelper:int32 = -1	;ID管理器的值
+	ActionArr:bytes*	;创建的Action列表
+
+FightRpcActionNotify↑↓ 动作通知
+	Data:bytes	;动作数据
+	Frame:int32 = -1	;当前帧号
+
+FightRpcResultNotify↓ 战斗结果通知
+	Result:int32 = -1	;结果
+	DengeonId:int32 = -1	;副本Id
+	Star:int32 = -1	;星级
+	FightTime:int32 = -1	;战斗时间
+	PrizeList:PrizeInfo*	;奖励列表
+	[PrizeInfo]
+		Id:int32 = -1	;奖励ID
+		Count:int32 = -1	;奖励数量
+	KillList:KillInfo*	;杀戮列表
+	[KillInfo]
+		Id:int32 = -1	;对方Id
+		Count:int32 = -1	;数量
+	FirstStarLight:int32 = -1	;第一颗星是否亮了
+	SecondStarLight:int32 = -1	;第二颗星是否亮了
+	ThirdStarLight:int32 = -1	;第三颗星是否亮了
+
+FightRpcEnterAsk↑ 进入副本请求
+	UserId:sint64 = -1	;用户id
+	DungeonKey:string	;副本钥匙
+	SessionKey:string	;SessionKey
+
+FightRpcEnterReply↓ 进入副本回应
+	Result:int32 = -9999	;返回结果
+	Tick:int32 = -1	;当前Tick
+	RandNum:int32 = -1	;当前随机数
+	IdHelper:int32 = -1	;ID管理器的值
+	ActionArr:bytes*	;创建的Action列表
+
+FightPrizeInfo
+	Id:int32 = -1	;奖励ID
+	Count:int32 = -1	;奖励数量
+
+FightKillInfo
+	Id:int32 = -1	;对方Id
+	Count:int32 = -1	;数量
+
+FightRpcStartNotify↓ 战斗开始通知
+
+FightUseSkillAction
+	ObjId:int32 = -1	;obj id
+	SkillId:int32 = -1	;技能ID
+	PosInfo:bytes	;位置信息
+	TargetObjId:int32 = -1	;主目标ID
+	TargetPos:bytes	;目标位置信息
+	Type:int32 = 0	;类型
+	V3Pos:float* = -1	;V3Pos
+	Time:int32 = -1	;吟唱或引导时间(毫秒)
+
+FightBuffAction
+	ObjId:int32 = -1	;obj id
+	AttackerId:int32 = -1	;攻击者ObjId
+	OpType:int32 = -1	;操作类型
+	BuffId:int32 = -1	;BuffId
+	RemainTime:int32 = -1	;剩余时间
+	BuffLv:int32 = -1	;Buff等级
+
+FightCharHitAction
+	ObjId:int32 = -1	;obj id
+	SkillId:int32 = -1	;技能ID
+	TargetList:HitTargetInfo*	;目标列表
+	[HitTargetInfo]
+		ObjId:int32 = -1	;ObjId
+		PosInfo:bytes	;位置信息
+		Flag:int32 = 0	;标记
+		EnemyIndex:int32 = -1	;本次攻击敌人计数
+	Seq:int32 = -1	;技能攻击到人的序列号
+	PosInfo:bytes	;位置信息
+	BackDir:int32 = 0	;后退方向
+	SegmentIndex:int32 = -1	;技能动作段索引
+	AttackSegment:int32 = -1	;攻击段数
+	IsHitGround:bool = false	;受击后目标倒地
+
+FightOfflineAction
+	ObjId:int32 = -1	;obj Id
+	IsOffline:bool = false	;是否下线
+	IsAIDelegate:bool = false	;是否AI接管
+
+FightStateAction
+	Type:int32 = -1	;状态类型
+	ObjId:int32 = -1	;obj id
+	PosInfo:bytes	;位置信息
+	TargetPos:bytes	;目标位置信息
+	IntPara:int32 = -1	;INT参数
+	LadderObjId:int32 = -1	;梯子ObjId
+
+FightCharDeadAction
+	ObjId:int32 = -1	;obj id
+	PosInfo:bytes	;位置信息
+
+FightCharReviveAction
+	ObjId:int32 = -1	;obj id
+	PosInfo:bytes	;位置信息
+	CurHp:int32 = 0	;当前血量
+	Type:int32 = -1	;类型
+	Time:int32 = -1	;读条时间
+	ManualRevive:int32 = 0	;是否需要手动复活
+	RemainTimes:int32 = -1	;免费复活剩余次数
+	NeedMoney:int32 = -1	;需要复活的钱
+	MaxHP:int32 = 0	;最大血量
+	TotalTimes:int32 = -1	;总复活次数
+
+FightHitTargetInfo
+	ObjId:int32 = -1	;ObjId
+	PosInfo:bytes	;位置信息
+	Flag:int32 = 0	;标记
+	EnemyIndex:int32 = -1	;本次攻击敌人计数
+
+FightComboSkillAction
+	ObjId:int32 = -1	;obj id
+	SkillId:int32 = -1	;技能ID
+	Flag:int32 = -1	;连击标志
+
+FightEndSkillAction
+	ObjId:int32 = -1	;obj id
+	SkillId:int32 = -1	;技能ID
+	PosInfo:bytes	;位置信息
+	ComboSkillId:int32 = -1	;连击技能ID
+
+FightCityAction
+	Type:int32 = -1	;状态类型
+	ObjId:int32 = -1	;obj id
+	PosInfo:bytes	;位置信息
+	TargetPos:bytes	;目标位置信息
+	IntPara:int32 = -1	;INT参数
+
+FightSnipeAction
+	Type:int32 = -1	;状态类型
+	ObjId:int32 = -1	;obj id
+	TargetPos:bytes	;目标位置信息
+	CampId:int32 = -1	;狙击者阵营ID
+
+FightHurtAction
+	ObjId:int32 = -1	;obj id
+	SkillId:int32 = -1	;技能ID
+	AttackBack:bool = false	;是否击退
+	AttackAir:bool = false	;是否浮空
+	BackDir:int32 = 0	;后退方向
+	TargetObjId:int32 = -1	;目标ObjId
+	OwnHP:int32 = -1	;自己的血量
+	TargetHP:int32 = -1	;目标血量
+	OwnHPChange:int32 = -1	;自己血量变化
+	TargetHPChange:int32 = -1	;目标血量变化
+	IsCrit:bool = false	;是否暴击
+	TotalDamage:int32 = -1	;总伤害
+	SegmentIndex:int32 = -1	;技能动作段索引
+	HurtType:int32 = -1	;伤害类型
+	AttackSegment:int32 = -1	;攻击段数
+	IsHitGround:bool = false	;受击后目标倒地
+	TargetMaxHP:int32 = -1	;目标最大血量
+	EnemyIndex:int32 = -1	;本次攻击敌人计数
+
+FightDodgeAction
+	ObjId:int32 = -1	;obj id
+	SkillId:int32 = -1	;技能ID
+	AttackerObjId:int32 = -1	;攻击者ID
+	Type:int32 = 1	;类型
+
+FightRemoveObjAction
+	ObjId:int32 = -1	;obj id
+
+FightStormBaseAction
+	Type:int32 = -1	;类型
+	Mark:int32 = -1	;标记位置
+	CampId:int32 = -1	;归属阵营ID
+	ObjId:int32 = -1	;obj id
+	ID:int32 = -1	;ID
+	Name:string	;Name
+
+FightStormResAction
+	BaseId:int32 = -1	;基地ID
+	CampId:int32 = -1	;归属阵营ID
+	UpdateNum:int32 = -1	;资源更新量
+	TotalNum:int32 = -1	;资源总量
+
+FightStormFlagAction
+	Type:int32 = 1	;动作类型
+	Time:int32 = -1	;时间
+	FlagObjId:int32 = -1	;旗ObjId
+	ObjId1:int32 = -1	;ObjId1
+	ObjId2:int32 = -1	;ObjId2
+	Result:int32 = -1	;操作旗子结果
+
+FightStormCampAction
+	ObjArr:int32* = -1	;阵营人员ObjId列表
+	CampId:int32 = -1	;阵营ID
+	TotalNum:int32 = 0	;资源总量
+	Color:int32 = -1	;阵营颜色
+	Type:int32 = -1	;操作类型
+
+FightStormResultAction
+	CampArr:StormCampInfo*	;阵营列表
+	[StormCampInfo]
+		PlayerArr:StormPlayerInfo*	;成员信息
+		[StormPlayerInfo]
+			KilledNum:int32 = 0	;杀人数
+			DeadTimes:int32 = 0	;死亡次数
+			Name:string	;名字
+			FlagTimes:int32 = 0	;放旗数
+			Prof:int32 = -1	;职业
+			OutputDamage:sint64 = -1	;总输出伤害
+			EndureDamage:sint64 = -1	;承受伤害
+			TreatDamage:sint64 = -1	;总治疗量
+			ObjId:int32 = -1	;玩家ObjId
+		CampId:int32 = -1	;阵营ID
+		TotalNum:int32 = -1	;资源总量
+	IsSvrSend:bool = false	;是否为服务器发送
+
+FightStormCampInfo
+	PlayerArr:StormPlayerInfo*	;成员信息
+	[StormPlayerInfo]
+		KilledNum:int32 = 0	;杀人数
+		DeadTimes:int32 = 0	;死亡次数
+		Name:string	;名字
+		FlagTimes:int32 = 0	;放旗数
+		Prof:int32 = -1	;职业
+		OutputDamage:sint64 = -1	;总输出伤害
+		EndureDamage:sint64 = -1	;承受伤害
+		TreatDamage:sint64 = -1	;总治疗量
+		ObjId:int32 = -1	;玩家ObjId
+	CampId:int32 = -1	;阵营ID
+	TotalNum:int32 = -1	;资源总量
+
+FightStormPlayerInfo
+	KilledNum:int32 = 0	;杀人数
+	DeadTimes:int32 = 0	;死亡次数
+	Name:string	;名字
+	FlagTimes:int32 = 0	;放旗数
+	Prof:int32 = -1	;职业
+	OutputDamage:sint64 = -1	;总输出伤害
+	EndureDamage:sint64 = -1	;承受伤害
+	TreatDamage:sint64 = -1	;总治疗量
+	ObjId:int32 = -1	;玩家ObjId
+
+FightCreateAction
+	UserId:sint64 = -1	;用户ID
+	ConfigId:int32 = -1	;配置文件中的ID
+	ObjId:int32 = -1	;内核中用到的对像ID
+	PosInfo:bytes	;位置信息
+	ObjType:int32 = -1	;创建类型 
+	CampId:int32 = -1	;阵营ID
+	PosInfo2:bytes	;位置信息
+	IntParaList:int32* = -1	;整数参数列表
+	FloatParaList:float* = -1	;字符串参数列表
+	CurState:int32 = -1	;当前状态
+	CurHp:int32 = -1	;当前血量
+	Name:string	;名字
+	EquipBuffArr:EquipSkillBuff2*	;装备的BUFF列表
+	[EquipSkillBuff2]
+		Id:int32 = -1	;ID
+		LV:int32 = -1	;等级
+		Cd:int32 = -1	;CD
+	EquipSkillArr:EquipSkillBuff2*	;装备的技能
+	[EquipSkillBuff2]
+		Id:int32 = -1	;ID
+		LV:int32 = -1	;等级
+		Cd:int32 = -1	;CD
+	AttrArr:KeyValue2*	;属性列表
+	[KeyValue2]
+		Key:int32 = -1	;键
+		Value:float = -1	;值
+	Level:int32 = -1	;等级
+	TableType:int32 = -1	;TableType
+	IsShowEffect:bool = false	;是否显示特效
+
+FightQuickFinishAction
+	Type:int32 = 0	;杀对像类型
+
+FightFinishLevelAction
+	Result:int32 = -1	;战局情况
+	Type:int32 = 2	;类型
+	WallObjId:int32 = -1	;节点墙ObjId
+
+FightTowerLockAction
+	TargetObjId:int32 = -1	;目标ObjId
+	ObjId:int32 = -1	;obj id
+	Type:int32 = 0	;类型
+
+FightStormStartAction
+	Type:int32 = -1	;类型
+	Time:int32 = -1	;倒计时或剩余时间
+
+FightEscapeStartAction
+	Type:int32 = -1	;类型
+	Time:int32 = -1	;倒计时或剩余时间
+
+FightEscapeResultAction
+	Result:int32 = -1	;结果
+
+FightGMAddHpAction
+	ObjId:int32 = -1	;对像ID
+	AddNum:int32 = -1	;加血量
+
+FightTRandSkillAction
+
+FightGuildDBeginAction
+	Type:int32 = -1	;类型
+	Time:int32 = -1	;剩余时间
+
+FightGuildDEndAction
+	Time:int32 = -1	;剩余时间
+
+FightTransferAction
+	DungeonId:int32 = -1	;场景ID
+	DungeonType:int32 = -1	;场景类型
+	BirthPoint:int32 = -1	;出生点
+	FaceDir:int32 = 0	;朝向
+
+FightHeroFightInfoAction
+	HeroInfoArr:HeroFightInfo*	;英雄信息列表
+	[HeroFightInfo]
+		UserId:sint64 = -1	;用户ID
+		ObjId:int32 = -1	;对像ID
+		Name:string	;名字
+		DeadTimes:int32 = 0	;死亡次数
+		KilledNum:int32 = 0	;杀人数
+		TotalDamage:sint64 = -1	;总输出伤害
+		TotalEndure:int32 = -1	;承受伤害
+		IntParaArr:int32* = -1	;保留参数
+		Level:int32 = -1	;等级
+		AssistKilled:int32 = -1	;助攻数
+		CmapId:int32 = -1	;阵营ID
+	FunctionId:int32 = -1	;副本功能类型
+	MyCampId:int32 = -1	;自己的阵营ID
+
+FightGuildFightBeginAction
+	Type:int32 = -1	;类型
+	Time:int32 = -1	;剩余时间
+
+FightGuildFightEndAction
+	Time:int32 = -1	;剩余时间
+	VictoryCampId:int32 = -1	;胜利阵营
+
+FightGuildFightHpAction
+	CampId:int32 = -1	;阵营ID
+	MaxHp:int32 = 0	;最大血量
+	CurHp:int32 = 0	;当前血量
+
+FightEffectTranslateAction
+	ObjId:int32 = -1	;对像ID
+	ObjType:int32 = -1	;对像类型
+	TargetObjId:int32 = -1	;目标对像ID
+	TargetPos:bytes	;目标位置
+	Angle:int32 = -1	;方向角
+	Speed:int32 = -1	;速度
+	Distance:int32 = -1	;距离
+	PosInfo:bytes	;对像自身位置
+	Status:int32 = 0	;状态
+	SkillId:int32 = -1	;SkillId
+	SegementIndex:int32 = -1	;技能段索引
+	SpriteName:string	;spriteName
+	BulletType:int32 = -1	;子弹类型
+	IsIrregularityEffect:bool = false	;IsIrregularityEffect
+	TranslateType:int32 = 0	;TranslateType
+	Time:float = -1	;Time
+
+FightCollectAction
+	Status:int32 = 1	;1是开始,2是结束,3是中断
+	Player_ObjId:int32 = -1	;玩家的ObjId
+	Collection_ObjId:int32 = -1	;采集物品的ObjId
+
+FightCollectionShowEffectAction
+	ObjId:int32 = -1	;内核中用到的对像ID
+	IsShowEffect:bool = false	;是否显示特效
+
+FightAutoFightAction
+	Type:int32 = 0	;类型
+	ObjId:int32 = -1	;内核中用到的对像ID
+
+FightUseItemAction
+	TemplateId:int32 = -1	;道具配置Id
+	Status:int32 = 1	;1是开始,2是结束,3是中断
+	Player_ObjId:int32 = -1	;玩家的ObjId
+
+FightStormKillEffectAction
+	ObjId:int32 = -1	;自己
+	Num:int32 = -1	;杀人数量
+
+FightOneVSOneStartAction
+	Type:int32 = -1	;类型
+	Time:int32 = -1	;倒计时或剩余时间
+
+FightOneVSOneResultAction
+	Result:int32 = -1	;结果
+
+FightSightAction
+	ActionArr:bytes*	;创建的Action列表
+
+FightEventTriggerAction
+	EventId:int32 = -1	;事件配置Id
+
+FightQuitAction
+	Type:int32 = 0	;type类型
+
+FightProductAction
+	Status:int32 = -1	;1是开始,2是结束,3是中断
+	LifeSkillId:int32 = -1	;生活技能表ID
+	Player_ObjId:int32 = -1	;玩家的ObjId
+	ProductionId:int32 = -1	;产出物品id
+
+FightStartEndAction
+	Type:int32 = 0	;0:开始, 1:结束
+	Time:int32 = 0	;秒时间
+

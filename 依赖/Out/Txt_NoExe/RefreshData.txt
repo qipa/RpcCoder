@@ -1,0 +1,3 @@
+RefreshDataRefreshData
+	LastRefreshTime:int32 = 0	;上次刷新
+

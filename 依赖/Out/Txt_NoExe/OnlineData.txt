@@ -1,0 +1,23 @@
+OnlineDataOnlineData
+	BagRecycleBin:BagRecycleGridObj*	;回收站
+	[BagRecycleGridObj]
+		ItemId:sint64 = -1	;道具id
+		TemplateId:int32 = -1	;模板id
+		Num:int32 = -1	;数量
+		ItemType:int32 = -1	;物品类型
+		Pos:int32 = -1	;位置
+	RoleAttr:RoleAttrObj*	;角色属性
+	[RoleAttrObj]
+		Id:int32 = -1	;属性Id
+		Value:float = -1	;值
+	RecommendFriendOffset:int32 = 0	;推荐好友偏移
+	RecommendFriendFlushTime:int32 = -1	;推荐好友刷新时间
+	RecommendFriendLastList:sint64* = -1	;上次推荐的好友
+	FollowmeUserId:sint64* = -1	;跟随我的人
+	FollowWho:sint64 = -1	;跟随谁
+	ThiefObjId:sint64 = -1	;江洋大盗
+
+OnlineDataRoleAttrObj
+	Id:int32 = -1	;属性Id
+	Value:float = -1	;值
+

@@ -1,0 +1,148 @@
+<?xml version="1.0"?>
+<Root Module="Friend" CName="好友" MsgNumStart="33" SyncDataVersion="1" Comment="">
+    <Operate Name="SyncFriendData" CName="每次打开界面，请求一次数据" Comment="">
+        <OP_ASK Name="Ask" CName="请求" MsgID="33" DataStruct="RpcSyncFriendDataAsk" Comment="" />
+        <OP_REPLY Name="Reply" CName="回应" MsgID="34" DataStruct="RpcSyncFriendDataReply" Comment="" />
+    </Operate>
+    <Operate Name="AddFriend" CName="增加好友" Comment="">
+        <OP_ASK Name="Ask" CName="请求" MsgID="35" DataStruct="RpcAddFriendAsk" Comment="" />
+        <OP_REPLY Name="Reply" CName="回应" MsgID="36" DataStruct="RpcAddFriendReply" Comment="" />
+    </Operate>
+    <Operate Name="DelFriend" CName="删除好友" Comment="">
+        <OP_ASK Name="Ask" CName="请求" MsgID="37" DataStruct="RpcDelFriendAsk" Comment="" />
+        <OP_REPLY Name="Reply" CName="回应" MsgID="38" DataStruct="RpcDelFriendReply" Comment="" />
+    </Operate>
+    <Operate Name="AddBlackList" CName="增加黑名单" Comment="">
+        <OP_ASK Name="Ask" CName="请求" MsgID="39" DataStruct="RpcAddBlackListAsk" Comment="" />
+        <OP_REPLY Name="Reply" CName="回应" MsgID="40" DataStruct="RpcAddBlackListReply" Comment="" />
+    </Operate>
+    <Operate Name="DelBlackList" CName="删除黑名单" Comment="">
+        <OP_ASK Name="Ask" CName="请求" MsgID="41" DataStruct="RpcDelBlackListAsk" Comment="" />
+        <OP_REPLY Name="Reply" CName="回应" MsgID="42" DataStruct="RpcDelBlackListReply" Comment="" />
+    </Operate>
+    <Operate Name="AddContact" CName="增加最近联系人" Comment="">
+        <OP_ASK Name="Ask" CName="请求" MsgID="43" DataStruct="RpcAddContactAsk" Comment="" />
+        <OP_REPLY Name="Reply" CName="回应" MsgID="44" DataStruct="RpcAddContactReply" Comment="" />
+    </Operate>
+    <Operate Name="DelContact" CName="删除最近联系人" Comment="">
+        <OP_ASK Name="Ask" CName="请求" MsgID="45" DataStruct="RpcDelContactAsk" Comment="" />
+        <OP_REPLY Name="Reply" CName="回应" MsgID="46" DataStruct="RpcDelContactReply" Comment="" />
+    </Operate>
+    <Operate Name="SearchPlayer" CName="搜索好友" Comment="">
+        <OP_ASK Name="Ask" CName="请求" MsgID="47" DataStruct="RpcSearchPlayerAsk" Comment="" />
+        <OP_REPLY Name="Reply" CName="回应" MsgID="48" DataStruct="RpcSearchPlayerReply" Comment="" />
+    </Operate>
+    <Operate Name="Recommend" CName="推荐玩家" Comment="">
+        <OP_ASK Name="Ask" CName="请求" MsgID="49" DataStruct="RpcRecommendAsk" Comment="" />
+        <OP_REPLY Name="Reply" CName="回应" MsgID="50" DataStruct="RpcRecommendReply" Comment="" />
+    </Operate>
+    <Operate Name="ViewUserSimpleInfo" CName="查看资料简单数据" Comment="">
+        <OP_ASK Name="Ask" CName="请求" MsgID="51" DataStruct="RpcViewUserSimpleInfoAsk" Comment="" />
+        <OP_REPLY Name="Reply" CName="回应" MsgID="52" DataStruct="RpcViewUserSimpleInfoReply" Comment="" />
+    </Operate>
+    <Operate Name="FriendOnlineOffline" CName="好友上下线" Comment="">
+        <OP_SERVER_NOTIFY Name="Notify" CName="通知" MsgID="53" DataStruct="RpcOnlineOfflineNotify" Comment="" />
+    </Operate>
+    <Struct Name="FriendObj" CName="好友对象" ProtoType="SyncProto" Comment="" DataType="ItemData" SaveToDB="False" SyncToClient="False" MaxFieldId="12">
+        <Field PreDefine="optional" FieldType="sint64" FieldId="1" Name="UserId" CName="用户Id" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+        <Field PreDefine="optional" FieldType="string" FieldId="2" Name="UserName" CName="名字" ValueSet="" MinValue="6" MaxValue="128" DefaultValue="" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="3" Name="Level" CName="等级" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="4" Name="Prof" CName="职业" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+        <Field PreDefine="optional" FieldType="string" FieldId="5" Name="Signature" CName="签名" ValueSet="" MinValue="6" MaxValue="128" DefaultValue="" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="6" Name="TeamId" CName="队伍Id" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="8" Name="TeamMemberNum" CName="队伍当前人数" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="0" Comment="" />
+        <Field PreDefine="optional" FieldType="bool" FieldId="9" Name="Online" CName="是否在线" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="false" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="10" Name="GoodFeeling" CName="好感度" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="0" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="11" Name="GuildId" CName="帮会id" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+        <Field PreDefine="optional" FieldType="string" FieldId="12" Name="GuildName" CName="帮会名字" ValueSet="" MinValue="6" MaxValue="128" DefaultValue="" Comment="" />
+    </Struct>
+    <Struct Name="FriendData" CName="好友数据" ProtoType="SyncProto" Comment="" DataType="UserData" SaveToDB="True" SyncToClient="True" MaxFieldId="4">
+        <Field PreDefine="repeated" FieldType="FriendObj" FieldId="1" Name="FriendList" CName="好友列表" ValueSet="" MinValue="6" MaxValue="128" Comment="" />
+        <Field PreDefine="repeated" FieldType="FriendObj" FieldId="2" Name="BlackList" CName="黑名单" ValueSet="" MinValue="6" MaxValue="128" Comment="" />
+        <Field PreDefine="repeated" FieldType="FriendObj" FieldId="3" Name="ContactsList" CName="最近联系人" ValueSet="" MinValue="6" MaxValue="128" Comment="" />
+        <Field PreDefine="repeated" FieldType="sint64" FieldId="4" Name="StrangerFriendList" CName="加过我的人" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+    </Struct>
+    <Struct Name="RpcSyncFriendDataAsk" CName="每次打开界面，请求一次数据请求" ProtoType="RpcProto" Comment="" DataType="RPCData" SaveToDB="False" SyncToClient="False" MaxFieldId="0" />
+    <Struct Name="RpcSyncFriendDataReply" CName="每次打开界面，请求一次数据回应" ProtoType="RpcProto" Comment="" DataType="RPCData" SaveToDB="False" SyncToClient="False" MaxFieldId="1">
+        <Field PreDefine="optional" FieldType="sint32" FieldId="1" Name="Result" CName="返回结果" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-9999" Comment="-9999 模块未启动&#xD;&#xA;-9998 请求字段值范围出错" />
+    </Struct>
+    <Struct Name="RpcAddFriendAsk" CName="增加好友请求" ProtoType="RpcProto" Comment="" DataType="RPCData" SaveToDB="False" SyncToClient="False" MaxFieldId="1">
+        <Field PreDefine="optional" FieldType="sint64" FieldId="1" Name="UserId" CName="用户Id" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+    </Struct>
+    <Struct Name="RpcAddFriendReply" CName="增加好友回应" ProtoType="RpcProto" Comment="" DataType="RPCData" SaveToDB="False" SyncToClient="False" MaxFieldId="1">
+        <Field PreDefine="optional" FieldType="sint32" FieldId="1" Name="Result" CName="返回结果" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-9999" Comment="-9999 模块未启动&#xD;&#xA;-9998 请求字段值范围出错" />
+    </Struct>
+    <Struct Name="RpcDelFriendAsk" CName="删除好友请求" ProtoType="RpcProto" Comment="" DataType="RPCData" SaveToDB="False" SyncToClient="False" MaxFieldId="1">
+        <Field PreDefine="repeated" FieldType="sint64" FieldId="1" Name="UserId" CName="用户Id" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+    </Struct>
+    <Struct Name="RpcDelFriendReply" CName="删除好友回应" ProtoType="RpcProto" Comment="" DataType="RPCData" SaveToDB="False" SyncToClient="False" MaxFieldId="2">
+        <Field PreDefine="optional" FieldType="sint32" FieldId="1" Name="Result" CName="返回结果" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-9999" Comment="-9999 模块未启动&#xD;&#xA;-9998 请求字段值范围出错" />
+    </Struct>
+    <Struct Name="RpcAddBlackListAsk" CName="增加黑名单请求" ProtoType="RpcProto" Comment="" DataType="RPCData" SaveToDB="False" SyncToClient="False" MaxFieldId="1">
+        <Field PreDefine="optional" FieldType="sint64" FieldId="1" Name="UserId" CName="用户Id" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+    </Struct>
+    <Struct Name="RpcAddBlackListReply" CName="增加黑名单回应" ProtoType="RpcProto" Comment="" DataType="RPCData" SaveToDB="False" SyncToClient="False" MaxFieldId="2">
+        <Field PreDefine="optional" FieldType="sint32" FieldId="1" Name="Result" CName="返回结果" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-9999" Comment="-9999 模块未启动&#xD;&#xA;-9998 请求字段值范围出错" />
+    </Struct>
+    <Struct Name="RpcDelBlackListAsk" CName="删除黑名单请求" ProtoType="RpcProto" Comment="" DataType="RPCData" SaveToDB="False" SyncToClient="False" MaxFieldId="1">
+        <Field PreDefine="optional" FieldType="sint64" FieldId="1" Name="UserId" CName="用户Id" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+    </Struct>
+    <Struct Name="RpcDelBlackListReply" CName="删除黑名单回应" ProtoType="RpcProto" Comment="" DataType="RPCData" SaveToDB="False" SyncToClient="False" MaxFieldId="2">
+        <Field PreDefine="optional" FieldType="sint32" FieldId="1" Name="Result" CName="返回结果" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-9999" Comment="-9999 模块未启动&#xD;&#xA;-9998 请求字段值范围出错" />
+    </Struct>
+    <Struct Name="RpcAddContactAsk" CName="增加最近联系人请求" ProtoType="RpcProto" Comment="" DataType="RPCData" SaveToDB="False" SyncToClient="False" MaxFieldId="1">
+        <Field PreDefine="optional" FieldType="sint64" FieldId="1" Name="UserId" CName="用户Id" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+    </Struct>
+    <Struct Name="RpcAddContactReply" CName="增加最近联系人回应" ProtoType="RpcProto" Comment="" DataType="RPCData" SaveToDB="False" SyncToClient="False" MaxFieldId="1">
+        <Field PreDefine="optional" FieldType="sint32" FieldId="1" Name="Result" CName="返回结果" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-9999" Comment="-9999 模块未启动&#xD;&#xA;-9998 请求字段值范围出错" />
+    </Struct>
+    <Struct Name="RpcDelContactAsk" CName="删除最近联系人请求" ProtoType="RpcProto" Comment="" DataType="RPCData" SaveToDB="False" SyncToClient="False" MaxFieldId="1">
+        <Field PreDefine="optional" FieldType="sint64" FieldId="1" Name="UserId" CName="用户Id" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+    </Struct>
+    <Struct Name="RpcDelContactReply" CName="删除最近联系人回应" ProtoType="RpcProto" Comment="" DataType="RPCData" SaveToDB="False" SyncToClient="False" MaxFieldId="1">
+        <Field PreDefine="optional" FieldType="sint32" FieldId="1" Name="Result" CName="返回结果" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-9999" Comment="-9999 模块未启动&#xD;&#xA;-9998 请求字段值范围出错" />
+    </Struct>
+    <Struct Name="RpcSearchPlayerAsk" CName="搜索好友请求" ProtoType="RpcProto" Comment="" DataType="RPCData" SaveToDB="False" SyncToClient="False" MaxFieldId="1">
+        <Field PreDefine="optional" FieldType="string" FieldId="1" Name="SearchString" CName="搜索内容" ValueSet="" MinValue="6" MaxValue="128" DefaultValue="" Comment="" />
+    </Struct>
+    <Struct Name="RpcSearchPlayerReply" CName="搜索好友回应" ProtoType="RpcProto" Comment="" DataType="RPCData" SaveToDB="False" SyncToClient="False" MaxFieldId="5">
+        <Field PreDefine="optional" FieldType="sint32" FieldId="1" Name="Result" CName="返回结果" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-9999" Comment="-9999 模块未启动&#xD;&#xA;-9998 请求字段值范围出错" />
+        <Field PreDefine="optional" FieldType="sint64" FieldId="2" Name="UserId" CName="用户Id" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+        <Field PreDefine="optional" FieldType="string" FieldId="3" Name="UserName" CName="名字" ValueSet="" MinValue="6" MaxValue="128" DefaultValue="" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="4" Name="Level" CName="等级" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="5" Name="Prof" CName="职业" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+    </Struct>
+    <Struct Name="RpcRecommendObj" CName="推荐好友对象" ProtoType="RpcProto" Comment="" DataType="ItemData" SaveToDB="False" SyncToClient="False" MaxFieldId="5">
+        <Field PreDefine="optional" FieldType="sint64" FieldId="1" Name="UserId" CName="用户Id" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+        <Field PreDefine="optional" FieldType="string" FieldId="2" Name="UserName" CName="名字" ValueSet="" MinValue="6" MaxValue="128" DefaultValue="" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="3" Name="Level" CName="等级" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="4" Name="Prof" CName="职业" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+    </Struct>
+    <Struct Name="RpcRecommendAsk" CName="推荐玩家请求" ProtoType="RpcProto" Comment="" DataType="RPCData" SaveToDB="False" SyncToClient="False" MaxFieldId="4" />
+    <Struct Name="RpcRecommendReply" CName="推荐玩家回应" ProtoType="RpcProto" Comment="" DataType="RPCData" SaveToDB="False" SyncToClient="False" MaxFieldId="2">
+        <Field PreDefine="optional" FieldType="sint32" FieldId="1" Name="Result" CName="返回结果" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-9999" Comment="-9999 模块未启动&#xD;&#xA;-9998 请求字段值范围出错" />
+        <Field PreDefine="repeated" FieldType="RpcRecommendObj" FieldId="2" Name="RecommendList" CName="推荐名单" ValueSet="" MinValue="6" MaxValue="128" Comment="" />
+    </Struct>
+    <Struct Name="RpcViewUserSimpleInfoAsk" CName="查看资料简单数据请求" ProtoType="RpcProto" Comment="" DataType="RPCData" SaveToDB="False" SyncToClient="False" MaxFieldId="1">
+        <Field PreDefine="optional" FieldType="sint64" FieldId="1" Name="UserId" CName="用户Id" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+    </Struct>
+    <Struct Name="RpcViewUserSimpleInfoReply" CName="查看资料简单数据回应" ProtoType="RpcProto" Comment="" DataType="RPCData" SaveToDB="False" SyncToClient="False" MaxFieldId="12">
+        <Field PreDefine="optional" FieldType="sint32" FieldId="1" Name="Result" CName="返回结果" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-9999" Comment="-9999 模块未启动&#xD;&#xA;-9998 请求字段值范围出错" />
+        <Field PreDefine="optional" FieldType="sint64" FieldId="2" Name="UserId" CName="用户Id" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+        <Field PreDefine="optional" FieldType="string" FieldId="3" Name="UserName" CName="名字" ValueSet="" MinValue="6" MaxValue="128" DefaultValue="" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="4" Name="Level" CName="等级" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="5" Name="Prof" CName="职业" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="6" Name="TeamId" CName="队伍Id" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="7" Name="TeamMemberNum" CName="队伍当前人数" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="8" Name="GuildId" CName="帮会id" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+        <Field PreDefine="optional" FieldType="string" FieldId="9" Name="Signature" CName="签名" ValueSet="" MinValue="6" MaxValue="128" DefaultValue="" Comment="" />
+        <Field PreDefine="optional" FieldType="bool" FieldId="10" Name="Online" CName="是否在线" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="false" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="11" Name="GoodFeeling" CName="好感度" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="0" Comment="" />
+        <Field PreDefine="optional" FieldType="string" FieldId="12" Name="GuildName" CName="帮会名字" ValueSet="" MinValue="6" MaxValue="128" DefaultValue="" Comment="" />
+    </Struct>
+    <Struct Name="RpcOnlineOfflineNotify" CName="好友上下线通知" ProtoType="RpcProto" Comment="" DataType="RPCData" SaveToDB="False" SyncToClient="False" MaxFieldId="3">
+        <Field PreDefine="optional" FieldType="sint64" FieldId="1" Name="UserId" CName="用户Id" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+        <Field PreDefine="optional" FieldType="string" FieldId="2" Name="UserName" CName="名字" ValueSet="" MinValue="6" MaxValue="128" DefaultValue="" Comment="" />
+        <Field PreDefine="optional" FieldType="bool" FieldId="3" Name="Online" CName="是否在线" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="false" Comment="" />
+    </Struct>
+</Root>

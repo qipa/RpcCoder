@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<Root Module="ActivityEscape" CName="活动 大逃杀" MsgNumStart="31" SyncDataVersion="1" Comment="大逃杀">
+    <Operate Name="SignUp" CName="报名进入" Comment="">
+        <OP_ASK Name="Ask" CName="请求" MsgID="31" DataStruct="RpcSignUpAsk" Comment="" />
+        <OP_REPLY Name="Reply" CName="回应" MsgID="32" DataStruct="RpcSignUpReply" Comment="" />
+    </Operate>
+    <Struct Name="RpcSignUpAsk" CName="报名进入请求" ProtoType="RpcProto" Comment="" DataType="RPCData" SaveToDB="False" SyncToClient="False" MaxFieldId="0" />
+    <Struct Name="RpcSignUpReply" CName="报名进入回应" ProtoType="RpcProto" Comment="" DataType="RPCData" SaveToDB="False" SyncToClient="False" MaxFieldId="2">
+        <Field PreDefine="optional" FieldType="sint32" FieldId="1" Name="Result" CName="返回结果" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-9999" Comment="-9999 模块未启动&#xD;&#xA;-9998 请求字段值范围出错" />
+        <Field PreDefine="repeated" FieldType="sint64" FieldId="2" Name="LosePeopleID" CName="次数已满的人员id" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+    </Struct>
+</Root>

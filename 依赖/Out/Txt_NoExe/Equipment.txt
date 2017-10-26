@@ -1,0 +1,54 @@
+EquipmentRpcSyncDataAsk↑ 同步装备数据请求
+
+EquipmentRpcSyncDataReply↓ 同步装备数据回应
+	Result:int32 = -9999	;返回结果
+
+EquipmentRpcWearAsk↑ 穿戴装备请求
+	EquipID:string	;物品id
+
+EquipmentRpcWearReply↓ 穿戴装备回应
+	Result:int32 = -9999	;返回结果
+	EquipID:string	;物品id
+
+EquipmentRpcEnhanceAsk↑ 强化请求
+
+EquipmentRpcEnhanceReply↓ 强化回应
+	Result:int32 = -9999	;返回结果
+
+EquipmentEquipData
+	WearEquip:EquipObj	;穿戴的装备
+	[EquipObj]
+		ItemID:string	;ItemID
+		TemplateID:int32 = -1	;配置文件中的id
+		BaseAttr:AttrObj*	;基础属性
+		[AttrObj]
+			AttrId:int32 = -1	;属性Id
+			AttrValue:int32 = -1	;属性值
+		ExtraAttr:AttrObj*	;额外属性
+		[AttrObj]
+			AttrId:int32 = -1	;属性Id
+			AttrValue:int32 = -1	;属性值
+		EnhanceLv:int32* = -1	;强化等级
+
+EquipmentEquipObj
+	ItemID:string	;ItemID
+	TemplateID:int32 = -1	;配置文件中的id
+	BaseAttr:AttrObj*	;基础属性
+	[AttrObj]
+		AttrId:int32 = -1	;属性Id
+		AttrValue:int32 = -1	;属性值
+	ExtraAttr:AttrObj*	;额外属性
+	[AttrObj]
+		AttrId:int32 = -1	;属性Id
+		AttrValue:int32 = -1	;属性值
+	EnhanceLv:int32* = -1	;强化等级
+
+EquipmentAttrObj
+	AttrId:int32 = -1	;属性Id
+	AttrValue:int32 = -1	;属性值
+
+EquipmentRpcPolishedAsk↑ 洗练请求
+
+EquipmentRpcPolishedReply↓ 洗练回应
+	Result:int32 = -9999	;返回结果
+

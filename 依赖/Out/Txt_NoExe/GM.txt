@@ -1,0 +1,7 @@
+GMRpcActionAsk↑ 指令动作请求
+	Value:string	;指令内容
+
+GMRpcActionReply↓ 指令动作回应
+	Result:int32 = -9999	;返回结果
+	Value:string	;指令内容
+

@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<Root Module="Login" CName="登录模块" MsgNumStart="5" SyncDataVersion="1" Comment="">
+    <Operate Name="KeyAuth" CName="密钥认证" Comment="">
+        <OP_ASK Name="Ask" CName="请求" MsgID="5" DataStruct="RpcKeyAuthAsk" Comment="" />
+        <OP_REPLY Name="Reply" CName="回应" MsgID="6" DataStruct="RpcKeyAuthReply" Comment="" />
+    </Operate>
+    <Operate Name="KickOff" CName="被踢下线" Comment="">
+        <OP_SERVER_NOTIFY Name="Notify" CName="通知" MsgID="7" DataStruct="RpcKickOffNotify" Comment="" />
+    </Operate>
+    <Struct Name="RpcKeyAuthAsk" CName="密钥认证请求" ProtoType="RpcProto" Comment="" DataType="RPCData" SaveToDB="False" SyncToClient="False" MaxFieldId="5">
+        <Field PreDefine="optional" FieldType="sint32" FieldId="2" Name="DistId" CName="区ID" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+        <Field PreDefine="optional" FieldType="string" FieldId="3" Name="RsaData" CName="加密数据" ValueSet="" MinValue="6" MaxValue="128" DefaultValue="" Comment="" />
+    </Struct>
+    <Struct Name="RpcKeyAuthReply" CName="密钥认证回应" ProtoType="RpcProto" Comment="" DataType="RPCData" SaveToDB="False" SyncToClient="False" MaxFieldId="6">
+        <Field PreDefine="optional" FieldType="sint32" FieldId="1" Name="Result" CName="返回结果" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-9999" Comment="-9999 模块未启动&#xD;&#xA;-9998 请求字段值范围出错&#xD;&#xA;-2 连接过多&#xD;&#xA;-1 认证错误&#xD;&#xA;1  认证成功&#xD;&#xA;" />
+        <Field PreDefine="optional" FieldType="sint64" FieldId="2" Name="UserId" CName="用户ID" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+        <Field PreDefine="optional" FieldType="string" FieldId="4" Name="PlatName" CName="平台账号名" ValueSet="" MinValue="6" MaxValue="128" DefaultValue="" Comment="" />
+    </Struct>
+    <Struct Name="RpcKickOffNotify" CName="被踢下线通知" ProtoType="RpcProto" Comment="" DataType="RPCData" SaveToDB="False" SyncToClient="False" MaxFieldId="1" />
+</Root>

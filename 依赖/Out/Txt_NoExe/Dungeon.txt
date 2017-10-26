@@ -1,0 +1,35 @@
+DungeonRpcEnterAsk↑ 进入请求
+	DungeonId:int32 = -1	;副本ID
+	DungeonType:int32 = -1	;副本类型
+	BirthPoint:int32 = -1	;出生点
+	FaceDir:int32 = -1	;朝向
+	GuildId:int32 = -1	;帮会Id
+
+DungeonRpcEnterReply↓ 进入回应
+	Result:int32 = -9999	;返回结果
+
+DungeonRpcOpenNotify↓ 打开副本通知通知
+	DungeonKey:string	;Key
+	Host:string	;Host
+	Port:int32 = -1	;Port
+	DungeonId:int32 = -1	;副本ID
+	DungeonType:int32 = -1	;副本类型
+	GuildId:int32 = -1	;帮会Id
+
+DungeonRpcTryEnterAsk↑ 能否进入请求
+	DungeonId:int32 = -1	;副本ID
+	BirthPoint:int32 = -1	;出生点
+	FaceDir:int32 = -1	;朝向
+	GuildId:int32 = -1	;帮会Id
+
+DungeonRpcTryEnterReply↓ 能否进入回应
+	Result:int32 = -9999	;返回结果
+	DungeonId:int32 = -1	;副本ID
+	BirthPoint:int32 = -1	;出生点
+	FaceDir:int32 = -1	;朝向
+	GuildId:int32 = -1	;帮会Id
+
+DungeonRpcTransferNotify↓ 传送通知
+	DungeonId:int32 = -1	;副本ID
+
+

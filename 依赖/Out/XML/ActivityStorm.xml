@@ -1,0 +1,80 @@
+<?xml version="1.0"?>
+<Root Module="ActivityStorm" CName="活动 风暴" MsgNumStart="30" SyncDataVersion="1" Comment="五行旗">
+    <Operate Name="SignUp" CName="报名" Comment="">
+        <OP_ASK Name="Ask" CName="请求" MsgID="30" DataStruct="RpcSignUpAsk" Comment="" />
+        <OP_REPLY Name="Reply" CName="回应" MsgID="31" DataStruct="RpcSignUpReply" Comment="" />
+    </Operate>
+    <Operate Name="CancelSignUp" CName="取消报名" Comment="">
+        <OP_ASK Name="Ask" CName="请求" MsgID="32" DataStruct="RpcCancelSignUpAsk" Comment="" />
+        <OP_REPLY Name="Reply" CName="回应" MsgID="33" DataStruct="RpcCancelSignUpReply" Comment="" />
+    </Operate>
+    <Operate Name="InsertBattlefield" CName="进入战场" Comment="">
+        <OP_ASK Name="Ask" CName="请求" MsgID="34" DataStruct="RpcInsertBattlefieldAsk" Comment="" />
+        <OP_REPLY Name="Reply" CName="回应" MsgID="35" DataStruct="RpcInsertBattlefieldReply" Comment="" />
+    </Operate>
+    <Operate Name="BattlefieldMessage" CName="战场信息" Comment="通知全员可以进入战场">
+        <OP_SERVER_NOTIFY Name="Notify" CName="通知" MsgID="36" DataStruct="RpcBattlefieldMessageNotify" Comment="" />
+    </Operate>
+    <Operate Name="TimeOutMessage" CName="超时消息主推" Comment="">
+        <OP_SERVER_NOTIFY Name="Notify" CName="通知" MsgID="37" DataStruct="RpcTimeOutMessageNotify" Comment="" />
+    </Operate>
+    <Operate Name="SyncData" CName="同步数据" Comment="">
+        <OP_ASK Name="Ask" CName="请求" MsgID="38" DataStruct="RpcSyncDataAsk" Comment="" />
+        <OP_REPLY Name="Reply" CName="回应" MsgID="39" DataStruct="RpcSyncDataReply" Comment="" />
+    </Operate>
+    <Operate Name="JoinLevevNotify" CName="加入离开notify" Comment="">
+        <OP_SERVER_NOTIFY Name="Notify" CName="通知" MsgID="40" DataStruct="RpcJoinLevevNotifyNotify" Comment="" />
+    </Operate>
+    <Operate Name="CanceInsertBattle" CName="取消进入战场" Comment="">
+        <OP_ASK Name="Ask" CName="请求" MsgID="41" DataStruct="RpcCanceInsertBattleAsk" Comment="" />
+        <OP_REPLY Name="Reply" CName="回应" MsgID="42" DataStruct="RpcCanceInsertBattleReply" Comment="" />
+    </Operate>
+    <Operate Name="ResetSignUpNotify" CName="重置报名" Comment="">
+        <OP_SERVER_NOTIFY Name="Notify" CName="通知" MsgID="43" DataStruct="RpcResetSignUpNotifyNotify" Comment="" />
+    </Operate>
+    <Struct Name="RpcSignUpAsk" CName="报名请求" ProtoType="RpcProto" Comment="" DataType="RPCData" SaveToDB="False" SyncToClient="False" MaxFieldId="2" />
+    <Struct Name="RpcSignUpReply" CName="报名回应" ProtoType="RpcProto" Comment="" DataType="RPCData" SaveToDB="False" SyncToClient="False" MaxFieldId="7">
+        <Field PreDefine="optional" FieldType="sint32" FieldId="1" Name="Result" CName="返回结果" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-9999" Comment="-9999 模块未启动&#xD;&#xA;-9998 请求字段值范围出错" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="6" Name="Type" CName="类型" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="0正常1报名中2报名中点了同意" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="7" Name="Time" CName="倒计时时间" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+    </Struct>
+    <Struct Name="RpcCancelSignUpAsk" CName="取消报名请求" ProtoType="RpcProto" Comment="" DataType="RPCData" SaveToDB="False" SyncToClient="False" MaxFieldId="1" />
+    <Struct Name="RpcCancelSignUpReply" CName="取消报名回应" ProtoType="RpcProto" Comment="" DataType="RPCData" SaveToDB="False" SyncToClient="False" MaxFieldId="2">
+        <Field PreDefine="optional" FieldType="sint32" FieldId="1" Name="Result" CName="返回结果" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-9999" Comment="-9999 模块未启动&#xD;&#xA;-9998 请求字段值范围出错" />
+    </Struct>
+    <Struct Name="RpcInsertBattlefieldAsk" CName="进入战场请求" ProtoType="RpcProto" Comment="" DataType="RPCData" SaveToDB="False" SyncToClient="False" MaxFieldId="1" />
+    <Struct Name="RpcInsertBattlefieldReply" CName="进入战场回应" ProtoType="RpcProto" Comment="" DataType="RPCData" SaveToDB="False" SyncToClient="False" MaxFieldId="4">
+        <Field PreDefine="optional" FieldType="sint32" FieldId="1" Name="Result" CName="返回结果" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-9999" Comment="-9999 模块未启动&#xD;&#xA;-9998 请求字段值范围出错" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="3" Name="Type" CName="类型" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="0正常1报名中2报名中点了同意" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="4" Name="Time" CName="倒计时时间" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+    </Struct>
+    <Struct Name="RpcBattlefieldMessageNotify" CName="战场信息通知" ProtoType="RpcProto" Comment="" DataType="RPCData" SaveToDB="False" SyncToClient="False" MaxFieldId="2">
+        <Field PreDefine="optional" FieldType="sint32" FieldId="2" Name="Time" CName="倒计时时间" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+    </Struct>
+    <Struct Name="RpcTimeOutMessageNotify" CName="超时消息主推通知" ProtoType="RpcProto" Comment="" DataType="RPCData" SaveToDB="False" SyncToClient="False" MaxFieldId="2" />
+    <Struct Name="ActivityStorm" CName="五行旗数据" ProtoType="SyncProto" Comment="" DataType="ModuleData" SaveToDB="True" SyncToClient="False" MaxFieldId="4">
+        <Field PreDefine="optional" FieldType="sint32" FieldId="1" Name="Type" CName="类型" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="0正常1报名中2报名中点了同意" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="2" Name="Time" CName="倒计时时间" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="3" Name="ActID" CName="战斗id 需要确认时候带回" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="4" Name="LvD" CName="等级段" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+    </Struct>
+    <Struct Name="RpcSyncDataAsk" CName="同步数据请求" ProtoType="RpcProto" Comment="" DataType="RPCData" SaveToDB="False" SyncToClient="False" MaxFieldId="0" />
+    <Struct Name="RpcSyncDataReply" CName="同步数据回应" ProtoType="RpcProto" Comment="" DataType="RPCData" SaveToDB="False" SyncToClient="False" MaxFieldId="4">
+        <Field PreDefine="optional" FieldType="sint32" FieldId="1" Name="Result" CName="返回结果" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-9999" Comment="-9999 模块未启动&#xD;&#xA;-9998 请求字段值范围出错" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="2" Name="Type" CName="类型" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="0正常1报名中2报名中点了同意" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="3" Name="Time" CName="倒计时时间" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+    </Struct>
+    <Struct Name="RpcJoinLevevNotifyNotify" CName="加入离开notify通知" ProtoType="RpcProto" Comment="" DataType="RPCData" SaveToDB="False" SyncToClient="False" MaxFieldId="3">
+        <Field PreDefine="optional" FieldType="sint64" FieldId="1" Name="UserID" CName="USERID" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+        <Field PreDefine="optional" FieldType="string" FieldId="2" Name="NickName" CName="昵称" ValueSet="" MinValue="6" MaxValue="128" DefaultValue="" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="3" Name="Type" CName="类型" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="1加入0离开" />
+    </Struct>
+    <Struct Name="RpcCanceInsertBattleAsk" CName="取消进入战场请求" ProtoType="RpcProto" Comment="" DataType="RPCData" SaveToDB="False" SyncToClient="False" MaxFieldId="0" />
+    <Struct Name="RpcCanceInsertBattleReply" CName="取消进入战场回应" ProtoType="RpcProto" Comment="" DataType="RPCData" SaveToDB="False" SyncToClient="False" MaxFieldId="1">
+        <Field PreDefine="optional" FieldType="sint32" FieldId="1" Name="Result" CName="返回结果" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-9999" Comment="-9999 模块未启动&#xD;&#xA;-9998 请求字段值范围出错" />
+    </Struct>
+    <Struct Name="RpcResetSignUpNotifyNotify" CName="重置报名通知" ProtoType="RpcProto" Comment="" DataType="RPCData" SaveToDB="False" SyncToClient="False" MaxFieldId="2">
+        <Field PreDefine="optional" FieldType="sint32" FieldId="1" Name="Type" CName="类型" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="0正常1报名中2报名中点了同意" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="2" Name="Time" CName="倒计时时间" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+    </Struct>
+</Root>

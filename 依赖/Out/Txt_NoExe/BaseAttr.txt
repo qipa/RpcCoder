@@ -1,0 +1,267 @@
+BaseAttrRpcSyncDataAsk↑ 同步玩家数据请求
+
+BaseAttrRpcSyncDataReply↓ 同步玩家数据回应
+	Result:int32 = -9999	;返回结果
+
+BaseAttrUserData
+	HeadID:int32 = -1	;头像id
+	Exp:int32 = -1	;经验
+	CreateTime:int32 = -1	;创建时间
+	LastLoginTime:int32 = -1	;最后登录时间
+	Last2LoginDate:int32 = -1	;倒数第二登录日期
+	LastLogoutTime:int32 = -1	;最后登出时间
+	Money:int32 = 0	;游戏币
+	Diamond:int32 = 0	;钻石
+	Strength:int32 = -1	;体力
+	Feats:int32 = -1	;功勋
+	GotRankRewardTime:int32 = -1	;领取官阶奖励时间
+	MaxMilitary:int32 = -1	;历史最大战力
+	MasterAttrs:int32* = -1	;主公基础属性
+	CurMilitary:int32 = -1	;当前玩家战力
+	UserName:string	;玩家名字
+	UserId:sint64 = -1	;用户ID
+	PlatName:string	;游戏中心账号名
+	AccountId:sint64 = -1	;游戏中心账号ID
+	Level:int32 = -1	;玩家等级
+	Rank:int32 = -1	;官阶
+	FightPower:int32 = -1	;战力
+	Sec:int32 = -1	;用户累加的数据
+	Military:int32 = -1	;当前战力
+	TeamId:int32 = -1	;队伍Id
+	Prof:int32 = -1	;职业
+	DungeonRemainCount:int32 = -1	;副本剩余次数
+	MapId:int32 = -1	;地图Id
+	PosX:float = -1	;X坐标
+	PosY:float = -1	;Y坐标
+	PosZ:float = -1	;Z坐标
+	Ry:int32 = -1	;位置方向
+	SkillCdArr:SkillCdInfo*	;技能CD列表
+	[SkillCdInfo]
+		SkillId:int32 = -1	;技能ID
+		EndTime:int32 = -1	;结束时间
+	BuffCdArr:BuffCdInfo*	;BuffCD列表
+	[BuffCdInfo]
+		BuffId:int32 = -1	;BuffId
+		EndTime:int32 = -1	;结束时间
+	CurrentScene:SceneInfo	;当前所在场景
+	[SceneInfo]
+		RelateUserId:sint64 = -1	;关系的用户ID
+		ReviveNeedMoney:int32 = -1	;复活需要的钱数
+		ReviveNeedMoneyType:int32 = 0	;复活需要的货币类型
+		DungeonKey:string	;DungeonKey
+	GuildId:int32 = -1	;帮会Id
+	ExitGuildTime:int32 = -1	;退出帮会时间
+	ApplyGuildId:int32* = -1	;申请过的帮会
+	CurGuildContribution:int32 = 0	;当前帮贡
+	MaxGuildContribution:int32 = 0	;最大帮贡
+	BindMoney:int32 = 0	;绑银
+	Gem:int32 = 0	;宝石
+	ServerTime:int32 = -1	;服务器时间
+	NewbieGuide:KeyValue2IntInt*	;新手引导
+	[KeyValue2IntInt]
+		Key:int32 = -1	;键
+		Value:int32 = -1	;值
+	ThiefRewardNum:int32 = 0	;江洋大盗奖励次数
+	SubdueMonsterRewardNum:int32 = 0	;降妖奖励次数
+	WorldBossRemainTimes:int32 = 0	;世界Boss剩余次数
+	WorldBossHurt:int32 = 0	;世界Boss伤害
+	FunctionOpenList:IconOpenInfo*	;功能开启列表
+	[IconOpenInfo]
+		IconId:int32 = -1	;图标ID
+		IsOpen:bool = false	;功能是否打开
+		IsShow:bool = false	;是否显示
+		IsNew:bool = false	;是否为新
+	TotalEnergyValue:int32 = 0	;总活力值
+	EnergyArray:EnergyInfo*	;活力值信息容器
+	[EnergyInfo]
+		EnergyId:int32 = -1	;活力ID，表id
+		EnergyValue:int32 = 0	;活力值
+		ReceivedEnergy:int32 = 0	;已获得活力值
+	PKState:int32 = -1	;PK状态
+	PKProtect:KeyValue2IntBool*	;PK保护列表
+	[KeyValue2IntBool]
+		Key:int32 = -1	;键
+		Value:bool = false	;值
+	GuildScienArray:ScienceInfo*	;帮会修炼
+	[ScienceInfo]
+		ScienceId:int32 = -1	;修炼属性Id
+		ScienceCurExp:int32 = 0	;修炼经验
+		ScienceLv:int32 = -1	;帮会修炼技能等级
+		ScienceCurMoney:int32 = 0	;未升级钱所消耗金币
+	ScienceTotalMoney:int32 = 0	;修炼升级消耗总金币
+
+BaseAttrRpcGetRankRewardAsk↑ 领取官阶奖励请求
+
+BaseAttrRpcGetRankRewardReply↓ 领取官阶奖励回应
+	Result:int32 = -9999	;返回结果
+
+BaseAttrRpcUpGradeRankAsk↑ 提升官阶请求
+
+BaseAttrRpcUpGradeRankReply↓ 提升官阶回应
+	Result:int32 = -9999	;返回结果
+
+BaseAttrRpcChooseRoleAsk↑ 选人请求
+	Prof:int32 = -1	;职业
+
+BaseAttrRpcChooseRoleReply↓ 选人回应
+	Result:int32 = -9999	;返回结果
+	Prof:int32 = -1	;职业
+
+BaseAttrRpcLevelUpAsk↑ 升级请求
+
+BaseAttrRpcLevelUpReply↓ 升级回应
+	Result:int32 = -9999	;返回结果
+
+BaseAttrSkillCdInfo
+	SkillId:int32 = -1	;技能ID
+	EndTime:int32 = -1	;结束时间
+
+BaseAttrBuffCdInfo
+	BuffId:int32 = -1	;BuffId
+	EndTime:int32 = -1	;结束时间
+
+BaseAttrSceneInfo
+	RelateUserId:sint64 = -1	;关系的用户ID
+	ReviveNeedMoney:int32 = -1	;复活需要的钱数
+	ReviveNeedMoneyType:int32 = 0	;复活需要的货币类型
+	DungeonKey:string	;DungeonKey
+
+BaseAttrRpcGetTimerAsk↑ 获取时间请求
+
+BaseAttrRpcGetTimerReply↓ 获取时间回应
+	Result:int32 = -9999	;返回结果
+	Timer:sint64 = -1	;时间
+
+BaseAttrRpcReviveAsk↑ 复活请求
+
+BaseAttrRpcReviveReply↓ 复活回应
+	Result:int32 = -9999	;返回结果
+
+BaseAttrRpcQueryEquipAsk↑ 查询装备数据请求
+	UserId:sint64 = -1	;用户ID
+	Pos:int32 = -1	;位置
+	TemplateID:int32 = -1	;物品的配置Id
+	Index:sint64 = -1	;实例id，唯一id
+
+BaseAttrRpcQueryEquipReply↓ 查询装备数据回应
+	Result:int32 = -9999	;返回结果
+	EquipData:BagEquipObj	;装备数据
+	[BagEquipObj]
+		ItemID:sint64 = -1	;物品实例id, 唯一id
+		BaseAttr:BagAttrIntObj*	;基础属性值(包括附加的加成)
+		[BagAttrIntObj]
+			AttrId:int32 = -1	;属性Id
+			AttrValue:int32 = -1	;属性值
+			MaxAttrValue:int32 = -1	;最大属性值
+		ExtraAttr:BagExtraAttrObj*	;额外属性
+		[BagExtraAttrObj]
+			ExtraAttr:BagAttrFloatObj*	;附加属性
+			[BagAttrFloatObj]
+				AttrId:int32 = -1	;属性Id
+				AttrValue:float = -1	;属性值
+				Index:int32 = -1	;索引
+			Id:int32 = -1	;词条Id
+		EnhanceLv:int32* = -1	;强化等级
+		EquipPolishedResult:BagExtraAttrObj*	;装备洗炼结果
+		[BagExtraAttrObj]
+			ExtraAttr:BagAttrFloatObj*	;附加属性
+			[BagAttrFloatObj]
+				AttrId:int32 = -1	;属性Id
+				AttrValue:float = -1	;属性值
+				Index:int32 = -1	;索引
+			Id:int32 = -1	;词条Id
+		PolishedScore:int32 = 0	;洗炼积分
+		Index:sint64 = -1	;用于索引道具具体数据
+		InitBaseAttr:BagAttrIntObj*	;初始基础属性
+		[BagAttrIntObj]
+			AttrId:int32 = -1	;属性Id
+			AttrValue:int32 = -1	;属性值
+			MaxAttrValue:int32 = -1	;最大属性值
+		BagContainerType:int32 = -1	;物品容器类型
+		GridIndex:int32 = -1	;装备格子的索引
+		PlishedAttrId:BagExtraAttrIdObj*	;洗炼属性id
+		[BagExtraAttrIdObj]
+			AttrId:int32* = -1	;属性Id
+			Id:int32 = -1	;词条Id
+		GemArray:BagGemObj*	;宝石数组
+		[BagGemObj]
+			GemId:int32 = -1	;宝石id
+			Pos:int32 = -1	;位置
+			IsLock:bool = false	;锁着， 未打孔
+			Level:int32 = -1	;宝石等级
+			Type:int32 = -1	;配置的type
+		PolishedBaseAttrResult:BagAttrIntObj*	;基础属性洗炼结果
+		[BagAttrIntObj]
+			AttrId:int32 = -1	;属性Id
+			AttrValue:int32 = -1	;属性值
+			MaxAttrValue:int32 = -1	;最大属性值
+		TemplateId:int32 = -1	;模板id
+		GemSuitId:int32 = -1	;宝石组合id
+		EquipScore:int32 = 0	;装备评分
+		PolishedEquipScore:int32 = 0	;洗炼装备评分
+		BaseAttrPolishedInitAttr:BagAttrIntObj*	;基础属性洗炼初始属性
+		[BagAttrIntObj]
+			AttrId:int32 = -1	;属性Id
+			AttrValue:int32 = -1	;属性值
+			MaxAttrValue:int32 = -1	;最大属性值
+	GridData:RpcGridInfo	;背包格子
+	[RpcGridInfo]
+		TemplateID:int32 = -1	;物品的配置Id
+		Num:int32 = 0	;物品数量
+		ItemType:int32 = -1	;物品类型
+		Pos:int32 = -1	;位置
+		Value:int32 = -1	;客户端通用数据
+		Index:sint64 = -1	;实例id，唯一id
+		Bind:bool = false	;绑定
+
+BaseAttrRpcUpdateNewbieGuideAsk↑ 更新新手引导请求
+	GroupId:int32 = -1	;组Id
+	Step:int32 = -1	;步骤
+
+BaseAttrRpcUpdateNewbieGuideReply↓ 更新新手引导回应
+	Result:int32 = -9999	;返回结果
+
+BaseAttrRpcGridInfo
+	TemplateID:int32 = -1	;物品的配置Id
+	Num:int32 = 0	;物品数量
+	ItemType:int32 = -1	;物品类型
+	Pos:int32 = -1	;位置
+	Value:int32 = -1	;客户端通用数据
+	Index:sint64 = -1	;实例id，唯一id
+	Bind:bool = false	;绑定
+
+BaseAttrIconOpenInfo
+	IconId:int32 = -1	;图标ID
+	IsOpen:bool = false	;功能是否打开
+	IsShow:bool = false	;是否显示
+	IsNew:bool = false	;是否为新
+
+BaseAttrEnergyInfo
+	EnergyId:int32 = -1	;活力ID，表id
+	EnergyValue:int32 = 0	;活力值
+	ReceivedEnergy:int32 = 0	;已获得活力值
+
+BaseAttrRpcSysTipsNotify↓ 系统提示通知
+	Id:int32 = -1	;配置Id
+
+BaseAttrRpcChangPKStateAsk↑ 修改PK状态请求
+	ChangState:int32 = -1	;PK状态
+
+BaseAttrRpcChangPKStateReply↓ 修改PK状态回应
+	Result:int32 = -9999	;返回结果
+
+BaseAttrRpcChangePKProtectAsk↑ 修改PK保护请求
+	ProtectList:KeyValue2IntBool*	;保护列表
+	[KeyValue2IntBool]
+		Key:int32 = -1	;键
+		Value:bool = false	;值
+
+BaseAttrRpcChangePKProtectReply↓ 修改PK保护回应
+	Result:int32 = -9999	;返回结果
+
+BaseAttrScienceInfo
+	ScienceId:int32 = -1	;修炼属性Id
+	ScienceCurExp:int32 = 0	;修炼经验
+	ScienceLv:int32 = -1	;帮会修炼技能等级
+	ScienceCurMoney:int32 = 0	;未升级钱所消耗金币
+

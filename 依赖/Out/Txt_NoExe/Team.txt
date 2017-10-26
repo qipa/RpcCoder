@@ -1,0 +1,234 @@
+
+TeamRpcCreateTeamAsk↑ 创建队伍请求
+	TargetId:int32 = -1	;目标id
+	TargetMinLv:int32 = -1	;目标最小等级
+	TargetMaxLv:int32 = -1	;目标最大等级
+
+TeamRpcCreateTeamReply↓ 创建队伍回应
+	Result:int32 = -9999	;返回结果
+	TeamData:TeamObj	;队伍数据
+	[TeamObj]
+		TeamId:int32 = -1	;组队Id
+		CaptainUserId:sint64 = -1	;队长用户Id
+		MemberCount:int32 = -1	;队伍人数
+		TeamTarget:int32 = -1	;队伍目标Id
+		TeamMember:TeamUserObj*	;成员
+		[TeamUserObj]
+			UserId:sint64 = -1	;用户Id
+			UserName:string	;用户名字
+			Level:int32 = -1	;玩家等级
+			IsCaptain:bool = false	;是否为队长
+			Prof:int32 = -1	;职业
+			HP:int32 = -1	;HP
+			MaxHP:int32 = -1	;MaxHP
+			IsFollowing:bool = false	;是否在跟随状态中
+		CaptainProf:int32 = -1	;队长职业
+		TargetMinLv:int32 = -1	;匹配最小等级
+		TargetMaxLv:int32 = -1	;匹配最大等级
+		IsMatching:bool = false	;是否匹配中
+		CaptainLevel:int32 = -1	;队长等级
+		IsTeamFollow:bool = false	;队长是否开启跟随
+
+TeamRpcApplyForTeamAsk↑ 申请入队请求
+	TeamId:int32 = -1	;队伍Id
+
+TeamRpcApplyForTeamReply↓ 申请入队回应
+	Result:int32 = -9999	;返回结果
+	TeamId:int32 = -1	;队伍Id
+
+TeamRpcInviteToTeamAsk↑ 邀请入队请求
+	UserId:sint64 = -1	;邀请的对方Id
+
+TeamRpcInviteToTeamReply↓ 邀请入队回应
+	Result:int32 = -9999	;返回结果
+	UserId:sint64 = -1	;邀请的对方Id
+
+TeamRpcChangeTeamTargetAsk↑ 更改队伍目标请求
+	TargetId:int32 = -1	;目标id
+	TargetMinLv:int32 = -1	;目标最小等级
+	TargetMaxLv:int32 = -1	;目标最大等级
+
+TeamRpcChangeTeamTargetReply↓ 更改队伍目标回应
+	Result:int32 = -9999	;返回结果
+
+TeamRpcBeInvitedNoticeNotify↓ 被邀请入队通知通知
+	TeamId:int32 = -1	;队伍Id
+	UserId:sint64 = -1	;邀请人的用户Id
+	UserName:string	;邀请人的名字
+	CaptainUserName:string	;队长名字
+
+TeamRpcBeInviteHandleAsk↑ 被邀请处理请求
+	TeamId:int32 = -1	;队伍Id
+	UserId:sint64 = -1	;邀请人的用户Id
+	Handle:int32 = -1	;处理方式（0拒绝 1同意）
+
+TeamRpcBeInviteHandleReply↓ 被邀请处理回应
+	Result:int32 = -9999	;返回结果
+	TeamId:int32 = -1	;队伍Id
+	UserId:sint64 = -1	;邀请人的用户Id
+	Handle:int32 = -1	;处理方式（0拒绝 1同意）
+	IsCapatain:bool = false	;邀请人是否为队长
+
+TeamRpcNearbyTeamObj
+	TeamId:int32 = -1	;组队Id
+	CaptainUserId:sint64 = -1	;队长用户Id
+	CaptainUserName:string	;队长名字
+	CaptainLevel:int32 = -1	;队长等级
+	MemberCount:int32 = -1	;队伍人数
+	CaptainProf:int32 = -1	;队长职业
+	TeamTarget:int32 = -1	;队伍目标
+	TargetMinLv:int32 = -1	;目标最小等级
+	TargetMaxLv:int32 = -1	;目标最大等级
+
+TeamRpcNearbyTeamAsk↑ 附近队伍请求
+	TargetId:int32 = -1	;目标id,-1是附近队伍
+
+TeamRpcNearbyTeamReply↓ 附近队伍回应
+	Result:int32 = -9999	;返回结果
+	Teams:RpcNearbyTeamObj*	;队伍
+	[RpcNearbyTeamObj]
+		TeamId:int32 = -1	;组队Id
+		CaptainUserId:sint64 = -1	;队长用户Id
+		CaptainUserName:string	;队长名字
+		CaptainLevel:int32 = -1	;队长等级
+		MemberCount:int32 = -1	;队伍人数
+		CaptainProf:int32 = -1	;队长职业
+		TeamTarget:int32 = -1	;队伍目标
+		TargetMinLv:int32 = -1	;目标最小等级
+		TargetMaxLv:int32 = -1	;目标最大等级
+
+TeamRpcApplyNoticeCaptainNotify↓ 有人申请入队,队长收到通知通知
+	ApplyUser:TeamApplyUserObj	;申请列表
+	[TeamApplyUserObj]
+		UserId:sint64 = -1	;UserId
+		UserName:string	;用户名字
+		Level:int32 = -1	;玩家等级
+		Prof:int32 = -1	;职业
+		TeamId:int32 = -1	;组队Id
+
+TeamRpcApplyHandleAgreeAsk↑ 申请入队,队长同意入队请求
+	UserId:sint64 = -1	;申请人的UserId
+	TeamId:int32 = -1	;申请人申请的队伍Id
+	Handle:int32 = -1	;处理方式（0拒绝 1同意）
+
+TeamRpcApplyHandleAgreeReply↓ 申请入队,队长同意入队回应
+	Result:int32 = -9999	;返回结果
+	UserId:sint64 = -1	;申请人的UserId
+	TeamId:int32 = -1	;申请人申请的队伍Id
+	Handle:int32 = -1	;处理方式（0拒绝 1同意）
+
+TeamRpcUpdateMyTeamNoticeNotify↓ 更新我的队伍通知通知
+	MyTeamData:TeamObj	;组队数据
+	[TeamObj]
+		TeamId:int32 = -1	;组队Id
+		CaptainUserId:sint64 = -1	;队长用户Id
+		MemberCount:int32 = -1	;队伍人数
+		TeamTarget:int32 = -1	;队伍目标Id
+		TeamMember:TeamUserObj*	;成员
+		[TeamUserObj]
+			UserId:sint64 = -1	;用户Id
+			UserName:string	;用户名字
+			Level:int32 = -1	;玩家等级
+			IsCaptain:bool = false	;是否为队长
+			Prof:int32 = -1	;职业
+			HP:int32 = -1	;HP
+			MaxHP:int32 = -1	;MaxHP
+			IsFollowing:bool = false	;是否在跟随状态中
+		CaptainProf:int32 = -1	;队长职业
+		TargetMinLv:int32 = -1	;匹配最小等级
+		TargetMaxLv:int32 = -1	;匹配最大等级
+		IsMatching:bool = false	;是否匹配中
+		CaptainLevel:int32 = -1	;队长等级
+		IsTeamFollow:bool = false	;队长是否开启跟随
+
+TeamRpcQuitTeamNotify↑ 离开队伍通知
+
+TeamRpcLeaveTeamNoticeNotify↓ 离开队伍通知通知
+	UserId:int32 = -1	;离开的玩家Id
+	UserName:string	;离开的玩家名字
+
+TeamRpcBreakUpNoticeNotify↓ 解散队伍通知通知
+	UserId:sint64 = -1	;用户Id
+	UserName:string	;用户名字
+
+TeamRpcReqMyTeamDataNotify↑ 请求我的队伍数据通知
+
+TeamRpcDeleteFromApplyListNotify↓ 申请列表处理后删除申请的玩家通知
+	UserId:sint64 = -1	;离开的玩家Id
+
+TeamRpcAppointCaptainAsk↑ 任命队长请求
+	UserId:sint64 = -1	;被任命的人
+
+TeamRpcAppointCaptainReply↓ 任命队长回应
+	Result:int32 = -9999	;返回结果
+	UserId:sint64 = -1	;被任命的人
+
+TeamRpcCaptainChangeNoticeNotify↓ 队长换人通知通知
+	UserId:sint64 = -1	;被任命的人
+	UserName:string	;被任命的人
+
+TeamRpcTeamMemberHPChangeNoticeNotify↓ 队员血量变化通知通知
+	UserId:sint64 = -1	;用户id
+	HP:int32 = -1	;HP
+	MaxHP:int32 = -1	;MaxHP
+
+TeamRpcInviteHandleNoticeNotify↓ 邀请组队的人收到被邀请人的处理通知通知
+	Result:int32 = 0	;返回结果(0是拒绝，1是同意)
+
+TeamRpcNearbyRoleObj
+	UserId:sint64 = -1	;用户Id
+	UserName:string	;用户名字
+	Level:int32 = -1	;玩家等级
+	Prof:int32 = -1	;职业
+
+TeamRpcNearbyRoleListAsk↑ 附加玩家列表，邀请时使用请求
+
+TeamRpcNearbyRoleListReply↓ 附加玩家列表，邀请时使用回应
+	Result:int32 = -9999	;返回结果
+	NearbyRoleList:RpcNearbyRoleObj*	;附近玩家列表
+	[RpcNearbyRoleObj]
+		UserId:sint64 = -1	;用户Id
+		UserName:string	;用户名字
+		Level:int32 = -1	;玩家等级
+		Prof:int32 = -1	;职业
+
+TeamRpcKickRoleAsk↑ 队长踢人请求
+	UserId:sint64 = -1	;用户Id
+
+TeamRpcKickRoleReply↓ 队长踢人回应
+	Result:int32 = -9999	;返回结果
+
+TeamRpcBeingKickedNoticeNotify↓ 被踢通知通知
+
+TeamRpcBreakUpAsk↑ 解散队伍请求
+
+TeamRpcBreakUpReply↓ 解散队伍回应
+	Result:int32 = -9999	;返回结果
+
+TeamRpcAddNewMemberNoticeNotify↓ 队员增加新成员通知通知
+	UserId:sint64 = -1	;用户Id
+	UserName:string	;用户名字
+
+TeamRpcCaptainAutoMatchAsk↑ 队长自己匹配请求
+	Oper:int32 = -1	;0是开始，1是结束
+
+TeamRpcCaptainAutoMatchReply↓ 队长自己匹配回应
+	Result:int32 = -9999	;返回结果
+
+TeamRpcNormalAutoMatchAsk↑ 非队长匹配请求
+	Oper:int32 = -1	;0是开始，1是结束
+	Target:int32 = -1	;目标
+
+TeamRpcNormalAutoMatchReply↓ 非队长匹配回应
+	Result:int32 = -9999	;返回结果
+
+TeamRpcFollowAsk↑ 跟随请求
+
+TeamRpcFollowReply↓ 跟随回应
+	Result:int32 = -9999	;返回结果
+
+TeamRpcClearApplyListAsk↑ 清空申请列表请求
+
+TeamRpcClearApplyListReply↓ 清空申请列表回应
+	Result:int32 = -9999	;返回结果
+

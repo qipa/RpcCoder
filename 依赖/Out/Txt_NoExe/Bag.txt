@@ -1,0 +1,502 @@
+BagRpcSyncDataAsk↑ 同步背包数据请求
+
+BagRpcSyncDataReply↓ 同步背包数据回应
+	Result:int32 = -9999	;返回结果
+
+BagRpcSellAsk↑ 出售请求
+	ItemID:int32 = -1	;物品id
+	Pos:int32 = -1	;位置
+	Num:int32 = -1	;数量
+
+BagRpcSellReply↓ 出售回应
+	Result:int32 = -9999	;返回结果
+	ItemID:int32 = -1	;物品id
+	Pos:int32 = -1	;位置
+	Num:int32 = -1	;数量
+
+BagRpcDecomposeAsk↑ 分解请求
+	ItemID:int32 = -1	;物品id
+	Pos:int32 = -1	;位置
+
+BagRpcDecomposeReply↓ 分解回应
+	Result:int32 = -9999	;返回结果
+	ItemID:int32 = -1	;物品id
+	Pos:int32 = -1	;位置
+
+BagPackageData
+	GridArray:GridInfo*	;背包格子数组
+	[GridInfo]
+		TemplateID:int32 = -1	;物品的配置Id
+		Num:int32 = 0	;物品数量
+		ItemType:int32 = -1	;物品类型
+		Pos:int32 = -1	;位置
+		Value:int32 = -1	;客户端通用数据
+		Index:sint64 = -1	;实例id，唯一id
+		Bind:bool = false	;绑定
+	EquipAllData:BagEquipObj*	;装备全部数据
+	[BagEquipObj]
+		ItemID:sint64 = -1	;物品实例id, 唯一id
+		BaseAttr:BagAttrIntObj*	;基础属性值(包括附加的加成)
+		[BagAttrIntObj]
+			AttrId:int32 = -1	;属性Id
+			AttrValue:int32 = -1	;属性值
+			MaxAttrValue:int32 = -1	;最大属性值
+		ExtraAttr:BagExtraAttrObj*	;额外属性
+		[BagExtraAttrObj]
+			ExtraAttr:BagAttrFloatObj*	;附加属性
+			[BagAttrFloatObj]
+				AttrId:int32 = -1	;属性Id
+				AttrValue:float = -1	;属性值
+				Index:int32 = -1	;索引
+			Id:int32 = -1	;词条Id
+		EnhanceLv:int32* = -1	;强化等级
+		EquipPolishedResult:BagExtraAttrObj*	;装备洗炼结果
+		[BagExtraAttrObj]
+			ExtraAttr:BagAttrFloatObj*	;附加属性
+			[BagAttrFloatObj]
+				AttrId:int32 = -1	;属性Id
+				AttrValue:float = -1	;属性值
+				Index:int32 = -1	;索引
+			Id:int32 = -1	;词条Id
+		PolishedScore:int32 = 0	;洗炼积分
+		Index:sint64 = -1	;用于索引道具具体数据
+		InitBaseAttr:BagAttrIntObj*	;初始基础属性
+		[BagAttrIntObj]
+			AttrId:int32 = -1	;属性Id
+			AttrValue:int32 = -1	;属性值
+			MaxAttrValue:int32 = -1	;最大属性值
+		BagContainerType:int32 = -1	;物品容器类型
+		GridIndex:int32 = -1	;装备格子的索引
+		PlishedAttrId:BagExtraAttrIdObj*	;洗炼属性id
+		[BagExtraAttrIdObj]
+			AttrId:int32* = -1	;属性Id
+			Id:int32 = -1	;词条Id
+		GemArray:BagGemObj*	;宝石数组
+		[BagGemObj]
+			GemId:int32 = -1	;宝石id
+			Pos:int32 = -1	;位置
+			IsLock:bool = false	;锁着， 未打孔
+			Level:int32 = -1	;宝石等级
+			Type:int32 = -1	;配置的type
+		PolishedBaseAttrResult:BagAttrIntObj*	;基础属性洗炼结果
+		[BagAttrIntObj]
+			AttrId:int32 = -1	;属性Id
+			AttrValue:int32 = -1	;属性值
+			MaxAttrValue:int32 = -1	;最大属性值
+		TemplateId:int32 = -1	;模板id
+		GemSuitId:int32 = -1	;宝石组合id
+		EquipScore:int32 = 0	;装备评分
+		PolishedEquipScore:int32 = 0	;洗炼装备评分
+		BaseAttrPolishedInitAttr:BagAttrIntObj*	;基础属性洗炼初始属性
+		[BagAttrIntObj]
+			AttrId:int32 = -1	;属性Id
+			AttrValue:int32 = -1	;属性值
+			MaxAttrValue:int32 = -1	;最大属性值
+	WearEquipContainer:GridInfo*	;穿戴装备容器
+	[GridInfo]
+		TemplateID:int32 = -1	;物品的配置Id
+		Num:int32 = 0	;物品数量
+		ItemType:int32 = -1	;物品类型
+		Pos:int32 = -1	;位置
+		Value:int32 = -1	;客户端通用数据
+		Index:sint64 = -1	;实例id，唯一id
+		Bind:bool = false	;绑定
+	StorageBagGrid:GridInfo*	;仓库
+	[GridInfo]
+		TemplateID:int32 = -1	;物品的配置Id
+		Num:int32 = 0	;物品数量
+		ItemType:int32 = -1	;物品类型
+		Pos:int32 = -1	;位置
+		Value:int32 = -1	;客户端通用数据
+		Index:sint64 = -1	;实例id，唯一id
+		Bind:bool = false	;绑定
+	StorageBank:int32 = 0	;仓库金钱
+	TalismanData:TalismanObj*	;法宝数据
+	[TalismanObj]
+		ItemID:sint64 = -1	;物品实例id, 唯一id
+		TemplateId:int32 = -1	;模板id
+		CurExp:int32 = 0	;当前经验
+		EquipScore:int32 = 0	;装备评分
+		StarLevel:int32 = 0	;星级
+		GatherSpriteSlot:SlotInfo*	;聚灵槽位
+		[SlotInfo]
+			SlotId:int32 = -1	;槽位Id
+			SlotType:int32 = -1	;槽位类别(0上古，1其他)
+			SlotSkillId:int32 = -1	;聚灵技能ID
+		TailsManLevel:int32 = -1	;法宝等级
+		TalismanAttr:int32* = -1	;法宝属性
+	TalismanForeverAttr:int32* = -1	;装备过的法宝，可获得永久属性加成
+	AutoPickup:KeyValue2IntBool*	;自动拾取设置
+	[KeyValue2IntBool]
+		Key:int32 = -1	;键
+		Value:bool = false	;值
+	UseItemDay:KeyValue2IntInt*	;每天使用的道具
+	[KeyValue2IntInt]
+		Key:int32 = -1	;键
+		Value:int32 = -1	;值
+	UseItemWeek:KeyValue2IntInt*	;每周使用的道具
+	[KeyValue2IntInt]
+		Key:int32 = -1	;键
+		Value:int32 = -1	;值
+
+BagGridInfo
+	TemplateID:int32 = -1	;物品的配置Id
+	Num:int32 = 0	;物品数量
+	ItemType:int32 = -1	;物品类型
+	Pos:int32 = -1	;位置
+	Value:int32 = -1	;客户端通用数据
+	Index:sint64 = -1	;实例id，唯一id
+	Bind:bool = false	;绑定
+
+BagRpcUseAsk↑ 物品使用请求
+	ItemID:int32 = -1	;物品id
+	Pos:int32 = -1	;位置
+
+BagRpcUseReply↓ 物品使用回应
+	Result:int32 = -9999	;返回结果
+	Pos:int32 = -1	;位置
+	ItemID:int32 = -1	;物品id
+
+BagRpcEquipWearAsk↑ 装备穿戴请求
+	ItemId:int32 = -1	;ItemId
+	BagPos:int32 = -1	;在背包中的位置
+
+BagRpcEquipWearReply↓ 装备穿戴回应
+	Result:int32 = -9999	;返回结果
+	ItemId:int32 = -1	;ItemId
+	BagPos:int32 = -1	;在背包中的位置
+
+BagRpcEquipUndressAsk↑ 装备脱下请求
+	ItemId:int32 = -1	;ItemId
+	EquipPos:int32 = -1	;选择的装备位
+
+BagRpcEquipUndressReply↓ 装备脱下回应
+	Result:int32 = -9999	;返回结果
+	ItemId:int32 = -1	;ItemId
+	EquipPos:int32 = -1	;选择的装备位
+
+BagRpcEquipEnhanceAsk↑ 装备强化请求
+	ItemId:int32 = -1	;ItemId
+	Pos:int32 = -1	;道具位置
+	BagContainerType:int32 = -1	;背包容器类型
+	Lv:int32 = -1	;需要强化的等级
+
+BagRpcEquipEnhanceReply↓ 装备强化回应
+	Result:int32 = -9999	;返回结果
+	ItemId:int32 = -1	;ItemId
+	Pos:int32 = -1	;道具位置
+	BagContainerType:int32 = -1	;背包容器类型
+	Lv:int32 = -1	;需要强化的等级
+	IsFirstEnhance:bool = false	;是否第一次强化
+
+BagRpcEquipPolishedAsk↑ 装备洗炼请求
+	ItemId:int32 = -1	;ItemId
+	Pos:int32 = -1	;道具位置
+	BagContainerType:int32 = -1	;背包容器类型
+
+BagRpcEquipPolishedReply↓ 装备洗炼回应
+	Result:int32 = -9999	;返回结果
+	ItemId:int32 = -1	;ItemId
+	Pos:int32 = -1	;道具位置
+	BagContainerType:int32 = -1	;背包容器类型
+
+BagRpcEquipPolishedReplaceAsk↑ 装备洗炼属性替换请求
+	ItemId:int32 = -1	;ItemId
+	Pos:int32 = -1	;道具位置
+	BagContainerType:int32 = -1	;背包容器类型
+
+BagRpcEquipPolishedReplaceReply↓ 装备洗炼属性替换回应
+	Result:int32 = -9999	;返回结果
+	ItemId:int32 = -1	;ItemId
+	Pos:int32 = -1	;道具位置
+	BagContainerType:int32 = -1	;背包容器类型
+
+BagRpcBagTidyAsk↑ 背包整理请求
+
+BagRpcBagTidyReply↓ 背包整理回应
+	Result:int32 = -9999	;返回结果
+
+BagRpcBagRecycleBuyAsk↑ 物品回收，购回请求
+	GridPos:int32 = -1	;格子位置
+
+BagRpcBagRecycleBuyReply↓ 物品回收，购回回应
+	Result:int32 = -9999	;返回结果
+	GridPos:int32 = -1	;格子位置
+	GridList:BagRecycleGridObj*	;在回收站中的格子
+	[BagRecycleGridObj]
+		ItemId:sint64 = -1	;道具id
+		TemplateId:int32 = -1	;模板id
+		Num:int32 = -1	;数量
+		ItemType:int32 = -1	;物品类型
+		Pos:int32 = -1	;位置
+
+BagRpcUnlockGridAsk↑ 开启格子请求
+	GridCount:int32 = -1	;格子数量
+
+BagRpcUnlockGridReply↓ 开启格子回应
+	Result:int32 = -9999	;返回结果
+	GridCount:int32 = -1	;格子数量
+
+BagRpcSellGridObj
+	TemplateId:int32 = -1	;模板id
+	Num:int32 = -1	;数量
+	Pos:int32 = -1	;道具位置
+	ItemId:sint64 = -1	;ItemId（背包格子的Index）
+	ItemType:int32 = -1	;物品类型
+
+BagRpcBagRecycleSellAsk↑ 装备回收出售请求
+	GridList:RpcSellGridObj*	;回收，出售的格子
+	[RpcSellGridObj]
+		TemplateId:int32 = -1	;模板id
+		Num:int32 = -1	;数量
+		Pos:int32 = -1	;道具位置
+		ItemId:sint64 = -1	;ItemId（背包格子的Index）
+		ItemType:int32 = -1	;物品类型
+
+BagRpcBagRecycleSellReply↓ 装备回收出售回应
+	Result:int32 = -9999	;返回结果
+	GridList:BagRecycleGridObj*	;在回收站中的格子
+	[BagRecycleGridObj]
+		ItemId:sint64 = -1	;道具id
+		TemplateId:int32 = -1	;模板id
+		Num:int32 = -1	;数量
+		ItemType:int32 = -1	;物品类型
+		Pos:int32 = -1	;位置
+	Money:int32 = -1	;金钱
+
+BagRpcSplitAsk↑ 物品拆分请求
+	TemplateId:int32 = -1	;物品模板id
+	Pos:int32 = -1	;位置
+	Num:int32 = -1	;拆分出来的数量
+
+BagRpcSplitReply↓ 物品拆分回应
+	Result:int32 = -9999	;返回结果
+	TemplateId:int32 = -1	;物品模板id
+	Pos:int32 = -1	;位置
+	Num:int32 = -1	;拆分出来的数量
+
+BagRpcEquipBaseAttrPlishedAsk↑ 装备基础属性洗炼请求
+	TemplateId:int32 = -1	;TemplateId
+	Pos:int32 = -1	;道具位置
+	BagContainerType:int32 = -1	;背包容器类型
+
+BagRpcEquipBaseAttrPlishedReply↓ 装备基础属性洗炼回应
+	Result:int32 = -9999	;返回结果
+	TemplateId:int32 = -1	;TemplateId
+	Pos:int32 = -1	;道具位置
+	BagContainerType:int32 = -1	;背包容器类型
+
+BagRpcEquipBaseAttrPolishedReplaceAsk↑ 装备基础属性洗炼替换请求
+	TemplateId:int32 = -1	;TemplateId
+	Pos:int32 = -1	;道具位置
+	BagContainerType:int32 = -1	;背包容器类型
+
+BagRpcEquipBaseAttrPolishedReplaceReply↓ 装备基础属性洗炼替换回应
+	Result:int32 = -9999	;返回结果
+	TemplateId:int32 = -1	;TemplateId
+	Pos:int32 = -1	;道具位置
+	BagContainerType:int32 = -1	;背包容器类型
+
+BagRpcEquipExAttrModifyAsk↑ 装备改造请求
+	TemplateId:int32 = -1	;TemplateId
+	Pos:int32 = -1	;道具位置
+	BagContainerType:int32 = -1	;背包容器类型
+
+BagRpcEquipExAttrModifyReply↓ 装备改造回应
+	Result:int32 = -9999	;返回结果
+	TemplateId:int32 = -1	;TemplateId
+	Pos:int32 = -1	;道具位置
+	BagContainerType:int32 = -1	;背包容器类型
+	Index:int32 = -1	;属性Index
+
+BagRpcEquipInlayGemAsk↑ 宝石镶嵌请求
+	TemplateId:int32 = -1	;TemplateId
+	Pos:int32 = -1	;道具位置
+	BagContainerType:int32 = -1	;背包容器类型
+	SlotPos:int32 = -1	;槽位位置
+	GemId:int32 = -1	;宝石id
+	GemPos:int32 = -1	;在背包中的位置
+
+BagRpcEquipInlayGemReply↓ 宝石镶嵌回应
+	Result:int32 = -9999	;返回结果
+	TemplateId:int32 = -1	;TemplateId
+	Pos:int32 = -1	;道具位置
+	BagContainerType:int32 = -1	;背包容器类型
+	SlotPos:int32 = -1	;槽位位置
+	GemId:int32 = -1	;宝石id
+	GemPos:int32 = -1	;在背包中的位置
+
+BagRpcEquipGemSlotUnlockAsk↑ 装备宝石槽位打孔请求
+	TemplateId:int32 = -1	;TemplateId
+	Pos:int32 = -1	;道具位置
+	BagContainerType:int32 = -1	;背包容器类型
+	SlotPos:int32 = -1	;槽位位置
+
+BagRpcEquipGemSlotUnlockReply↓ 装备宝石槽位打孔回应
+	Result:int32 = -9999	;返回结果
+	TemplateId:int32 = -1	;TemplateId
+	Pos:int32 = -1	;道具位置
+	BagContainerType:int32 = -1	;背包容器类型
+	SlotPos:int32 = -1	;槽位位置
+
+BagRpcEquipEnhanceSwapAsk↑ 装备强化转移请求
+	TemplateId1:int32 = -1	;TemplateId1
+	Pos1:int32 = -1	;道具位置1
+	TemplateId2:int32 = -1	;TemplateId2
+	Pos2:int32 = -1	;道具位置2
+	BagContainerType1:int32 = -1	;背包容器类型1
+	BagContainerType2:int32 = -1	;背包容器类型2
+
+BagRpcEquipEnhanceSwapReply↓ 装备强化转移回应
+	Result:int32 = -9999	;返回结果
+	TemplateId1:int32 = -1	;TemplateId1
+	Pos1:int32 = -1	;道具位置1
+	TemplateId2:int32 = -1	;TemplateId2
+	Pos2:int32 = -1	;道具位置2
+	BagContainerType1:int32 = -1	;背包容器类型1
+	BagContainerType2:int32 = -1	;背包容器类型2
+
+BagRpcEquipGemRemoveAsk↑ 装备宝石移除请求
+	TemplateId:int32 = -1	;TemplateId
+	Pos:int32 = -1	;道具位置
+	BagContainerType:int32 = -1	;背包容器类型
+	SlotPos:int32 = -1	;槽位位置
+
+BagRpcEquipGemRemoveReply↓ 装备宝石移除回应
+	Result:int32 = -9999	;返回结果
+	TemplateId:int32 = -1	;TemplateId
+	Pos:int32 = -1	;道具位置
+	BagContainerType:int32 = -1	;背包容器类型
+	SlotPos:int32 = -1	;槽位位置
+
+BagRpcBagPutInStorageAsk↑ 存入仓库请求
+	TemplateId:int32 = -1	;物品模板id
+	Pos:int32 = -1	;位置
+	Num:int32 = -1	;拆分出来的数量
+
+BagRpcBagPutInStorageReply↓ 存入仓库回应
+	Result:int32 = -9999	;返回结果
+	TemplateId:int32 = -1	;物品模板id
+	Pos:int32 = -1	;位置
+	Num:int32 = -1	;拆分出来的数量
+
+BagRpcBagFetchFromStorageAsk↑ 从仓库取出请求
+	TemplateId:int32 = -1	;物品模板id
+	Pos:int32 = -1	;位置
+	Num:int32 = -1	;拆分出来的数量
+
+BagRpcBagFetchFromStorageReply↓ 从仓库取出回应
+	Result:int32 = -9999	;返回结果
+	TemplateId:int32 = -1	;物品模板id
+	Pos:int32 = -1	;位置
+	Num:int32 = -1	;拆分出来的数量
+
+BagRpcBagStorageSaveMoneyAsk↑ 仓库存钱请求
+	Money:int32 = -1	;钱数
+
+BagRpcBagStorageSaveMoneyReply↓ 仓库存钱回应
+	Result:int32 = -9999	;返回结果
+	Money:int32 = -1	;钱数
+
+BagRpcBagStorageDrawMoneyAsk↑ 仓库取钱请求
+	Money:int32 = -1	;钱数
+
+BagRpcBagStorageDrawMoneyReply↓ 仓库取钱回应
+	Result:int32 = -9999	;返回结果
+	Money:int32 = -1	;钱数
+
+BagRpcStorageTidyAsk↑ 仓库整理请求
+
+BagRpcStorageTidyReply↓ 仓库整理回应
+	Result:int32 = -9999	;返回结果
+
+BagRpcTalismanLvupAsk↑ 法宝铸炼请求
+	CostTalisman:int32* = -1	;材料法宝在背包中的位置
+
+BagRpcTalismanLvupReply↓ 法宝铸炼回应
+	Result:int32 = -9999	;返回结果
+
+BagRpcTalismanInheritAsk↑ 法宝传承请求
+	RightSideTalisman:int32 = -1	;材料法宝在背包的位置
+
+BagRpcTalismanInheritReply↓ 法宝传承回应
+	Result:int32 = -9999	;返回结果
+
+BagTalismanObj
+	ItemID:sint64 = -1	;物品实例id, 唯一id
+	TemplateId:int32 = -1	;模板id
+	CurExp:int32 = 0	;当前经验
+	EquipScore:int32 = 0	;装备评分
+	StarLevel:int32 = 0	;星级
+	GatherSpriteSlot:SlotInfo*	;聚灵槽位
+	[SlotInfo]
+		SlotId:int32 = -1	;槽位Id
+		SlotType:int32 = -1	;槽位类别(0上古，1其他)
+		SlotSkillId:int32 = -1	;聚灵技能ID
+	TailsManLevel:int32 = -1	;法宝等级
+	TalismanAttr:int32* = -1	;法宝属性
+
+BagRpcBagAddNewItemNotify↓ 背包获得新物品通知
+	NewItem:BagGridObj*	;物品
+	[BagGridObj]
+		TemplateID:int32 = -1	;物品的配置Id
+		Num:int32 = 0	;物品数量
+		ItemType:int32 = -1	;物品类型
+		Pos:int32 = -1	;位置
+		Value:int32 = -1	;客户端通用数据
+		Index:sint64 = -1	;ItemId，唯一id
+		Bind:bool = false	;绑定
+
+BagRpcBagSetAutoPickupAsk↑ 设置自动拾取请求
+	AutoPick:KeyValue2IntBool*	;自动拾取
+	[KeyValue2IntBool]
+		Key:int32 = -1	;键
+		Value:bool = false	;值
+
+BagRpcBagSetAutoPickupReply↓ 设置自动拾取回应
+	Result:int32 = -9999	;返回结果
+
+BagRpcGetNewItemNotify↓ 获得新物品通知
+	Item:KeyValue2IntInt*	;物品
+	[KeyValue2IntInt]
+		Key:int32 = -1	;键
+		Value:int32 = -1	;值
+	ModuleId:int32 = -1	;模块Id
+	PathWayId:int32 = -1	;获得途径Id
+	ModuleParam:int32 = -1	;模块参数
+
+BagRpcBagErrorNotify↓ 背包错误通知
+	Result:int32 = -9999	;返回结果
+
+BagSlotInfo
+	SlotId:int32 = -1	;槽位Id
+	SlotType:int32 = -1	;槽位类别(0上古，1其他)
+	SlotSkillId:int32 = -1	;聚灵技能ID
+
+BagRpcTalismanRefindStarAsk↑ 炼星请求
+	FabaoId:sint64 = -1	;法宝实例Id
+
+BagRpcTalismanRefindStarReply↓ 炼星回应
+	Result:int32 = -9999	;返回结果
+
+BagRpcTalismanUpSlotSkillLevelAsk↑ 升级聚灵槽位技能请求
+	FabaoId:sint64 = -1	;法宝实例ID
+	SlotId:int32 = -1	;聚灵槽位Id
+
+BagRpcTalismanUpSlotSkillLevelReply↓ 升级聚灵槽位技能回应
+	Result:int32 = -9999	;返回结果
+
+BagRpcTalismanAttrChangeNotify↓ 属性变化通知通知
+	Attr:KeyValue2IntInt*	;属性值
+	[KeyValue2IntInt]
+		Key:int32 = -1	;键
+		Value:int32 = -1	;值
+
+BagRpcTalismanGatherSpriteAsk↑ 宝石聚灵请求
+	FabaoId:sint64 = -1	;法宝Id
+	GatherSpriteId:int32 = -1	;聚灵技能Id
+	SlotId:int32 = -1	;聚灵槽位ID
+
+BagRpcTalismanGatherSpriteReply↓ 宝石聚灵回应
+	Result:int32 = -9999	;返回结果
+

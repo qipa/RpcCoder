@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<Root Module="OneVSOneTop" CName="排行榜" MsgNumStart="42" SyncDataVersion="1" Comment="">
+    <Struct Name="OneVSOneDate" CName="一对一的数据" ProtoType="SyncProto" Comment="" DataType="ModuleData" SaveToDB="True" SyncToClient="False" MaxFieldId="6">
+        <Field PreDefine="repeated" FieldType="TopMess" FieldId="1" Name="TopMesses" CName="排行榜数据" ValueSet="" MinValue="6" MaxValue="128" Comment="" />
+        <Field PreDefine="optional" FieldType="sint64" FieldId="6" Name="Time" CName="格林时间" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+    </Struct>
+</Root>

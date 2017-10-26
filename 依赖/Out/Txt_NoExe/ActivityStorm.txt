@@ -1,0 +1,46 @@
+ActivityStormRpcSignUpAsk↑ 报名请求
+
+ActivityStormRpcSignUpReply↓ 报名回应
+	Result:int32 = -9999	;返回结果
+	Type:int32 = -1	;类型
+	Time:int32 = -1	;倒计时时间
+
+ActivityStormRpcCancelSignUpAsk↑ 取消报名请求
+
+ActivityStormRpcCancelSignUpReply↓ 取消报名回应
+	Result:int32 = -9999	;返回结果
+
+ActivityStormRpcInsertBattlefieldAsk↑ 进入战场请求
+
+ActivityStormRpcInsertBattlefieldReply↓ 进入战场回应
+	Result:int32 = -9999	;返回结果
+	Type:int32 = -1	;类型
+	Time:int32 = -1	;倒计时时间
+
+ActivityStormRpcBattlefieldMessageNotify↓ 战场信息通知
+	Time:int32 = -1	;倒计时时间
+
+ActivityStormRpcTimeOutMessageNotify↓ 超时消息主推通知
+
+
+ActivityStormRpcSyncDataAsk↑ 同步数据请求
+
+ActivityStormRpcSyncDataReply↓ 同步数据回应
+	Result:int32 = -9999	;返回结果
+	Type:int32 = -1	;类型
+	Time:int32 = -1	;倒计时时间
+
+ActivityStormRpcJoinLevevNotifyNotify↓ 加入离开notify通知
+	UserID:sint64 = -1	;USERID
+	NickName:string	;昵称
+	Type:int32 = -1	;类型
+
+ActivityStormRpcCanceInsertBattleAsk↑ 取消进入战场请求
+
+ActivityStormRpcCanceInsertBattleReply↓ 取消进入战场回应
+	Result:int32 = -9999	;返回结果
+
+ActivityStormRpcResetSignUpNotifyNotify↓ 重置报名通知
+	Type:int32 = -1	;类型
+	Time:int32 = -1	;倒计时时间
+

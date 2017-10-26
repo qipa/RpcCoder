@@ -1,0 +1,499 @@
+<?xml version="1.0"?>
+<Root Module="Bag" CName="背包" MsgNumStart="14" SyncDataVersion="1" Comment="">
+    <Operate Name="SyncData" CName="同步背包数据" Comment="">
+        <OP_ASK Name="Ask" CName="请求" MsgID="14" DataStruct="RpcSyncDataAsk" Comment="" />
+        <OP_REPLY Name="Reply" CName="回应" MsgID="15" DataStruct="RpcSyncDataReply" Comment="" />
+    </Operate>
+    <Operate Name="Sell" CName="物品出售" Comment="">
+        <OP_ASK Name="Ask" CName="请求" MsgID="16" DataStruct="RpcSellAsk" Comment="" />
+        <OP_REPLY Name="Reply" CName="回应" MsgID="17" DataStruct="RpcSellReply" Comment="" />
+    </Operate>
+    <Operate Name="Decompose" CName="物品分解" Comment="">
+        <OP_ASK Name="Ask" CName="请求" MsgID="18" DataStruct="RpcDecomposeAsk" Comment="" />
+        <OP_REPLY Name="Reply" CName="回应" MsgID="19" DataStruct="RpcDecomposeReply" Comment="" />
+    </Operate>
+    <Operate Name="Use" CName="物品使用" Comment="">
+        <OP_ASK Name="Ask" CName="请求" MsgID="20" DataStruct="RpcUseAsk" Comment="" />
+        <OP_REPLY Name="Reply" CName="回应" MsgID="21" DataStruct="RpcUseReply" Comment="" />
+    </Operate>
+    <Operate Name="EquipWear" CName="装备穿戴" Comment="">
+        <OP_ASK Name="Ask" CName="请求" MsgID="22" DataStruct="RpcEquipWearAsk" Comment="" />
+        <OP_REPLY Name="Reply" CName="回应" MsgID="23" DataStruct="RpcEquipWearReply" Comment="" />
+    </Operate>
+    <Operate Name="EquipUndress" CName="装备脱下" Comment="">
+        <OP_ASK Name="Ask" CName="请求" MsgID="24" DataStruct="RpcEquipUndressAsk" Comment="" />
+        <OP_REPLY Name="Reply" CName="回应" MsgID="25" DataStruct="RpcEquipUndressReply" Comment="" />
+    </Operate>
+    <Operate Name="EquipEnhance" CName="装备强化" Comment="">
+        <OP_ASK Name="Ask" CName="请求" MsgID="26" DataStruct="RpcEquipEnhanceAsk" Comment="" />
+        <OP_REPLY Name="Reply" CName="回应" MsgID="27" DataStruct="RpcEquipEnhanceReply" Comment="" />
+    </Operate>
+    <Operate Name="EquipPolished" CName="装备洗炼" Comment="">
+        <OP_ASK Name="Ask" CName="请求" MsgID="28" DataStruct="RpcEquipPolishedAsk" Comment="" />
+        <OP_REPLY Name="Reply" CName="回应" MsgID="29" DataStruct="RpcEquipPolishedReply" Comment="" />
+    </Operate>
+    <Operate Name="EquipPolishedReplace" CName="装备洗炼属性替换" Comment="">
+        <OP_ASK Name="Ask" CName="请求" MsgID="30" DataStruct="RpcEquipPolishedReplaceAsk" Comment="" />
+        <OP_REPLY Name="Reply" CName="回应" MsgID="31" DataStruct="RpcEquipPolishedReplaceReply" Comment="" />
+    </Operate>
+    <Operate Name="BagTidy" CName="背包整理" Comment="">
+        <OP_ASK Name="Ask" CName="请求" MsgID="32" DataStruct="RpcBagTidyAsk" Comment="" />
+        <OP_REPLY Name="Reply" CName="回应" MsgID="33" DataStruct="RpcBagTidyReply" Comment="" />
+    </Operate>
+    <Operate Name="BagRecycleSell" CName="装备回收出售" Comment="">
+        <OP_ASK Name="Ask" CName="请求" MsgID="34" DataStruct="RpcBagRecycleSellAsk" Comment="" />
+        <OP_REPLY Name="Reply" CName="回应" MsgID="35" DataStruct="RpcBagRecycleSellReply" Comment="" />
+    </Operate>
+    <Operate Name="BagRecycleBuy" CName="物品回收，购回" Comment="">
+        <OP_ASK Name="Ask" CName="请求" MsgID="36" DataStruct="RpcBagRecycleBuyAsk" Comment="" />
+        <OP_REPLY Name="Reply" CName="回应" MsgID="37" DataStruct="RpcBagRecycleBuyReply" Comment="" />
+    </Operate>
+    <Operate Name="UnlockGrid" CName="开启格子" Comment="">
+        <OP_ASK Name="Ask" CName="请求" MsgID="38" DataStruct="RpcUnlockGridAsk" Comment="" />
+        <OP_REPLY Name="Reply" CName="回应" MsgID="39" DataStruct="RpcUnlockGridReply" Comment="" />
+    </Operate>
+    <Operate Name="Split" CName="物品拆分" Comment="">
+        <OP_ASK Name="Ask" CName="请求" MsgID="40" DataStruct="RpcSplitAsk" Comment="" />
+        <OP_REPLY Name="Reply" CName="回应" MsgID="41" DataStruct="RpcSplitReply" Comment="" />
+    </Operate>
+    <Operate Name="EquipBaseAttrPlished" CName="装备基础属性洗炼" Comment="">
+        <OP_ASK Name="Ask" CName="请求" MsgID="42" DataStruct="RpcEquipBaseAttrPlishedAsk" Comment="" />
+        <OP_REPLY Name="Reply" CName="回应" MsgID="43" DataStruct="RpcEquipBaseAttrPlishedReply" Comment="" />
+    </Operate>
+    <Operate Name="EquipBaseAttrPolishedReplace" CName="装备基础属性洗炼替换" Comment="">
+        <OP_ASK Name="Ask" CName="请求" MsgID="44" DataStruct="RpcEquipBaseAttrPolishedReplaceAsk" Comment="" />
+        <OP_REPLY Name="Reply" CName="回应" MsgID="45" DataStruct="RpcEquipBaseAttrPolishedReplaceReply" Comment="" />
+    </Operate>
+    <Operate Name="EquipExAttrModify" CName="装备改造" Comment="">
+        <OP_ASK Name="Ask" CName="请求" MsgID="46" DataStruct="RpcEquipExAttrModifyAsk" Comment="" />
+        <OP_REPLY Name="Reply" CName="回应" MsgID="47" DataStruct="RpcEquipExAttrModifyReply" Comment="" />
+    </Operate>
+    <Operate Name="EquipInlayGem" CName="宝石镶嵌" Comment="">
+        <OP_ASK Name="Ask" CName="请求" MsgID="48" DataStruct="RpcEquipInlayGemAsk" Comment="" />
+        <OP_REPLY Name="Reply" CName="回应" MsgID="49" DataStruct="RpcEquipInlayGemReply" Comment="" />
+    </Operate>
+    <Operate Name="EquipGemSlotUnlock" CName="装备宝石槽位打孔" Comment="">
+        <OP_ASK Name="Ask" CName="请求" MsgID="50" DataStruct="RpcEquipGemSlotUnlockAsk" Comment="" />
+        <OP_REPLY Name="Reply" CName="回应" MsgID="51" DataStruct="RpcEquipGemSlotUnlockReply" Comment="" />
+    </Operate>
+    <Operate Name="EquipEnhanceSwap" CName="装备强化转移" Comment="">
+        <OP_ASK Name="Ask" CName="请求" MsgID="52" DataStruct="RpcEquipEnhanceSwapAsk" Comment="" />
+        <OP_REPLY Name="Reply" CName="回应" MsgID="53" DataStruct="RpcEquipEnhanceSwapReply" Comment="" />
+    </Operate>
+    <Operate Name="EquipGemRemove" CName="装备宝石移除" Comment="">
+        <OP_ASK Name="Ask" CName="请求" MsgID="54" DataStruct="RpcEquipGemRemoveAsk" Comment="" />
+        <OP_REPLY Name="Reply" CName="回应" MsgID="55" DataStruct="RpcEquipGemRemoveReply" Comment="" />
+    </Operate>
+    <Operate Name="BagPutInStorage" CName="存入仓库" Comment="">
+        <OP_ASK Name="Ask" CName="请求" MsgID="56" DataStruct="RpcBagPutInStorageAsk" Comment="" />
+        <OP_REPLY Name="Reply" CName="回应" MsgID="57" DataStruct="RpcBagPutInStorageReply" Comment="" />
+    </Operate>
+    <Operate Name="BagFetchFromStorage" CName="从仓库取出" Comment="">
+        <OP_ASK Name="Ask" CName="请求" MsgID="58" DataStruct="RpcBagFetchFromStorageAsk" Comment="" />
+        <OP_REPLY Name="Reply" CName="回应" MsgID="59" DataStruct="RpcBagFetchFromStorageReply" Comment="" />
+    </Operate>
+    <Operate Name="BagStorageSaveMoney" CName="仓库存钱" Comment="">
+        <OP_ASK Name="Ask" CName="请求" MsgID="60" DataStruct="RpcBagStorageSaveMoneyAsk" Comment="" />
+        <OP_REPLY Name="Reply" CName="回应" MsgID="61" DataStruct="RpcBagStorageSaveMoneyReply" Comment="" />
+    </Operate>
+    <Operate Name="BagStorageDrawMoney" CName="仓库取钱" Comment="">
+        <OP_ASK Name="Ask" CName="请求" MsgID="62" DataStruct="RpcBagStorageDrawMoneyAsk" Comment="" />
+        <OP_REPLY Name="Reply" CName="回应" MsgID="63" DataStruct="RpcBagStorageDrawMoneyReply" Comment="" />
+    </Operate>
+    <Operate Name="StorageTidy" CName="仓库整理" Comment="">
+        <OP_ASK Name="Ask" CName="请求" MsgID="64" DataStruct="RpcStorageTidyAsk" Comment="" />
+        <OP_REPLY Name="Reply" CName="回应" MsgID="65" DataStruct="RpcStorageTidyReply" Comment="" />
+    </Operate>
+    <Operate Name="TalismanLvup" CName="法宝铸炼" Comment="">
+        <OP_ASK Name="Ask" CName="请求" MsgID="66" DataStruct="RpcTalismanLvupAsk" Comment="" />
+        <OP_REPLY Name="Reply" CName="回应" MsgID="67" DataStruct="RpcTalismanLvupReply" Comment="" />
+    </Operate>
+    <Operate Name="TalismanInherit" CName="法宝传承" Comment="">
+        <OP_ASK Name="Ask" CName="请求" MsgID="68" DataStruct="RpcTalismanInheritAsk" Comment="" />
+        <OP_REPLY Name="Reply" CName="回应" MsgID="69" DataStruct="RpcTalismanInheritReply" Comment="" />
+    </Operate>
+    <Operate Name="BagAddNewItem" CName="背包获得新物品" Comment="">
+        <OP_SERVER_NOTIFY Name="Notify" CName="通知" MsgID="70" DataStruct="RpcBagAddNewItemNotify" Comment="" />
+    </Operate>
+    <Operate Name="BagSetAutoPickup" CName="设置自动拾取" Comment="">
+        <OP_ASK Name="Ask" CName="请求" MsgID="71" DataStruct="RpcBagSetAutoPickupAsk" Comment="" />
+        <OP_REPLY Name="Reply" CName="回应" MsgID="72" DataStruct="RpcBagSetAutoPickupReply" Comment="" />
+    </Operate>
+    <Operate Name="GetNewItem" CName="获得新物品" Comment="">
+        <OP_SERVER_NOTIFY Name="Notify" CName="通知" MsgID="73" DataStruct="RpcGetNewItemNotify" Comment="" />
+    </Operate>
+    <Operate Name="BagError" CName="背包错误" Comment="">
+        <OP_SERVER_NOTIFY Name="Notify" CName="通知" MsgID="74" DataStruct="RpcBagErrorNotify" Comment="" />
+    </Operate>
+    <Operate Name="TalismanRefindStar" CName="炼星" Comment="">
+        <OP_ASK Name="Ask" CName="请求" MsgID="75" DataStruct="RpcTalismanRefindStarAsk" Comment="" />
+        <OP_REPLY Name="Reply" CName="回应" MsgID="76" DataStruct="RpcTalismanRefindStarReply" Comment="" />
+    </Operate>
+    <Operate Name="TalismanUpSlotSkillLevel" CName="升级聚灵槽位技能" Comment="">
+        <OP_ASK Name="Ask" CName="请求" MsgID="77" DataStruct="RpcTalismanUpSlotSkillLevelAsk" Comment="" />
+        <OP_REPLY Name="Reply" CName="回应" MsgID="78" DataStruct="RpcTalismanUpSlotSkillLevelReply" Comment="" />
+    </Operate>
+    <Operate Name="TalismanAttrChange" CName="属性变化通知" Comment="">
+        <OP_SERVER_NOTIFY Name="Notify" CName="通知" MsgID="79" DataStruct="RpcTalismanAttrChangeNotify" Comment="" />
+    </Operate>
+    <Operate Name="TalismanGatherSprite" CName="宝石聚灵" Comment="">
+        <OP_ASK Name="Ask" CName="请求" MsgID="80" DataStruct="RpcTalismanGatherSpriteAsk" Comment="" />
+        <OP_REPLY Name="Reply" CName="回应" MsgID="81" DataStruct="RpcTalismanGatherSpriteReply" Comment="" />
+    </Operate>
+    <Struct Name="RpcSyncDataAsk" CName="同步背包数据请求" ProtoType="RpcProto" Comment="" DataType="RPCData" SaveToDB="False" SyncToClient="False" MaxFieldId="0" />
+    <Struct Name="RpcSyncDataReply" CName="同步背包数据回应" ProtoType="RpcProto" Comment="" DataType="RPCData" SaveToDB="False" SyncToClient="False" MaxFieldId="1">
+        <Field PreDefine="optional" FieldType="sint32" FieldId="1" Name="Result" CName="返回结果" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-9999" Comment="-9999 模块未启动&#xD;&#xA;-9998 请求字段值范围出错" />
+    </Struct>
+    <Struct Name="RpcSellAsk" CName="出售请求" ProtoType="RpcProto" Comment="" DataType="RPCData" SaveToDB="False" SyncToClient="False" MaxFieldId="3">
+        <Field PreDefine="optional" FieldType="sint32" FieldId="1" Name="ItemID" CName="物品id" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="2" Name="Pos" CName="位置" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="3" Name="Num" CName="数量" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+    </Struct>
+    <Struct Name="RpcSellReply" CName="出售回应" ProtoType="RpcProto" Comment="" DataType="RPCData" SaveToDB="False" SyncToClient="False" MaxFieldId="4">
+        <Field PreDefine="optional" FieldType="sint32" FieldId="1" Name="Result" CName="返回结果" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-9999" Comment="-9999 模块未启动&#xD;&#xA;-9998 请求字段值范围出错" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="2" Name="ItemID" CName="物品id" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="3" Name="Pos" CName="位置" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="4" Name="Num" CName="数量" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+    </Struct>
+    <Struct Name="RpcDecomposeAsk" CName="分解请求" ProtoType="RpcProto" Comment="" DataType="RPCData" SaveToDB="False" SyncToClient="False" MaxFieldId="3">
+        <Field PreDefine="optional" FieldType="sint32" FieldId="1" Name="ItemID" CName="物品id" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="2" Name="Pos" CName="位置" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+    </Struct>
+    <Struct Name="RpcDecomposeReply" CName="分解回应" ProtoType="RpcProto" Comment="" DataType="RPCData" SaveToDB="False" SyncToClient="False" MaxFieldId="4">
+        <Field PreDefine="optional" FieldType="sint32" FieldId="1" Name="Result" CName="返回结果" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-9999" Comment="-9999 模块未启动&#xD;&#xA;-9998 请求字段值范围出错" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="2" Name="ItemID" CName="物品id" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="3" Name="Pos" CName="位置" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+    </Struct>
+    <Struct Name="PackageData" CName="背包数据" ProtoType="SyncProto" Comment="" DataType="UserData" SaveToDB="True" SyncToClient="True" MaxFieldId="16">
+        <Field PreDefine="repeated" FieldType="GridInfo" FieldId="1" Name="GridArray" CName="背包格子数组" ValueSet="" MinValue="6" MaxValue="128" Comment="" />
+        <Field PreDefine="repeated" FieldType="BagEquipObj" FieldId="4" Name="EquipAllData" CName="装备全部数据" ValueSet="" MinValue="6" MaxValue="128" Comment="" />
+        <Field PreDefine="repeated" FieldType="GridInfo" FieldId="5" Name="WearEquipContainer" CName="穿戴装备容器" ValueSet="" MinValue="6" MaxValue="128" Comment="" />
+        <Field PreDefine="repeated" FieldType="GridInfo" FieldId="7" Name="StorageBagGrid" CName="仓库" ValueSet="" MinValue="6" MaxValue="128" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="8" Name="StorageBank" CName="仓库金钱" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="0" Comment="" />
+        <Field PreDefine="repeated" FieldType="TalismanObj" FieldId="9" Name="TalismanData" CName="法宝数据" ValueSet="" MinValue="6" MaxValue="128" Comment="" />
+        <Field PreDefine="repeated" FieldType="sint32" FieldId="10" Name="TalismanForeverAttr" CName="装备过的法宝，可获得永久属性加成" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+        <Field PreDefine="repeated" FieldType="KeyValue2IntBool" FieldId="11" Name="AutoPickup" CName="自动拾取设置" ValueSet="" MinValue="6" MaxValue="128" Comment="" />
+        <Field PreDefine="repeated" FieldType="KeyValue2IntInt" FieldId="15" Name="UseItemDay" CName="每天使用的道具" ValueSet="" MinValue="6" MaxValue="128" Comment="" />
+        <Field PreDefine="repeated" FieldType="KeyValue2IntInt" FieldId="16" Name="UseItemWeek" CName="每周使用的道具" ValueSet="" MinValue="6" MaxValue="128" Comment="" />
+    </Struct>
+    <Struct Name="GridInfo" CName="格子信息" ProtoType="SyncProto" Comment="" DataType="ItemData" SaveToDB="False" SyncToClient="False" MaxFieldId="12">
+        <Field PreDefine="optional" FieldType="sint32" FieldId="2" Name="TemplateID" CName="物品的配置Id" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="3" Name="Num" CName="物品数量" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="0" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="5" Name="ItemType" CName="物品类型" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="6" Name="Pos" CName="位置" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="8" Name="Value" CName="客户端通用数据" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+        <Field PreDefine="optional" FieldType="sint64" FieldId="11" Name="Index" CName="实例id，唯一id" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+        <Field PreDefine="optional" FieldType="bool" FieldId="12" Name="Bind" CName="绑定" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="false" Comment="" />
+    </Struct>
+    <Struct Name="RpcUseAsk" CName="物品使用请求" ProtoType="RpcProto" Comment="" DataType="RPCData" SaveToDB="False" SyncToClient="False" MaxFieldId="2">
+        <Field PreDefine="optional" FieldType="sint32" FieldId="1" Name="ItemID" CName="物品id" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="2" Name="Pos" CName="位置" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+    </Struct>
+    <Struct Name="RpcUseReply" CName="物品使用回应" ProtoType="RpcProto" Comment="" DataType="RPCData" SaveToDB="False" SyncToClient="False" MaxFieldId="3">
+        <Field PreDefine="optional" FieldType="sint32" FieldId="1" Name="Result" CName="返回结果" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-9999" Comment="-9999 模块未启动&#xD;&#xA;-9998 请求字段值范围出错" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="2" Name="Pos" CName="位置" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="3" Name="ItemID" CName="物品id" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+    </Struct>
+    <Struct Name="RpcEquipWearAsk" CName="装备穿戴请求" ProtoType="RpcProto" Comment="" DataType="RPCData" SaveToDB="False" SyncToClient="False" MaxFieldId="3">
+        <Field PreDefine="optional" FieldType="sint32" FieldId="1" Name="ItemId" CName="ItemId" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="2" Name="BagPos" CName="在背包中的位置" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+    </Struct>
+    <Struct Name="RpcEquipWearReply" CName="装备穿戴回应" ProtoType="RpcProto" Comment="" DataType="RPCData" SaveToDB="False" SyncToClient="False" MaxFieldId="5">
+        <Field PreDefine="optional" FieldType="sint32" FieldId="1" Name="Result" CName="返回结果" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-9999" Comment="-9999 模块未启动&#xD;&#xA;-9998 请求字段值范围出错" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="2" Name="ItemId" CName="ItemId" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="4" Name="BagPos" CName="在背包中的位置" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+    </Struct>
+    <Struct Name="RpcEquipUndressAsk" CName="装备脱下请求" ProtoType="RpcProto" Comment="" DataType="RPCData" SaveToDB="False" SyncToClient="False" MaxFieldId="3">
+        <Field PreDefine="optional" FieldType="sint32" FieldId="1" Name="ItemId" CName="ItemId" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="3" Name="EquipPos" CName="选择的装备位" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+    </Struct>
+    <Struct Name="RpcEquipUndressReply" CName="装备脱下回应" ProtoType="RpcProto" Comment="" DataType="RPCData" SaveToDB="False" SyncToClient="False" MaxFieldId="4">
+        <Field PreDefine="optional" FieldType="sint32" FieldId="1" Name="Result" CName="返回结果" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-9999" Comment="-9999 模块未启动&#xD;&#xA;-9998 请求字段值范围出错" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="2" Name="ItemId" CName="ItemId" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="4" Name="EquipPos" CName="选择的装备位" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+    </Struct>
+    <Struct Name="RpcEquipEnhanceAsk" CName="装备强化请求" ProtoType="RpcProto" Comment="" DataType="RPCData" SaveToDB="False" SyncToClient="False" MaxFieldId="4">
+        <Field PreDefine="optional" FieldType="sint32" FieldId="1" Name="ItemId" CName="ItemId" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="2" Name="Pos" CName="道具位置" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="3" Name="BagContainerType" CName="背包容器类型" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="4" Name="Lv" CName="需要强化的等级" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+    </Struct>
+    <Struct Name="RpcEquipEnhanceReply" CName="装备强化回应" ProtoType="RpcProto" Comment="" DataType="RPCData" SaveToDB="False" SyncToClient="False" MaxFieldId="6">
+        <Field PreDefine="optional" FieldType="sint32" FieldId="1" Name="Result" CName="返回结果" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-9999" Comment="-9999 模块未启动&#xD;&#xA;-9998 请求字段值范围出错" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="2" Name="ItemId" CName="ItemId" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="3" Name="Pos" CName="道具位置" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="4" Name="BagContainerType" CName="背包容器类型" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="5" Name="Lv" CName="需要强化的等级" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+        <Field PreDefine="optional" FieldType="bool" FieldId="6" Name="IsFirstEnhance" CName="是否第一次强化" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="false" Comment="" />
+    </Struct>
+    <Struct Name="RpcEquipPolishedAsk" CName="装备洗炼请求" ProtoType="RpcProto" Comment="" DataType="RPCData" SaveToDB="False" SyncToClient="False" MaxFieldId="5">
+        <Field PreDefine="optional" FieldType="sint32" FieldId="2" Name="ItemId" CName="ItemId" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="3" Name="Pos" CName="道具位置" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="4" Name="BagContainerType" CName="背包容器类型" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+    </Struct>
+    <Struct Name="RpcEquipPolishedReply" CName="装备洗炼回应" ProtoType="RpcProto" Comment="" DataType="RPCData" SaveToDB="False" SyncToClient="False" MaxFieldId="5">
+        <Field PreDefine="optional" FieldType="sint32" FieldId="1" Name="Result" CName="返回结果" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-9999" Comment="-9999 模块未启动&#xD;&#xA;-9998 请求字段值范围出错" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="2" Name="ItemId" CName="ItemId" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="3" Name="Pos" CName="道具位置" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="4" Name="BagContainerType" CName="背包容器类型" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+    </Struct>
+    <Struct Name="RpcEquipPolishedReplaceAsk" CName="装备洗炼属性替换请求" ProtoType="RpcProto" Comment="" DataType="RPCData" SaveToDB="False" SyncToClient="False" MaxFieldId="4">
+        <Field PreDefine="optional" FieldType="sint32" FieldId="2" Name="ItemId" CName="ItemId" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="3" Name="Pos" CName="道具位置" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="4" Name="BagContainerType" CName="背包容器类型" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+    </Struct>
+    <Struct Name="RpcEquipPolishedReplaceReply" CName="装备洗炼属性替换回应" ProtoType="RpcProto" Comment="" DataType="RPCData" SaveToDB="False" SyncToClient="False" MaxFieldId="4">
+        <Field PreDefine="optional" FieldType="sint32" FieldId="1" Name="Result" CName="返回结果" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-9999" Comment="-9999 模块未启动&#xD;&#xA;-9998 请求字段值范围出错" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="2" Name="ItemId" CName="ItemId" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="3" Name="Pos" CName="道具位置" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="4" Name="BagContainerType" CName="背包容器类型" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+    </Struct>
+    <Struct Name="RpcBagTidyAsk" CName="背包整理请求" ProtoType="RpcProto" Comment="" DataType="RPCData" SaveToDB="False" SyncToClient="False" MaxFieldId="0" />
+    <Struct Name="RpcBagTidyReply" CName="背包整理回应" ProtoType="RpcProto" Comment="" DataType="RPCData" SaveToDB="False" SyncToClient="False" MaxFieldId="1">
+        <Field PreDefine="optional" FieldType="sint32" FieldId="1" Name="Result" CName="返回结果" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-9999" Comment="-9999 模块未启动&#xD;&#xA;-9998 请求字段值范围出错" />
+    </Struct>
+    <Struct Name="RpcBagRecycleBuyAsk" CName="物品回收，购回请求" ProtoType="RpcProto" Comment="" DataType="RPCData" SaveToDB="False" SyncToClient="False" MaxFieldId="1">
+        <Field PreDefine="optional" FieldType="sint32" FieldId="1" Name="GridPos" CName="格子位置" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+    </Struct>
+    <Struct Name="RpcBagRecycleBuyReply" CName="物品回收，购回回应" ProtoType="RpcProto" Comment="" DataType="RPCData" SaveToDB="False" SyncToClient="False" MaxFieldId="4">
+        <Field PreDefine="optional" FieldType="sint32" FieldId="1" Name="Result" CName="返回结果" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-9999" Comment="-9999 模块未启动&#xD;&#xA;-9998 请求字段值范围出错" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="2" Name="GridPos" CName="格子位置" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+        <Field PreDefine="repeated" FieldType="BagRecycleGridObj" FieldId="3" Name="GridList" CName="在回收站中的格子" ValueSet="" MinValue="6" MaxValue="128" Comment="" />
+    </Struct>
+    <Struct Name="RpcUnlockGridAsk" CName="开启格子请求" ProtoType="RpcProto" Comment="" DataType="RPCData" SaveToDB="False" SyncToClient="False" MaxFieldId="1">
+        <Field PreDefine="optional" FieldType="sint32" FieldId="1" Name="GridCount" CName="格子数量" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+    </Struct>
+    <Struct Name="RpcUnlockGridReply" CName="开启格子回应" ProtoType="RpcProto" Comment="" DataType="RPCData" SaveToDB="False" SyncToClient="False" MaxFieldId="2">
+        <Field PreDefine="optional" FieldType="sint32" FieldId="1" Name="Result" CName="返回结果" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-9999" Comment="-9999 模块未启动&#xD;&#xA;-9998 请求字段值范围出错" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="2" Name="GridCount" CName="格子数量" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+    </Struct>
+    <Struct Name="RpcSellGridObj" CName="回收格子" ProtoType="RpcProto" Comment="" DataType="ItemData" SaveToDB="False" SyncToClient="False" MaxFieldId="6">
+        <Field PreDefine="optional" FieldType="sint32" FieldId="2" Name="TemplateId" CName="模板id" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="3" Name="Num" CName="数量" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="4" Name="Pos" CName="道具位置" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+        <Field PreDefine="optional" FieldType="sint64" FieldId="5" Name="ItemId" CName="ItemId（背包格子的Index）" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="6" Name="ItemType" CName="物品类型" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+    </Struct>
+    <Struct Name="RpcBagRecycleSellAsk" CName="装备回收出售请求" ProtoType="RpcProto" Comment="" DataType="RPCData" SaveToDB="False" SyncToClient="False" MaxFieldId="1">
+        <Field PreDefine="repeated" FieldType="RpcSellGridObj" FieldId="1" Name="GridList" CName="回收，出售的格子" ValueSet="" MinValue="6" MaxValue="128" Comment="" />
+    </Struct>
+    <Struct Name="RpcBagRecycleSellReply" CName="装备回收出售回应" ProtoType="RpcProto" Comment="" DataType="RPCData" SaveToDB="False" SyncToClient="False" MaxFieldId="4">
+        <Field PreDefine="optional" FieldType="sint32" FieldId="1" Name="Result" CName="返回结果" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-9999" Comment="-9999 模块未启动&#xD;&#xA;-9998 请求字段值范围出错" />
+        <Field PreDefine="repeated" FieldType="BagRecycleGridObj" FieldId="2" Name="GridList" CName="在回收站中的格子" ValueSet="" MinValue="6" MaxValue="128" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="4" Name="Money" CName="金钱" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+    </Struct>
+    <Struct Name="RpcSplitAsk" CName="物品拆分请求" ProtoType="RpcProto" Comment="" DataType="RPCData" SaveToDB="False" SyncToClient="False" MaxFieldId="3">
+        <Field PreDefine="optional" FieldType="sint32" FieldId="1" Name="TemplateId" CName="物品模板id" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="2" Name="Pos" CName="位置" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="3" Name="Num" CName="拆分出来的数量" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+    </Struct>
+    <Struct Name="RpcSplitReply" CName="物品拆分回应" ProtoType="RpcProto" Comment="" DataType="RPCData" SaveToDB="False" SyncToClient="False" MaxFieldId="4">
+        <Field PreDefine="optional" FieldType="sint32" FieldId="1" Name="Result" CName="返回结果" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-9999" Comment="-9999 模块未启动&#xD;&#xA;-9998 请求字段值范围出错" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="2" Name="TemplateId" CName="物品模板id" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="3" Name="Pos" CName="位置" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="4" Name="Num" CName="拆分出来的数量" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+    </Struct>
+    <Struct Name="RpcEquipBaseAttrPlishedAsk" CName="装备基础属性洗炼请求" ProtoType="RpcProto" Comment="" DataType="RPCData" SaveToDB="False" SyncToClient="False" MaxFieldId="3">
+        <Field PreDefine="optional" FieldType="sint32" FieldId="1" Name="TemplateId" CName="TemplateId" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="2" Name="Pos" CName="道具位置" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="3" Name="BagContainerType" CName="背包容器类型" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+    </Struct>
+    <Struct Name="RpcEquipBaseAttrPlishedReply" CName="装备基础属性洗炼回应" ProtoType="RpcProto" Comment="" DataType="RPCData" SaveToDB="False" SyncToClient="False" MaxFieldId="5">
+        <Field PreDefine="optional" FieldType="sint32" FieldId="1" Name="Result" CName="返回结果" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-9999" Comment="-9999 模块未启动&#xD;&#xA;-9998 请求字段值范围出错" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="3" Name="TemplateId" CName="TemplateId" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="4" Name="Pos" CName="道具位置" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="5" Name="BagContainerType" CName="背包容器类型" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+    </Struct>
+    <Struct Name="RpcEquipBaseAttrPolishedReplaceAsk" CName="装备基础属性洗炼替换请求" ProtoType="RpcProto" Comment="" DataType="RPCData" SaveToDB="False" SyncToClient="False" MaxFieldId="3">
+        <Field PreDefine="optional" FieldType="sint32" FieldId="1" Name="TemplateId" CName="TemplateId" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="2" Name="Pos" CName="道具位置" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="3" Name="BagContainerType" CName="背包容器类型" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+    </Struct>
+    <Struct Name="RpcEquipBaseAttrPolishedReplaceReply" CName="装备基础属性洗炼替换回应" ProtoType="RpcProto" Comment="" DataType="RPCData" SaveToDB="False" SyncToClient="False" MaxFieldId="4">
+        <Field PreDefine="optional" FieldType="sint32" FieldId="1" Name="Result" CName="返回结果" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-9999" Comment="-9999 模块未启动&#xD;&#xA;-9998 请求字段值范围出错" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="2" Name="TemplateId" CName="TemplateId" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="3" Name="Pos" CName="道具位置" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="4" Name="BagContainerType" CName="背包容器类型" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+    </Struct>
+    <Struct Name="RpcEquipExAttrModifyAsk" CName="装备改造请求" ProtoType="RpcProto" Comment="" DataType="RPCData" SaveToDB="False" SyncToClient="False" MaxFieldId="4">
+        <Field PreDefine="optional" FieldType="sint32" FieldId="1" Name="TemplateId" CName="TemplateId" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="2" Name="Pos" CName="道具位置" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="3" Name="BagContainerType" CName="背包容器类型" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+    </Struct>
+    <Struct Name="RpcEquipExAttrModifyReply" CName="装备改造回应" ProtoType="RpcProto" Comment="" DataType="RPCData" SaveToDB="False" SyncToClient="False" MaxFieldId="6">
+        <Field PreDefine="optional" FieldType="sint32" FieldId="1" Name="Result" CName="返回结果" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-9999" Comment="-9999 模块未启动&#xD;&#xA;-9998 请求字段值范围出错" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="2" Name="TemplateId" CName="TemplateId" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="3" Name="Pos" CName="道具位置" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="4" Name="BagContainerType" CName="背包容器类型" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="6" Name="Index" CName="属性Index" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+    </Struct>
+    <Struct Name="RpcEquipInlayGemAsk" CName="宝石镶嵌请求" ProtoType="RpcProto" Comment="" DataType="RPCData" SaveToDB="False" SyncToClient="False" MaxFieldId="6">
+        <Field PreDefine="optional" FieldType="sint32" FieldId="1" Name="TemplateId" CName="TemplateId" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="2" Name="Pos" CName="道具位置" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="3" Name="BagContainerType" CName="背包容器类型" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="4" Name="SlotPos" CName="槽位位置" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="5" Name="GemId" CName="宝石id" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="6" Name="GemPos" CName="在背包中的位置" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+    </Struct>
+    <Struct Name="RpcEquipInlayGemReply" CName="宝石镶嵌回应" ProtoType="RpcProto" Comment="" DataType="RPCData" SaveToDB="False" SyncToClient="False" MaxFieldId="7">
+        <Field PreDefine="optional" FieldType="sint32" FieldId="1" Name="Result" CName="返回结果" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-9999" Comment="-9999 模块未启动&#xD;&#xA;-9998 请求字段值范围出错" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="2" Name="TemplateId" CName="TemplateId" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="3" Name="Pos" CName="道具位置" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="4" Name="BagContainerType" CName="背包容器类型" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="5" Name="SlotPos" CName="槽位位置" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="6" Name="GemId" CName="宝石id" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="7" Name="GemPos" CName="在背包中的位置" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+    </Struct>
+    <Struct Name="RpcEquipGemSlotUnlockAsk" CName="装备宝石槽位打孔请求" ProtoType="RpcProto" Comment="" DataType="RPCData" SaveToDB="False" SyncToClient="False" MaxFieldId="5">
+        <Field PreDefine="optional" FieldType="sint32" FieldId="1" Name="TemplateId" CName="TemplateId" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="2" Name="Pos" CName="道具位置" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="3" Name="BagContainerType" CName="背包容器类型" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="5" Name="SlotPos" CName="槽位位置" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+    </Struct>
+    <Struct Name="RpcEquipGemSlotUnlockReply" CName="装备宝石槽位打孔回应" ProtoType="RpcProto" Comment="" DataType="RPCData" SaveToDB="False" SyncToClient="False" MaxFieldId="6">
+        <Field PreDefine="optional" FieldType="sint32" FieldId="1" Name="Result" CName="返回结果" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-9999" Comment="-9999 模块未启动&#xD;&#xA;-9998 请求字段值范围出错" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="2" Name="TemplateId" CName="TemplateId" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="3" Name="Pos" CName="道具位置" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="4" Name="BagContainerType" CName="背包容器类型" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="6" Name="SlotPos" CName="槽位位置" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+    </Struct>
+    <Struct Name="RpcEquipEnhanceSwapAsk" CName="装备强化转移请求" ProtoType="RpcProto" Comment="" DataType="RPCData" SaveToDB="False" SyncToClient="False" MaxFieldId="6">
+        <Field PreDefine="optional" FieldType="sint32" FieldId="1" Name="TemplateId1" CName="TemplateId1" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="2" Name="Pos1" CName="道具位置1" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="3" Name="TemplateId2" CName="TemplateId2" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="4" Name="Pos2" CName="道具位置2" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="5" Name="BagContainerType1" CName="背包容器类型1" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="6" Name="BagContainerType2" CName="背包容器类型2" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+    </Struct>
+    <Struct Name="RpcEquipEnhanceSwapReply" CName="装备强化转移回应" ProtoType="RpcProto" Comment="" DataType="RPCData" SaveToDB="False" SyncToClient="False" MaxFieldId="9">
+        <Field PreDefine="optional" FieldType="sint32" FieldId="1" Name="Result" CName="返回结果" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-9999" Comment="-9999 模块未启动&#xD;&#xA;-9998 请求字段值范围出错" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="4" Name="TemplateId1" CName="TemplateId1" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="5" Name="Pos1" CName="道具位置1" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="6" Name="TemplateId2" CName="TemplateId2" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="7" Name="Pos2" CName="道具位置2" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="8" Name="BagContainerType1" CName="背包容器类型1" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="9" Name="BagContainerType2" CName="背包容器类型2" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+    </Struct>
+    <Struct Name="RpcEquipGemRemoveAsk" CName="装备宝石移除请求" ProtoType="RpcProto" Comment="" DataType="RPCData" SaveToDB="False" SyncToClient="False" MaxFieldId="5">
+        <Field PreDefine="optional" FieldType="sint32" FieldId="2" Name="TemplateId" CName="TemplateId" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="3" Name="Pos" CName="道具位置" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="4" Name="BagContainerType" CName="背包容器类型" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="5" Name="SlotPos" CName="槽位位置" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+    </Struct>
+    <Struct Name="RpcEquipGemRemoveReply" CName="装备宝石移除回应" ProtoType="RpcProto" Comment="" DataType="RPCData" SaveToDB="False" SyncToClient="False" MaxFieldId="5">
+        <Field PreDefine="optional" FieldType="sint32" FieldId="1" Name="Result" CName="返回结果" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-9999" Comment="-9999 模块未启动&#xD;&#xA;-9998 请求字段值范围出错" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="2" Name="TemplateId" CName="TemplateId" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="3" Name="Pos" CName="道具位置" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="4" Name="BagContainerType" CName="背包容器类型" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="5" Name="SlotPos" CName="槽位位置" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+    </Struct>
+    <Struct Name="RpcBagPutInStorageAsk" CName="存入仓库请求" ProtoType="RpcProto" Comment="" DataType="RPCData" SaveToDB="False" SyncToClient="False" MaxFieldId="4">
+        <Field PreDefine="optional" FieldType="sint32" FieldId="2" Name="TemplateId" CName="物品模板id" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="3" Name="Pos" CName="位置" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="4" Name="Num" CName="拆分出来的数量" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+    </Struct>
+    <Struct Name="RpcBagPutInStorageReply" CName="存入仓库回应" ProtoType="RpcProto" Comment="" DataType="RPCData" SaveToDB="False" SyncToClient="False" MaxFieldId="4">
+        <Field PreDefine="optional" FieldType="sint32" FieldId="1" Name="Result" CName="返回结果" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-9999" Comment="-9999 模块未启动&#xD;&#xA;-9998 请求字段值范围出错" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="2" Name="TemplateId" CName="物品模板id" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="3" Name="Pos" CName="位置" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="4" Name="Num" CName="拆分出来的数量" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+    </Struct>
+    <Struct Name="RpcBagFetchFromStorageAsk" CName="从仓库取出请求" ProtoType="RpcProto" Comment="" DataType="RPCData" SaveToDB="False" SyncToClient="False" MaxFieldId="3">
+        <Field PreDefine="optional" FieldType="sint32" FieldId="1" Name="TemplateId" CName="物品模板id" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="2" Name="Pos" CName="位置" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="3" Name="Num" CName="拆分出来的数量" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+    </Struct>
+    <Struct Name="RpcBagFetchFromStorageReply" CName="从仓库取出回应" ProtoType="RpcProto" Comment="" DataType="RPCData" SaveToDB="False" SyncToClient="False" MaxFieldId="4">
+        <Field PreDefine="optional" FieldType="sint32" FieldId="1" Name="Result" CName="返回结果" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-9999" Comment="-9999 模块未启动&#xD;&#xA;-9998 请求字段值范围出错" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="2" Name="TemplateId" CName="物品模板id" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="3" Name="Pos" CName="位置" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="4" Name="Num" CName="拆分出来的数量" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+    </Struct>
+    <Struct Name="RpcBagStorageSaveMoneyAsk" CName="仓库存钱请求" ProtoType="RpcProto" Comment="" DataType="RPCData" SaveToDB="False" SyncToClient="False" MaxFieldId="1">
+        <Field PreDefine="optional" FieldType="sint32" FieldId="1" Name="Money" CName="钱数" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+    </Struct>
+    <Struct Name="RpcBagStorageSaveMoneyReply" CName="仓库存钱回应" ProtoType="RpcProto" Comment="" DataType="RPCData" SaveToDB="False" SyncToClient="False" MaxFieldId="2">
+        <Field PreDefine="optional" FieldType="sint32" FieldId="1" Name="Result" CName="返回结果" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-9999" Comment="-9999 模块未启动&#xD;&#xA;-9998 请求字段值范围出错" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="2" Name="Money" CName="钱数" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+    </Struct>
+    <Struct Name="RpcBagStorageDrawMoneyAsk" CName="仓库取钱请求" ProtoType="RpcProto" Comment="" DataType="RPCData" SaveToDB="False" SyncToClient="False" MaxFieldId="1">
+        <Field PreDefine="optional" FieldType="sint32" FieldId="1" Name="Money" CName="钱数" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+    </Struct>
+    <Struct Name="RpcBagStorageDrawMoneyReply" CName="仓库取钱回应" ProtoType="RpcProto" Comment="" DataType="RPCData" SaveToDB="False" SyncToClient="False" MaxFieldId="2">
+        <Field PreDefine="optional" FieldType="sint32" FieldId="1" Name="Result" CName="返回结果" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-9999" Comment="-9999 模块未启动&#xD;&#xA;-9998 请求字段值范围出错" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="2" Name="Money" CName="钱数" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+    </Struct>
+    <Struct Name="RpcStorageTidyAsk" CName="仓库整理请求" ProtoType="RpcProto" Comment="" DataType="RPCData" SaveToDB="False" SyncToClient="False" MaxFieldId="0" />
+    <Struct Name="RpcStorageTidyReply" CName="仓库整理回应" ProtoType="RpcProto" Comment="" DataType="RPCData" SaveToDB="False" SyncToClient="False" MaxFieldId="1">
+        <Field PreDefine="optional" FieldType="sint32" FieldId="1" Name="Result" CName="返回结果" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-9999" Comment="-9999 模块未启动&#xD;&#xA;-9998 请求字段值范围出错" />
+    </Struct>
+    <Struct Name="RpcTalismanLvupAsk" CName="法宝铸炼请求" ProtoType="RpcProto" Comment="" DataType="RPCData" SaveToDB="False" SyncToClient="False" MaxFieldId="1">
+        <Field PreDefine="repeated" FieldType="sint32" FieldId="1" Name="CostTalisman" CName="材料法宝在背包中的位置" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+    </Struct>
+    <Struct Name="RpcTalismanLvupReply" CName="法宝铸炼回应" ProtoType="RpcProto" Comment="" DataType="RPCData" SaveToDB="False" SyncToClient="False" MaxFieldId="1">
+        <Field PreDefine="optional" FieldType="sint32" FieldId="1" Name="Result" CName="返回结果" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-9999" Comment="-9999 模块未启动&#xD;&#xA;-9998 请求字段值范围出错" />
+    </Struct>
+    <Struct Name="RpcTalismanInheritAsk" CName="法宝传承请求" ProtoType="RpcProto" Comment="" DataType="RPCData" SaveToDB="False" SyncToClient="False" MaxFieldId="1">
+        <Field PreDefine="optional" FieldType="sint32" FieldId="1" Name="RightSideTalisman" CName="材料法宝在背包的位置" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+    </Struct>
+    <Struct Name="RpcTalismanInheritReply" CName="法宝传承回应" ProtoType="RpcProto" Comment="" DataType="RPCData" SaveToDB="False" SyncToClient="False" MaxFieldId="1">
+        <Field PreDefine="optional" FieldType="sint32" FieldId="1" Name="Result" CName="返回结果" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-9999" Comment="-9999 模块未启动&#xD;&#xA;-9998 请求字段值范围出错" />
+    </Struct>
+    <Struct Name="TalismanObj" CName="法宝对象" ProtoType="SyncProto" Comment="" DataType="ItemData" SaveToDB="False" SyncToClient="False" MaxFieldId="10">
+        <Field PreDefine="optional" FieldType="sint64" FieldId="2" Name="ItemID" CName="物品实例id, 唯一id" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="3" Name="TemplateId" CName="模板id" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="5" Name="CurExp" CName="当前经验" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="0" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="6" Name="EquipScore" CName="装备评分" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="0" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="7" Name="StarLevel" CName="星级" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="0" Comment="" />
+        <Field PreDefine="repeated" FieldType="SlotInfo" FieldId="8" Name="GatherSpriteSlot" CName="聚灵槽位" ValueSet="" MinValue="6" MaxValue="128" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="9" Name="TailsManLevel" CName="法宝等级" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+        <Field PreDefine="repeated" FieldType="sint32" FieldId="10" Name="TalismanAttr" CName="法宝属性" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+    </Struct>
+    <Struct Name="RpcBagAddNewItemNotify" CName="背包获得新物品通知" ProtoType="RpcProto" Comment="" DataType="RPCData" SaveToDB="False" SyncToClient="False" MaxFieldId="1">
+        <Field PreDefine="repeated" FieldType="BagGridObj" FieldId="1" Name="NewItem" CName="物品" ValueSet="" MinValue="6" MaxValue="128" Comment="" />
+    </Struct>
+    <Struct Name="RpcBagSetAutoPickupAsk" CName="设置自动拾取请求" ProtoType="RpcProto" Comment="" DataType="RPCData" SaveToDB="False" SyncToClient="False" MaxFieldId="1">
+        <Field PreDefine="repeated" FieldType="KeyValue2IntBool" FieldId="1" Name="AutoPick" CName="自动拾取" ValueSet="" MinValue="6" MaxValue="128" Comment="" />
+    </Struct>
+    <Struct Name="RpcBagSetAutoPickupReply" CName="设置自动拾取回应" ProtoType="RpcProto" Comment="" DataType="RPCData" SaveToDB="False" SyncToClient="False" MaxFieldId="1">
+        <Field PreDefine="optional" FieldType="sint32" FieldId="1" Name="Result" CName="返回结果" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-9999" Comment="-9999 模块未启动&#xD;&#xA;-9998 请求字段值范围出错" />
+    </Struct>
+    <Struct Name="RpcGetNewItemNotify" CName="获得新物品通知" ProtoType="RpcProto" Comment="" DataType="RPCData" SaveToDB="False" SyncToClient="False" MaxFieldId="4">
+        <Field PreDefine="repeated" FieldType="KeyValue2IntInt" FieldId="1" Name="Item" CName="物品" ValueSet="" MinValue="6" MaxValue="128" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="2" Name="ModuleId" CName="模块Id" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="3" Name="PathWayId" CName="获得途径Id" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="4" Name="ModuleParam" CName="模块参数" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+    </Struct>
+    <Struct Name="RpcBagErrorNotify" CName="背包错误通知" ProtoType="RpcProto" Comment="" DataType="RPCData" SaveToDB="False" SyncToClient="False" MaxFieldId="2">
+        <Field PreDefine="optional" FieldType="sint32" FieldId="2" Name="Result" CName="返回结果" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-9999" Comment="-9999 模块未启动&#xD;&#xA;-9998 请求字段值范围出错" />
+    </Struct>
+    <Struct Name="SlotInfo" CName="槽位信息" ProtoType="SyncProto" Comment="" DataType="ItemData" SaveToDB="False" SyncToClient="False" MaxFieldId="4">
+        <Field PreDefine="optional" FieldType="sint32" FieldId="1" Name="SlotId" CName="槽位Id" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="2" Name="SlotType" CName="槽位类别(0上古，1其他)" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="3" Name="SlotSkillId" CName="聚灵技能ID" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+    </Struct>
+    <Struct Name="RpcTalismanRefindStarAsk" CName="炼星请求" ProtoType="RpcProto" Comment="" DataType="RPCData" SaveToDB="False" SyncToClient="False" MaxFieldId="1">
+        <Field PreDefine="optional" FieldType="sint64" FieldId="1" Name="FabaoId" CName="法宝实例Id" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+    </Struct>
+    <Struct Name="RpcTalismanRefindStarReply" CName="炼星回应" ProtoType="RpcProto" Comment="" DataType="RPCData" SaveToDB="False" SyncToClient="False" MaxFieldId="1">
+        <Field PreDefine="optional" FieldType="sint32" FieldId="1" Name="Result" CName="返回结果" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-9999" Comment="-9999 模块未启动&#xD;&#xA;-9998 请求字段值范围出错" />
+    </Struct>
+    <Struct Name="RpcTalismanUpSlotSkillLevelAsk" CName="升级聚灵槽位技能请求" ProtoType="RpcProto" Comment="" DataType="RPCData" SaveToDB="False" SyncToClient="False" MaxFieldId="2">
+        <Field PreDefine="optional" FieldType="sint64" FieldId="1" Name="FabaoId" CName="法宝实例ID" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="2" Name="SlotId" CName="聚灵槽位Id" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+    </Struct>
+    <Struct Name="RpcTalismanUpSlotSkillLevelReply" CName="升级聚灵槽位技能回应" ProtoType="RpcProto" Comment="" DataType="RPCData" SaveToDB="False" SyncToClient="False" MaxFieldId="1">
+        <Field PreDefine="optional" FieldType="sint32" FieldId="1" Name="Result" CName="返回结果" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-9999" Comment="-9999 模块未启动&#xD;&#xA;-9998 请求字段值范围出错" />
+    </Struct>
+    <Struct Name="RpcTalismanAttrChangeNotify" CName="属性变化通知通知" ProtoType="RpcProto" Comment="" DataType="RPCData" SaveToDB="False" SyncToClient="False" MaxFieldId="1">
+        <Field PreDefine="repeated" FieldType="KeyValue2IntInt" FieldId="1" Name="Attr" CName="属性值" ValueSet="" MinValue="6" MaxValue="128" Comment="" />
+    </Struct>
+    <Struct Name="RpcTalismanGatherSpriteAsk" CName="宝石聚灵请求" ProtoType="RpcProto" Comment="" DataType="RPCData" SaveToDB="False" SyncToClient="False" MaxFieldId="3">
+        <Field PreDefine="optional" FieldType="sint64" FieldId="1" Name="FabaoId" CName="法宝Id" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="2" Name="GatherSpriteId" CName="聚灵技能Id" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="3" Name="SlotId" CName="聚灵槽位ID" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+    </Struct>
+    <Struct Name="RpcTalismanGatherSpriteReply" CName="宝石聚灵回应" ProtoType="RpcProto" Comment="" DataType="RPCData" SaveToDB="False" SyncToClient="False" MaxFieldId="1">
+        <Field PreDefine="optional" FieldType="sint32" FieldId="1" Name="Result" CName="返回结果" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-9999" Comment="-9999 模块未启动&#xD;&#xA;-9998 请求字段值范围出错" />
+    </Struct>
+</Root>

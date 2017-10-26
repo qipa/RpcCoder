@@ -1,0 +1,466 @@
+
+GuildRpcSyncDataAsk↑ 登陆后，同步一次数据请求
+
+GuildRpcSyncDataReply↓ 登陆后，同步一次数据回应
+	Result:int32 = -9999	;返回结果
+	GuildData:GuildInfoObj	;帮会数据
+	[GuildInfoObj]
+		Guild:int32 = -1	;帮派Id
+		GuildName:string	;帮派名字
+		Level:int32 = 1	;等级
+		CaptainId:sint64 = -1	;帮主Id
+		CaptainName:string	;帮主名字
+		Funds:int32 = -1	;资金
+		CurMemberNum:int32 = 1	;当前成员数量
+		GuildMember:GuildMemberObj*	;帮会成员
+		[GuildMemberObj]
+			UserId:sint64 = -1	;用户Id
+			UserName:string	;名字
+			Level:int32 = -1	;等级
+			Prof:int32 = -1	;职业
+			Duty:int32 = -1	;职位
+			CurContribution:int32 = -1	;当前帮贡
+			MaxContribution:int32 = -1	;最大帮贡
+			LeagueMatchesCount:int32 = -1	;联赛次数
+			OfflineTime:int32 = -1	;离线时间
+			JoinTime:int32 = -1	;加入时间
+			DropItemArray:int32* = -1	;掉落包数组
+			IsOnline:bool = true	;是否在线
+			IsGuildDungeon:bool = false	;是否正在参加帮会副本
+		MaintenanceCost:int32 = -1	;维护费用
+		LeagueMatchesRank:int32 = -1	;联赛排名
+		Announcement:string	;公告
+		TotalMilitary:int32 = -1	;总战力
+		ApplyList:ApplyListRoleInfoObj*	;申请列表
+		[ApplyListRoleInfoObj]
+			UserId:sint64 = -1	;用户Id
+			UserName:string	;名字
+			Level:int32 = 1	;等级
+			Prof:int32 = 0	;职业
+			TalentLevel:int32 = 0	;修为等级
+			Xiulian:int32 = 0	;修炼
+			Military:int32 = 0	;战力
+		MaxMemberNum:int32 = -1	;最大成员数量
+		HallLv:int32 = 1	;帮会大厅等级
+		HallLvupTime:int32 = -1	;帮会大厅升级时间
+		HouseLv:int32 = 1	;帮会房屋等级
+		HouseLvupTime:int32 = -1	;帮会房屋升级时间
+		StoreroomLv:int32 = 1	;帮会库房等级
+		StoreroomLvupTime:int32 = -1	;帮会库房升级时间
+		KongfuHallLv:int32 = 1	;练武堂等级
+		KongfuHallLvupTime:int32 = -1	;练武堂升级时间
+		CreateTime:int32 = -1	;创建时间
+		EventList:GuildEventObj*	;帮会事件
+		[GuildEventObj]
+			EventId:int32 = -1	;事件Id
+			Param1:string	;参数1
+			Param2:string	;参数2
+		GuildDungeonList:GuildDungeonObj*	;帮会副本列表
+		[GuildDungeonObj]
+			DungeonId:int32 = -1	;副本Id
+			Key:string	;Key
+			Post:int32 = -1	;Post
+			Host:string	;Host
+		GuildWar:GuildWarObj	;帮会战
+		[GuildWarObj]
+			Guild_A:int32 = -1	;A帮派Id
+			Guild_B:int32 = -1	;B帮派Id
+			DungeonId:int32 = -1	;副本Id
+			Key:string	;Key
+			Port:int32 = -1	;Port
+			Host:string	;Host
+		GuildOpenScience:int32* = -1	;开启修炼个数
+
+GuildRpcCreateGuildAsk↑ 创建帮会请求
+	GuildName:string	;帮派名字
+	Announcement:string	;公告
+
+GuildRpcCreateGuildReply↓ 创建帮会回应
+	Result:int32 = -9999	;返回结果
+	GuildData:GuildInfoObj	;帮会数据
+	[GuildInfoObj]
+		Guild:int32 = -1	;帮派Id
+		GuildName:string	;帮派名字
+		Level:int32 = 1	;等级
+		CaptainId:sint64 = -1	;帮主Id
+		CaptainName:string	;帮主名字
+		Funds:int32 = -1	;资金
+		CurMemberNum:int32 = 1	;当前成员数量
+		GuildMember:GuildMemberObj*	;帮会成员
+		[GuildMemberObj]
+			UserId:sint64 = -1	;用户Id
+			UserName:string	;名字
+			Level:int32 = -1	;等级
+			Prof:int32 = -1	;职业
+			Duty:int32 = -1	;职位
+			CurContribution:int32 = -1	;当前帮贡
+			MaxContribution:int32 = -1	;最大帮贡
+			LeagueMatchesCount:int32 = -1	;联赛次数
+			OfflineTime:int32 = -1	;离线时间
+			JoinTime:int32 = -1	;加入时间
+			DropItemArray:int32* = -1	;掉落包数组
+			IsOnline:bool = true	;是否在线
+			IsGuildDungeon:bool = false	;是否正在参加帮会副本
+		MaintenanceCost:int32 = -1	;维护费用
+		LeagueMatchesRank:int32 = -1	;联赛排名
+		Announcement:string	;公告
+		TotalMilitary:int32 = -1	;总战力
+		ApplyList:ApplyListRoleInfoObj*	;申请列表
+		[ApplyListRoleInfoObj]
+			UserId:sint64 = -1	;用户Id
+			UserName:string	;名字
+			Level:int32 = 1	;等级
+			Prof:int32 = 0	;职业
+			TalentLevel:int32 = 0	;修为等级
+			Xiulian:int32 = 0	;修炼
+			Military:int32 = 0	;战力
+		MaxMemberNum:int32 = -1	;最大成员数量
+		HallLv:int32 = 1	;帮会大厅等级
+		HallLvupTime:int32 = -1	;帮会大厅升级时间
+		HouseLv:int32 = 1	;帮会房屋等级
+		HouseLvupTime:int32 = -1	;帮会房屋升级时间
+		StoreroomLv:int32 = 1	;帮会库房等级
+		StoreroomLvupTime:int32 = -1	;帮会库房升级时间
+		KongfuHallLv:int32 = 1	;练武堂等级
+		KongfuHallLvupTime:int32 = -1	;练武堂升级时间
+		CreateTime:int32 = -1	;创建时间
+		EventList:GuildEventObj*	;帮会事件
+		[GuildEventObj]
+			EventId:int32 = -1	;事件Id
+			Param1:string	;参数1
+			Param2:string	;参数2
+		GuildDungeonList:GuildDungeonObj*	;帮会副本列表
+		[GuildDungeonObj]
+			DungeonId:int32 = -1	;副本Id
+			Key:string	;Key
+			Post:int32 = -1	;Post
+			Host:string	;Host
+		GuildWar:GuildWarObj	;帮会战
+		[GuildWarObj]
+			Guild_A:int32 = -1	;A帮派Id
+			Guild_B:int32 = -1	;B帮派Id
+			DungeonId:int32 = -1	;副本Id
+			Key:string	;Key
+			Port:int32 = -1	;Port
+			Host:string	;Host
+		GuildOpenScience:int32* = -1	;开启修炼个数
+
+GuildRpcApplyGuildAsk↑ 申请入帮请求
+	Guild:int32 = -1	;帮派Id
+	Oper:int32 = 0	;0是申请1是取消
+
+GuildRpcApplyGuildReply↓ 申请入帮回应
+	Result:int32 = -9999	;返回结果
+
+GuildRpcQuickApplyAsk↑ 快速申请请求
+
+GuildRpcQuickApplyReply↓ 快速申请回应
+	Result:int32 = -9999	;返回结果
+
+GuildRpcChangeGuildNameAsk↑ 修改帮会名字请求
+	GuildName:string	;帮派名字
+
+GuildRpcChangeGuildNameReply↓ 修改帮会名字回应
+	Result:int32 = -9999	;返回结果
+
+GuildRpcChangeAnnouncementAsk↑ 修改公告请求
+	Announcement:string	;公告
+
+GuildRpcChangeAnnouncementReply↓ 修改公告回应
+	Result:int32 = -9999	;返回结果
+
+GuildRpcReqGuildListAsk↑ 请求帮会列表请求
+
+GuildRpcReqGuildListReply↓ 请求帮会列表回应
+	Result:int32 = -9999	;返回结果
+	GuildList:GuildListObj*	;帮会列表
+	[GuildListObj]
+		Guild:int32 = -1	;帮派Id
+		GuildName:string	;帮派名字
+		Level:int32 = 1	;等级
+		CurMemberNum:int32 = 1	;当前成员数量
+		TotalMilitary:int32 = 0	;总战力
+		Announcement:string	;公告
+
+GuildRpcAppointDutyAsk↑ 任命职位请求
+	UserId:sint64 = -1	;用户Id
+	Duty:int32 = -1	;职位
+
+GuildRpcAppointDutyReply↓ 任命职位回应
+	Result:int32 = -9999	;返回结果
+
+GuildRpcKickoutAsk↑ 踢人请求
+	UserId:sint64 = -1	;用户Id
+
+GuildRpcKickoutReply↓ 踢人回应
+	Result:int32 = -9999	;返回结果
+
+GuildRpcExitGuildAsk↑ 退出帮会请求
+
+GuildRpcExitGuildReply↓ 退出帮会回应
+	Result:int32 = -9999	;返回结果
+
+GuildRpcBreakUpAsk↑ 解散帮会请求
+
+GuildRpcBreakUpReply↓ 解散帮会回应
+	Result:int32 = -9999	;返回结果
+
+GuildRpcInviteToJoinAsk↑ 邀请入帮请求
+	UserId:sint64 = -1	;用户Id
+
+GuildRpcInviteToJoinReply↓ 邀请入帮回应
+	Result:int32 = -9999	;返回结果
+
+GuildRpcBeInvitedNoticeNotify↓ 被邀请提示通知
+	UserId:sint64 = -1	;用户Id
+	Guild:int32 = -1	;帮派Id
+	GuildName:string	;帮派名字
+
+GuildRpcBeInvitedHandleAsk↑ 被邀请处理请求
+	Guild:int32 = -1	;帮派Id
+	Oper:int32 = 0	;0是同意1是拒绝
+
+GuildRpcBeInvitedHandleReply↓ 被邀请处理回应
+	Result:int32 = -9999	;返回结果
+
+GuildRpcResignDutyAsk↑ 辞职请求
+
+GuildRpcResignDutyReply↓ 辞职回应
+	Result:int32 = -9999	;返回结果
+
+GuildRpcSyncMyTeamDataNotify↓ 发送我的帮会数据通知
+	GuildData:GuildInfoObj	;帮会数据
+	[GuildInfoObj]
+		Guild:int32 = -1	;帮派Id
+		GuildName:string	;帮派名字
+		Level:int32 = 1	;等级
+		CaptainId:sint64 = -1	;帮主Id
+		CaptainName:string	;帮主名字
+		Funds:int32 = -1	;资金
+		CurMemberNum:int32 = 1	;当前成员数量
+		GuildMember:GuildMemberObj*	;帮会成员
+		[GuildMemberObj]
+			UserId:sint64 = -1	;用户Id
+			UserName:string	;名字
+			Level:int32 = -1	;等级
+			Prof:int32 = -1	;职业
+			Duty:int32 = -1	;职位
+			CurContribution:int32 = -1	;当前帮贡
+			MaxContribution:int32 = -1	;最大帮贡
+			LeagueMatchesCount:int32 = -1	;联赛次数
+			OfflineTime:int32 = -1	;离线时间
+			JoinTime:int32 = -1	;加入时间
+			DropItemArray:int32* = -1	;掉落包数组
+			IsOnline:bool = true	;是否在线
+			IsGuildDungeon:bool = false	;是否正在参加帮会副本
+		MaintenanceCost:int32 = -1	;维护费用
+		LeagueMatchesRank:int32 = -1	;联赛排名
+		Announcement:string	;公告
+		TotalMilitary:int32 = -1	;总战力
+		ApplyList:ApplyListRoleInfoObj*	;申请列表
+		[ApplyListRoleInfoObj]
+			UserId:sint64 = -1	;用户Id
+			UserName:string	;名字
+			Level:int32 = 1	;等级
+			Prof:int32 = 0	;职业
+			TalentLevel:int32 = 0	;修为等级
+			Xiulian:int32 = 0	;修炼
+			Military:int32 = 0	;战力
+		MaxMemberNum:int32 = -1	;最大成员数量
+		HallLv:int32 = 1	;帮会大厅等级
+		HallLvupTime:int32 = -1	;帮会大厅升级时间
+		HouseLv:int32 = 1	;帮会房屋等级
+		HouseLvupTime:int32 = -1	;帮会房屋升级时间
+		StoreroomLv:int32 = 1	;帮会库房等级
+		StoreroomLvupTime:int32 = -1	;帮会库房升级时间
+		KongfuHallLv:int32 = 1	;练武堂等级
+		KongfuHallLvupTime:int32 = -1	;练武堂升级时间
+		CreateTime:int32 = -1	;创建时间
+		EventList:GuildEventObj*	;帮会事件
+		[GuildEventObj]
+			EventId:int32 = -1	;事件Id
+			Param1:string	;参数1
+			Param2:string	;参数2
+		GuildDungeonList:GuildDungeonObj*	;帮会副本列表
+		[GuildDungeonObj]
+			DungeonId:int32 = -1	;副本Id
+			Key:string	;Key
+			Post:int32 = -1	;Post
+			Host:string	;Host
+		GuildWar:GuildWarObj	;帮会战
+		[GuildWarObj]
+			Guild_A:int32 = -1	;A帮派Id
+			Guild_B:int32 = -1	;B帮派Id
+			DungeonId:int32 = -1	;副本Id
+			Key:string	;Key
+			Port:int32 = -1	;Port
+			Host:string	;Host
+		GuildOpenScience:int32* = -1	;开启修炼个数
+
+GuildRpcSyncNoticeOfGuildBaseDataNotify↓ 同步帮会基础数据通知
+	GuildName:string	;帮派名字
+	Level:int32 = 1	;等级
+	CaptainId:sint64 = -1	;帮主Id
+	CaptainName:string	;帮主名字
+	Funds:int32 = -1	;资金
+	LeagueMatchesRank:int32 = -1	;联赛排名
+
+GuildRpcSyncNoticeOfGuildMemberChangeNotify↓ 同步帮会成员数据变化通知
+	GuildMember:GuildMemberObj	;帮会成员
+	[GuildMemberObj]
+		UserId:sint64 = -1	;用户Id
+		UserName:string	;名字
+		Level:int32 = -1	;等级
+		Prof:int32 = -1	;职业
+		Duty:int32 = -1	;职位
+		CurContribution:int32 = -1	;当前帮贡
+		MaxContribution:int32 = -1	;最大帮贡
+		LeagueMatchesCount:int32 = -1	;联赛次数
+		OfflineTime:int32 = -1	;离线时间
+		JoinTime:int32 = -1	;加入时间
+		DropItemArray:int32* = -1	;掉落包数组
+		IsOnline:bool = true	;是否在线
+		IsGuildDungeon:bool = false	;是否正在参加帮会副本
+
+GuildRpcSyncNoticeOfAddMemberNotify↓ 同步帮会增加成员通知
+	GuildMember:GuildMemberObj	;帮会成员
+	[GuildMemberObj]
+		UserId:sint64 = -1	;用户Id
+		UserName:string	;名字
+		Level:int32 = -1	;等级
+		Prof:int32 = -1	;职业
+		Duty:int32 = -1	;职位
+		CurContribution:int32 = -1	;当前帮贡
+		MaxContribution:int32 = -1	;最大帮贡
+		LeagueMatchesCount:int32 = -1	;联赛次数
+		OfflineTime:int32 = -1	;离线时间
+		JoinTime:int32 = -1	;加入时间
+		DropItemArray:int32* = -1	;掉落包数组
+		IsOnline:bool = true	;是否在线
+		IsGuildDungeon:bool = false	;是否正在参加帮会副本
+
+GuildRpcSyncNoticeOfDelMemberNotify↓ 同步帮会删除成员通知
+	UserId:sint64 = -1	;用户Id
+
+GuildRpcSyncNoticeOfAddEventNotify↓ 同步帮会增加事件通知
+	EventId:int32 = -1	;事件Id
+	Param1:string	;参数1
+	Param2:string	;参数2
+
+GuildRpcSyncNoticeOfAddApplyListNotify↓ 同步帮会增加申请列表通知
+	ApplyPlayer:ApplyListRoleInfoObj	;申请玩家
+	[ApplyListRoleInfoObj]
+		UserId:sint64 = -1	;用户Id
+		UserName:string	;名字
+		Level:int32 = 1	;等级
+		Prof:int32 = 0	;职业
+		TalentLevel:int32 = 0	;修为等级
+		Xiulian:int32 = 0	;修炼
+		Military:int32 = 0	;战力
+
+GuildRpcSyncNoticeOfDelApplyListNotify↓ 同步帮会删除申请列表通知
+	UserId:sint64 = -1	;用户Id
+
+GuildRpcSyncNoticeOfChangeAnnouncementNotify↓ 同步帮会公告修改通知
+	Announcement:string	;公告
+
+GuildRpcSyncNoticeOfBreakupNotify↓ 通知解散通知
+
+GuildRpcHallLvUpAsk↑ 帮会大厅升级请求
+
+GuildRpcHallLvUpReply↓ 帮会大厅升级回应
+	Result:int32 = -9999	;返回结果
+
+GuildRpcHouseLvUpAsk↑ 帮会房屋升级请求
+
+GuildRpcHouseLvUpReply↓ 帮会房屋升级回应
+	Result:int32 = -9999	;返回结果
+
+GuildRpcStoreroomLvUpAsk↑ 帮会库房升级请求
+
+GuildRpcStoreroomLvUpReply↓ 帮会库房升级回应
+	Result:int32 = -9999	;返回结果
+
+GuildRpcKongfuHallLvUpAsk↑ 帮会练武堂升级请求
+
+GuildRpcKongfuHallLvUpReply↓ 帮会练武堂升级回应
+	Result:int32 = -9999	;返回结果
+
+GuildRpcSyncNoticeOfHallLvUpNotify↓ 同步帮会大厅升级通知
+	Lv:int32 = -1	;当前等级
+	Time:int32 = -1	;开始时间
+
+GuildRpcSyncNoticeOfHouseLvUpNotify↓ 同步帮会房屋升级通知
+	Lv:int32 = -1	;当前等级
+	Time:int32 = -1	;开始时间
+
+GuildRpcSyncNoticeOfStorerommLvUpNotify↓ 同步帮会库房升级通知
+	Lv:int32 = -1	;当前等级
+	Time:int32 = -1	;开始时间
+
+GuildRpcSyncNoticeOfKongfuHallLvUpNotify↓ 同步练武堂升级通知
+	Lv:int32 = -1	;当前等级
+	Time:int32 = -1	;开始时间
+
+GuildRpcApplyGuildHandleAsk↑ 申请入帮，帮主处理请求
+	UserId:sint64 = -1	;用户Id
+	Oper:int32 = 0	;0是同意1是拒绝
+
+GuildRpcApplyGuildHandleReply↓ 申请入帮，帮主处理回应
+	Result:int32 = -9999	;返回结果
+
+GuildRpcCreateGuildDungeonAsk↑ 创建帮会副本请求
+	DungeonNum:int32 = -1	;副本数量
+
+GuildRpcCreateGuildDungeonReply↓ 创建帮会副本回应
+	Result:int32 = -9999	;返回结果
+	DungeonNum:int32 = -1	;创建成功的副本数量
+
+GuildRpcEnterGuildDungeonAsk↑ 进入帮会副本请求
+	Index:int32 = -1	;帮会副本下标
+
+GuildRpcEnterGuildDungeonReply↓ 进入帮会副本回应
+	Result:int32 = -9999	;返回结果
+
+GuildRpcRpcSyncNoticeOfCreateGuildDungeonNotify↓ 同步帮会副本创建通知
+	DungeonList:GuildDungeonObj*	;副本列表
+	[GuildDungeonObj]
+		DungeonId:int32 = -1	;副本Id
+		Key:string	;Key
+		Post:int32 = -1	;Post
+		Host:string	;Host
+
+GuildRpcCreateGuildWarAsk↑ 创建帮会战请求
+	Guild:int32 = -1	;对方的帮会
+
+GuildRpcCreateGuildWarReply↓ 创建帮会战回应
+	Result:int32 = -9999	;返回结果
+
+GuildRpcSyncNoticeOfOpenGuildWarNotify↓ 同步帮会战是否开启通知
+	GuildWar:GuildWarObj	;帮会战
+	[GuildWarObj]
+		Guild_A:int32 = -1	;A帮派Id
+		Guild_B:int32 = -1	;B帮派Id
+		DungeonId:int32 = -1	;副本Id
+		Key:string	;Key
+		Port:int32 = -1	;Port
+		Host:string	;Host
+
+GuildRpcEnterGuildWarAsk↑ 进入帮会战请求
+
+GuildRpcEnterGuildWarReply↓ 进入帮会战回应
+	Result:int32 = -9999	;返回结果
+
+GuildRpcOpenScienceAttrAsk↑ 开启帮会修炼项目请求
+	ScienceId:int32 = -1	;修炼属性id
+
+GuildRpcOpenScienceAttrReply↓ 开启帮会修炼项目回应
+	Result:int32 = -9999	;返回结果
+
+GuildRpcGuildScienceLvUpAsk↑ 帮会属性升级请求
+	ScienceId:int32 = -1	;修炼id
+	IsKeyUpLv:bool = false	;是否一键升级
+
+GuildRpcGuildScienceLvUpReply↓ 帮会属性升级回应
+	Result:int32 = -9999	;返回结果
+

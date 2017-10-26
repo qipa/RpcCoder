@@ -1,0 +1,70 @@
+MailRpcMailHeadAsk↑ 获得邮件头请求
+	Count:int32 = 0	;数量
+	UId:sint64 = -1	;UId
+
+MailRpcMailHeadReply↓ 获得邮件头回应
+	Result:int32 = -9999	;返回结果
+	MailHeadList:MailHeadObj*	;邮件头信息列表
+	[MailHeadObj]
+		UId:sint64 = -1	;UId
+		TiTleString:string	;标题内容
+		CreateTime:int32 = -1	;创建时间
+		Type:int32 = -1	;类型
+		Status:int32 = 0	;邮件状态
+		IsAutoDel:bool = false	;需要自动删除
+		GUId:sint64 = -1	;GUId
+	MaxCount:int32 = 0	;最大邮件数量
+
+MailRpcDelMailAsk↑ 删除邮件请求
+	UidList:sint64* = -1	;UidList
+
+MailRpcDelMailReply↓ 删除邮件回应
+	Result:int32 = -9999	;返回结果
+	UidList:sint64* = -1	;UidList
+
+MailRpcOpenMailAsk↑ 获得邮件内容请求
+	UId:sint64 = -1	;UId
+
+MailRpcOpenMailReply↓ 获得邮件内容回应
+	Result:int32 = -9999	;返回结果
+	MailBody:MailBodyObj	;邮件内容
+	[MailBodyObj]
+		Text:string	;文本
+		HyperlinkList:ChatHyperLink*	;所有的超链接信息
+		[ChatHyperLink]
+			Uid:sint64 = -1	;物品唯一ID
+			ConfigID:int32 = -1	;配置表ID
+			Type:int32 = -1	;超链类型
+			Text:string	;描述
+			Userid:sint64 = -1	;用户ID
+			FunId:int32 = -1	;功能Id
+			FunParam:bytes	;功能参数
+		ItemList:KeyValue2IntInt*	;物品列表
+		[KeyValue2IntInt]
+			Key:int32 = -1	;键
+			Value:int32 = -1	;值
+		Status:int32 = 0	;领取状态
+
+MailRpcGetRewardAsk↑ 领取奖励请求
+	UId:sint64 = -1	;UId
+
+MailRpcGetRewardReply↓ 领取奖励回应
+	Result:int32 = -9999	;返回结果
+
+MailRpcNewMailNotify↓ 获得新邮件通知
+	MailHeadList:MailHeadObj*	;邮件头信息列表
+	[MailHeadObj]
+		UId:sint64 = -1	;UId
+		TiTleString:string	;标题内容
+		CreateTime:int32 = -1	;创建时间
+		Type:int32 = -1	;类型
+		Status:int32 = 0	;邮件状态
+		IsAutoDel:bool = false	;需要自动删除
+		GUId:sint64 = -1	;GUId
+
+MailRpcOneKeyGetRewardAsk↑ 一键领取请求
+
+MailRpcOneKeyGetRewardReply↓ 一键领取回应
+	Result:int32 = -9999	;返回结果
+	UidList:sint64* = -1	;UidList
+

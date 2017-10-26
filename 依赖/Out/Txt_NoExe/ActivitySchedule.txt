@@ -1,0 +1,128 @@
+ActivityScheduleRpcSyncDataAsk↑ 活动日常数据请求
+
+ActivityScheduleRpcSyncDataReply↓ 活动日常数据回应
+	Result:int32 = -9999	;返回结果
+	ThiefData:ActivityNpcData*	;当前有哪些江洋大盗
+	[ActivityNpcData]
+		DungeonId:int32 = -1	;DungeonId
+		PosInfo:bytes	;位置信息
+		NPCId:int32 = -1	;NPCId
+		ObjId:int32 = -1	;ObjId
+	SubdueMonsterData:ActivityNpcData*	;降妖活动数据
+	[ActivityNpcData]
+		DungeonId:int32 = -1	;DungeonId
+		PosInfo:bytes	;位置信息
+		NPCId:int32 = -1	;NPCId
+		ObjId:int32 = -1	;ObjId
+	WorldBossData:WorldBossObj*	;世界Boss数据
+	[WorldBossObj]
+		DungeonId:int32 = -1	;副本Id
+		MonsterId:int32 = -1	;怪物配置Id
+		CurHP:int32 = -1	;当前血量
+		IsDead:bool = false	;是否死亡
+		Level:int32 = 1	;Boss等级
+	WorldBossRank:WorldBossRankObj*	;世界Boss排名
+	[WorldBossRankObj]
+		Rank:int32 = 0	;排名
+		UserId:sint64 = -1	;用户ID
+		UserName:string	;玩家名字
+		Level:int32 = 0	;玩家等级
+		Hurt:int32 = 0	;伤害
+
+ActivityScheduleActiveDate
+	Value:ActiveValue*	;数据
+	[ActiveValue]
+		ID:int32 = 0	;id
+		Num:int32 = 0	;次数
+		Vitality:int32 = 0	;体力
+		StartTime:int32 = -1	;活动开始时间
+		FinishTime:int32 = -1	;结束时间
+		ActivityMaxNum:int32 = -1	;限时活动最大次数
+	Time:int32 = -1	;时间（服务器专用）
+
+ActivityScheduleActiveValue
+	ID:int32 = 0	;id
+	Num:int32 = 0	;次数
+	Vitality:int32 = 0	;体力
+	StartTime:int32 = -1	;活动开始时间
+	FinishTime:int32 = -1	;结束时间
+	ActivityMaxNum:int32 = -1	;限时活动最大次数
+
+ActivityScheduleRpcThiefBeOpenedNotify↓ 江洋大盗被开启通知通知
+	ThiefData:ActivityNpcData	;被开启的江洋大盗
+	[ActivityNpcData]
+		DungeonId:int32 = -1	;DungeonId
+		PosInfo:bytes	;位置信息
+		NPCId:int32 = -1	;NPCId
+		ObjId:int32 = -1	;ObjId
+
+ActivityScheduleRpcThiefRefreshNotify↓ 江洋大盗刷新通知
+	ThiefData:ActivityNpcData*	;当前有哪些江洋大盗
+	[ActivityNpcData]
+		DungeonId:int32 = -1	;DungeonId
+		PosInfo:bytes	;位置信息
+		NPCId:int32 = -1	;NPCId
+		ObjId:int32 = -1	;ObjId
+
+ActivityScheduleRpcThiefOpenMonsterAsk↑ 江洋大盗开怪请求
+	ThiefData:ActivityNpcData	;需要开启的江洋大盗
+	[ActivityNpcData]
+		DungeonId:int32 = -1	;DungeonId
+		PosInfo:bytes	;位置信息
+		NPCId:int32 = -1	;NPCId
+		ObjId:int32 = -1	;ObjId
+
+ActivityScheduleRpcThiefOpenMonsterReply↓ 江洋大盗开怪回应
+	Result:int32 = -9999	;返回结果
+
+ActivityScheduleRpcSubdueMonsterEnterAsk↑ 降妖进入副本请求
+	SubdueMonsterData:ActivityNpcData	;降妖活动数据
+	[ActivityNpcData]
+		DungeonId:int32 = -1	;DungeonId
+		PosInfo:bytes	;位置信息
+		NPCId:int32 = -1	;NPCId
+		ObjId:int32 = -1	;ObjId
+
+ActivityScheduleRpcSubdueMonsterEnterReply↓ 降妖进入副本回应
+	Result:int32 = -9999	;返回结果
+
+ActivityScheduleRpcSubdueMonsterBeOpenedNotify↓ 降妖被其他人开启通知
+	SubdueMonsterData:ActivityNpcData	;降妖活动数据
+	[ActivityNpcData]
+		DungeonId:int32 = -1	;DungeonId
+		PosInfo:bytes	;位置信息
+		NPCId:int32 = -1	;NPCId
+		ObjId:int32 = -1	;ObjId
+
+ActivityScheduleRpcSubdueMonsterRefreshNotify↓ 降妖除魔刷新Npc通知
+	SubdueMonsterData:ActivityNpcData*	;降妖活动数据
+	[ActivityNpcData]
+		DungeonId:int32 = -1	;DungeonId
+		PosInfo:bytes	;位置信息
+		NPCId:int32 = -1	;NPCId
+		ObjId:int32 = -1	;ObjId
+
+ActivityScheduleRpcWorldBossEnterDungeonAsk↑ 世界Boss进行副本请求
+
+ActivityScheduleRpcWorldBossEnterDungeonReply↓ 世界Boss进行副本回应
+	Result:int32 = -9999	;返回结果
+
+ActivityScheduleRpcWorldBossSyncDataAsk↑ 世界Boss,打开界面刷新数据请求
+
+ActivityScheduleRpcWorldBossSyncDataReply↓ 世界Boss,打开界面刷新数据回应
+	Result:int32 = -9999	;返回结果
+	WorldBossData:WorldBossObj*	;世界Boss数据
+	[WorldBossObj]
+		DungeonId:int32 = -1	;副本Id
+		MonsterId:int32 = -1	;怪物配置Id
+		CurHP:int32 = -1	;当前血量
+		IsDead:bool = false	;是否死亡
+		Level:int32 = 1	;Boss等级
+	WorldBossRank:WorldBossRankObj*	;世界Boss排名
+	[WorldBossRankObj]
+		Rank:int32 = 0	;排名
+		UserId:sint64 = -1	;用户ID
+		UserName:string	;玩家名字
+		Level:int32 = 0	;玩家等级
+		Hurt:int32 = 0	;伤害
+

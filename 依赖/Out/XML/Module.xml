@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<xml>
+    <module>
+        <sub_module name="Achievement" cname="成就" fileName="Achievement.xml" />
+        <sub_module name="ActivityEscape" cname="活动 大逃杀" fileName="ActivityEscape.xml" />
+        <sub_module name="ActivityPlay" cname="活动玩法" fileName="ActivityPlay.xml" />
+        <sub_module name="ActivitySchedule" cname="活动日常" fileName="ActivitySchedule.xml" />
+        <sub_module name="ActivityStorm" cname="活动 风暴" fileName="ActivityStorm.xml" />
+        <sub_module name="Bag" cname="背包" fileName="Bag.xml" />
+        <sub_module name="BaseAttr" cname="战队基础数据" fileName="BaseAttr.xml" />
+        <sub_module name="Chat" cname="聊天" fileName="Chat.xml" />
+        <sub_module name="Config" cname="配置管理" fileName="Config.xml" />
+        <sub_module name="DropItem" cname="掉落物" fileName="DropItem.xml" />
+        <sub_module name="Dungeon" cname="进出副本模块" fileName="Dungeon.xml" />
+        <sub_module name="Fight" cname="战斗" fileName="Fight.xml" />
+        <sub_module name="Friend" cname="好友" fileName="Friend.xml" />
+        <sub_module name="GM" cname="GM指令" fileName="GM.xml" />
+        <sub_module name="Guild" cname="帮派" fileName="Guild.xml" />
+        <sub_module name="Login" cname="登录模块" fileName="Login.xml" />
+        <sub_module name="Mail" cname="邮件" fileName="Mail.xml" />
+        <sub_module name="OneVSOne" cname="一v一" fileName="OneVSOne.xml" />
+        <sub_module name="OneVSOneTop" cname="排行榜" fileName="OneVSOneTop.xml" />
+        <sub_module name="OnlineData" cname="在线数据" fileName="OnlineData.xml" />
+        <sub_module name="PersistAttr" cname="常驻内存属性模块" fileName="PersistAttr.xml" />
+        <sub_module name="RefreshData" cname="刷新数据" fileName="RefreshData.xml" />
+        <sub_module name="Shop" cname="商城" fileName="Shop.xml" />
+        <sub_module name="Skill" cname="技能" fileName="Skill.xml" />
+        <sub_module name="StoryDungeon" cname="剧情副本" fileName="StoryDungeon.xml" />
+        <sub_module name="Talisman" cname="法宝" fileName="Talisman.xml" />
+        <sub_module name="Task" cname="任务" fileName="Task.xml" />
+        <sub_module name="Team" cname="组队" fileName="Team.xml" />
+        <sub_module name="Transport" cname="货运" fileName="Transport.xml" />
+    </module>
+</xml>

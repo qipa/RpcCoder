@@ -1,0 +1,54 @@
+<?xml version="1.0"?>
+<Root Module="StoryDungeon" CName="剧情副本" MsgNumStart="43" SyncDataVersion="1" Comment="">
+    <Operate Name="SyncData" CName="SyncData" Comment="">
+        <OP_ASK Name="Ask" CName="请求" MsgID="43" DataStruct="RpcSyncDataAsk" Comment="" />
+        <OP_REPLY Name="Reply" CName="回应" MsgID="44" DataStruct="RpcSyncDataReply" Comment="" />
+    </Operate>
+    <Operate Name="Challenge" CName="挑战副本" Comment="">
+        <OP_ASK Name="Ask" CName="请求" MsgID="45" DataStruct="RpcChallengeAsk" Comment="" />
+        <OP_REPLY Name="Reply" CName="回应" MsgID="46" DataStruct="RpcChallengeReply" Comment="" />
+    </Operate>
+    <Operate Name="WaitForConfirmation" CName="等待玩家确认是否选择进入" Comment="">
+        <OP_SERVER_NOTIFY Name="Notify" CName="通知" MsgID="47" DataStruct="RpcWaitForConfirmationNotify" Comment="" />
+    </Operate>
+    <Operate Name="ConfirmEnter" CName="确认是否进入" Comment="">
+        <OP_ASK Name="Ask" CName="请求" MsgID="48" DataStruct="RpcConfirmEnterAsk" Comment="" />
+        <OP_REPLY Name="Reply" CName="回应" MsgID="49" DataStruct="RpcConfirmEnterReply" Comment="" />
+    </Operate>
+    <Operate Name="PlayerConfirmResult" CName="玩家确认或拒绝进入" Comment="">
+        <OP_SERVER_NOTIFY Name="Notify" CName="通知" MsgID="50" DataStruct="RpcPlayerConfirmResultNotify" Comment="" />
+    </Operate>
+    <Struct Name="StoryDungeonObj" CName="剧情副本对象" ProtoType="SyncProto" Comment="" DataType="ItemData" SaveToDB="False" SyncToClient="False" MaxFieldId="4">
+        <Field PreDefine="optional" FieldType="sint32" FieldId="1" Name="Id" CName="Id" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+        <Field PreDefine="optional" FieldType="bool" FieldId="3" Name="IsLock" CName="副本锁定" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="true" Comment="" />
+    </Struct>
+    <Struct Name="RpcSyncDataAsk" CName="SyncData请求" ProtoType="RpcProto" Comment="" DataType="RPCData" SaveToDB="False" SyncToClient="False" MaxFieldId="1" />
+    <Struct Name="RpcSyncDataReply" CName="SyncData回应" ProtoType="RpcProto" Comment="" DataType="RPCData" SaveToDB="False" SyncToClient="False" MaxFieldId="1">
+        <Field PreDefine="optional" FieldType="sint32" FieldId="1" Name="Result" CName="返回结果" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-9999" Comment="-9999 模块未启动&#xD;&#xA;-9998 请求字段值范围出错" />
+    </Struct>
+    <Struct Name="RpcChallengeAsk" CName="挑战副本请求" ProtoType="RpcProto" Comment="" DataType="RPCData" SaveToDB="False" SyncToClient="False" MaxFieldId="1">
+        <Field PreDefine="optional" FieldType="sint32" FieldId="1" Name="Id" CName="Id" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+    </Struct>
+    <Struct Name="RpcChallengeReply" CName="挑战副本回应" ProtoType="RpcProto" Comment="" DataType="RPCData" SaveToDB="False" SyncToClient="False" MaxFieldId="3">
+        <Field PreDefine="optional" FieldType="sint32" FieldId="1" Name="Result" CName="返回结果" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-9999" Comment="-9999 模块未启动&#xD;&#xA;-9998 请求字段值范围出错" />
+        <Field PreDefine="optional" FieldType="string" FieldId="3" Name="ErrorUserName" CName="玩家名字" ValueSet="" MinValue="6" MaxValue="32" DefaultValue="" Comment="" />
+    </Struct>
+    <Struct Name="RpcWaitForConfirmationNotify" CName="等待玩家确认是否选择进入通知" ProtoType="RpcProto" Comment="" DataType="RPCData" SaveToDB="False" SyncToClient="False" MaxFieldId="1">
+        <Field PreDefine="optional" FieldType="sint32" FieldId="1" Name="Id" CName="Id" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+    </Struct>
+    <Struct Name="RpcConfirmEnterAsk" CName="确认是否进入请求" ProtoType="RpcProto" Comment="" DataType="RPCData" SaveToDB="False" SyncToClient="False" MaxFieldId="1">
+        <Field PreDefine="optional" FieldType="bool" FieldId="1" Name="IsAgree" CName="同意进入" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="false" Comment="" />
+    </Struct>
+    <Struct Name="RpcConfirmEnterReply" CName="确认是否进入回应" ProtoType="RpcProto" Comment="" DataType="RPCData" SaveToDB="False" SyncToClient="False" MaxFieldId="1">
+        <Field PreDefine="optional" FieldType="sint32" FieldId="1" Name="Result" CName="返回结果" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-9999" Comment="-9999 模块未启动&#xD;&#xA;-9998 请求字段值范围出错" />
+    </Struct>
+    <Struct Name="RpcPlayerConfirmResultNotify" CName="玩家确认或拒绝进入通知" ProtoType="RpcProto" Comment="" DataType="RPCData" SaveToDB="False" SyncToClient="False" MaxFieldId="4">
+        <Field PreDefine="optional" FieldType="sint64" FieldId="2" Name="UserId" CName="用户ID" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="游戏world中的唯一ID" />
+        <Field PreDefine="optional" FieldType="string" FieldId="3" Name="UserName" CName="玩家名字" ValueSet="" MinValue="6" MaxValue="32" DefaultValue="" Comment="" />
+        <Field PreDefine="optional" FieldType="bool" FieldId="4" Name="IsAgree" CName="同意进入" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="false" Comment="" />
+    </Struct>
+    <Struct Name="StoryDungeon" CName="剧情副本数据" ProtoType="SyncProto" Comment="" DataType="UserData" SaveToDB="True" SyncToClient="True" MaxFieldId="2">
+        <Field PreDefine="repeated" FieldType="StoryDungeonObj" FieldId="1" Name="StoryDungeon" CName="剧情副本数据" ValueSet="" MinValue="6" MaxValue="128" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="2" Name="ChallengeNum" CName="剩余挑战次数" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="0" Comment="" />
+    </Struct>
+</Root>
